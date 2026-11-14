@@ -1,0 +1,54 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets/
+backend/secrets/
+
+# Rust Backend
+backend/target/
+**/*.rs.bk
+
+# Next.js Web
+web/.next/
+web/out/
+web/node_modules/
+node_modules/
+.turbo/
+*.tsbuildinfo
+
+# Flutter Native App
+frontend/build/
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.packages
+frontend/.idea/
+frontend/windows/flutter/ephemeral/
+frontend/macos/Flutter/ephemeral/
+frontend/ios/Flutter/ephemeral/
+frontend/ios/Pods/
+frontend/macos/Pods/
+frontend/android/local.properties
+**/local.properties
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# 4K Video Pipeline (Caches, Large Temp Audio/Video & Captures)
+video/cache/
+video/tmp/
+video/segments/
+video/output/*.mp4
+video/output/smoke_4k.mp4
+video/output/frames_verify/
+video/data/*.pcm
+video/data/*.wav
+video/data/live_reference.json
+test-results/
+playwright-report/

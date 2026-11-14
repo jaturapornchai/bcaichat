@@ -1,0 +1,199 @@
+import 'package:flutter/material.dart';
+
+import 'models/models.dart';
+import 'screens/login_screen.dart';
+import 'screens/main_shell.dart';
+import 'services/api_service.dart';
+import 'theme/app_theme.dart';
+
+void main(List<String> args) {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Set by the 5-person chat test launcher (login_screen.dart).
+  const prefix = '--test-login=';
+  final testLogin = args
+      .where((a) => a.startsWith(prefix))
+      .map((a) => a.substring(prefix.length))
+      .firstOrNull;
+  runApp(BCAiChatApp(testLoginEmail: testLogin));
+}
+
+typedef MyApp = BCAiChatApp;
+
+class BCAiChatApp extends StatefulWidget {
+  final String? testLoginEmail;
+
+  const BCAiChatApp({super.key, this.testLoginEmail});
+
+  @override
+  State<BCAiChatApp> createState() => _BCAiChatAppState();
+}
+
+class _BCAiChatAppState extends State<BCAiChatApp> {
+  bool _checkingSession = true;
+  AppUser? _currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    AppTheme.preset.addListener(_repaintAll);
+    _initSession();
+  }
+
+  @override
+  void dispose() {
+    AppTheme.preset.removeListener(_repaintAll);
+    super.dispose();
+  }
+
+  // Many widgets read brand colours straight from AppTheme, so a theme
+  // switch rebuilds the whole tree (state is kept), not just Theme users.
+  void _repaintAll() {
+    setState(() {});
+    void rebuild(Element el) {
+      el.markNeedsBuild();
+      el.visitChildren(rebuild);
+    }
+
+    (context as Element).visitChildren(rebuild);
+  }
+
+  Future<void> _initSession() async {
+    await ApiService.instance.initServerUrl();
+    ApiService.instance.loadBusinessTheme();
+    final testEmail = widget.testLoginEmail;
+    if (testEmail != null) {
+      await _loginTestAccount(testEmail);
+      return;
+    }
+    try {
+      final ok = await ApiService.instance.restoreSession();
+      if (!mounted) return;
+      setState(() {
+        _currentUser = ok ? ApiService.instance.currentUser : null;
+        _checkingSession = false;
+      });
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _checkingSession = false);
+    }
+  }
+
+  Future<void> _loginTestAccount(String email) async {
+    ApiService.instance.persistSession = false;
+    final account = LoginScreen.testAccounts
+        .where((a) => a.email == email)
+        .firstOrNull;
+    AppUser? user;
+    try {
+      user = await ApiService.instance.loginWithGoogle(
+        email: email,
+        displayName: account?.name ?? email.split('@').first,
+      );
+    } catch (_) {
+      // Backend down: fall back to the login screen.
+    }
+    if (!mounted) return;
+    setState(() {
+      _currentUser = user;
+      _checkingSession = false;
+    });
+  }
+
+  void _handleLoggedIn(AppUser user) {
+    setState(() => _currentUser = user);
+  }
+
+  Future<void> _handleLoggedOut() async {
+    await ApiService.instance.logout();
+    if (!mounted) return;
+    setState(() => _currentUser = null);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'BC Ai Chat — แชทส่วนตัว ครอบครัว & เพื่อนสนิท',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.buildTheme(),
+      home: _checkingSession
+          ? const _SplashLoadingView()
+          : _currentUser == null
+          ? LoginScreen(onLoggedIn: _handleLoggedIn)
+          : MainShell(
+              currentUser: _currentUser!,
+              onLoggedOut: _handleLoggedOut,
+              onUserChanged: (updated) =>
+                  setState(() => _currentUser = updated),
+            ),
+    );
+  }
+}
+
+class _SplashLoadingView extends StatelessWidget {
+  const _SplashLoadingView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: DecoratedBox(
+        decoration: const BoxDecoration(gradient: AppTheme.navyGradient),
+        child: Center(
+          child: TweenAnimationBuilder<double>(
+            tween: Tween(begin: 0, end: 1),
+            duration: AppTheme.motionMed,
+            curve: AppTheme.motionCurve,
+            builder: (context, t, child) => Opacity(
+              opacity: t,
+              child: Transform.translate(
+                offset: Offset(0, 12 * (1 - t)),
+                child: child,
+              ),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 72,
+                  height: 72,
+                  decoration: BoxDecoration(
+                    gradient: AppTheme.brandGradient,
+                    borderRadius: BorderRadius.circular(AppTheme.radiusLg),
+                    boxShadow: AppTheme.glow(AppTheme.brandPrimary),
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text(
+                    'BC',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 28,
+                      fontWeight: FontWeight.w800,
+                      height: 1.1,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                SizedBox(
+                  width: 28,
+                  height: 28,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.6,
+                    color: AppTheme.brandPrimary,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'กำลังซิงค์ข้อมูลแชทส่วนตัว ครอบครัว & เพื่อนสนิท...',
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 13.5,
+                    height: 1.4,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

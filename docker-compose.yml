@@ -1,0 +1,37 @@
+services:
+  bcaichat-mongodb:
+    image: mongo:7.0
+    container_name: bcaichat-mongodb
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:27030:27017"
+    volumes:
+      - bcaichat_mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  bcaichat-minio:
+    image: minio/minio:latest
+    container_name: bcaichat-minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    ports:
+      - "127.0.0.1:9130:9000"
+      - "127.0.0.1:9131:9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-bcaichatadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-bcaichat_minio_local_dev}
+    volumes:
+      - bcaichat_minio_data:/data
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  bcaichat_mongo_data:
+  bcaichat_minio_data:

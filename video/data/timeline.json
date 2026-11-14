@@ -1,0 +1,2358 @@
+{
+  "title": "BC Ai Chat — แชทส่วนตัว แก๊งเพื่อน & ผู้ช่วย AI ครบจบในธีมบ้านเชียง",
+  "subtitle": "ชมการทำงานจริง 5 มือถือพร้อมกันระดับ 4K UHD • Mobile-First ไร้ป๊อปอัป • เก็บไฟล์ถาวรไม่หมดอายุ",
+  "fps": 30,
+  "width": 3840,
+  "height": 2160,
+  "totalFrames": 5936,
+  "sampleRate": 48000,
+  "introDuration": 4.2,
+  "outroStart": 192.3662,
+  "outroDuration": 5.5005,
+  "totalDuration": 197.8667,
+  "lineGapSec": 0.28,
+  "phones": [
+    {
+      "id": "kong",
+      "slot": 0,
+      "userId": "user_demo1",
+      "name": "ก้อง",
+      "fullName": "ก้อง (Demo 1)",
+      "bcId": "@kong.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายเที่ยว & ถ่ายรูป",
+      "avatarColor": "#812920",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "voiceLabel": "Ekkarat"
+    },
+    {
+      "id": "prae",
+      "slot": 1,
+      "userId": "user_demo2",
+      "name": "แพร",
+      "fullName": "แพร (Demo 2)",
+      "bcId": "@prae.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายคาเฟ่ & ชวนกินข้าว",
+      "avatarColor": "#B45309",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "voiceLabel": "Aom"
+    },
+    {
+      "id": "boss",
+      "slot": 2,
+      "userId": "user_demo3",
+      "name": "บอส",
+      "fullName": "บอส (Demo 3)",
+      "bcId": "@boss.bc",
+      "category": "ครอบครัว",
+      "persona": "ครอบครัว & แกดเจ็ต",
+      "avatarColor": "#13795B",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "voiceLabel": "Chai"
+    },
+    {
+      "id": "mind",
+      "slot": 3,
+      "userId": "user_demo4",
+      "name": "มายด์",
+      "fullName": "มายด์ (Demo 4)",
+      "bcId": "@mind.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายดูหนัง & ซีรีส์",
+      "avatarColor": "#1E40AF",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "voiceLabel": "Siriporn"
+    },
+    {
+      "id": "ton",
+      "slot": 4,
+      "userId": "user_demo5",
+      "name": "ต้น",
+      "fullName": "ต้น (Demo 5)",
+      "bcId": "@ton.bc",
+      "category": "ก๊วนกีฬา",
+      "persona": "สายวิ่ง & แคมป์ปิ้ง",
+      "avatarColor": "#6D28D9",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "voiceLabel": "Preecha"
+    }
+  ],
+  "speakers": {
+    "kong": {
+      "id": "kong",
+      "userId": "user_demo1",
+      "name": "ก้อง",
+      "fullName": "ก้อง (Demo 1)",
+      "bcId": "@kong.bc",
+      "persona": "สายเที่ยว & ถ่ายรูป",
+      "color": "#812920",
+      "avatarColor": "#812920"
+    },
+    "prae": {
+      "id": "prae",
+      "userId": "user_demo2",
+      "name": "แพร",
+      "fullName": "แพร (Demo 2)",
+      "bcId": "@prae.bc",
+      "persona": "สายคาเฟ่ & ชวนกินข้าว",
+      "color": "#B45309",
+      "avatarColor": "#B45309"
+    },
+    "boss": {
+      "id": "boss",
+      "userId": "user_demo3",
+      "name": "บอส",
+      "fullName": "บอส (Demo 3)",
+      "bcId": "@boss.bc",
+      "persona": "ครอบครัว & แกดเจ็ต",
+      "color": "#13795B",
+      "avatarColor": "#13795B"
+    },
+    "mind": {
+      "id": "mind",
+      "userId": "user_demo4",
+      "name": "มายด์",
+      "fullName": "มายด์ (Demo 4)",
+      "bcId": "@mind.bc",
+      "persona": "สายดูหนัง & ซีรีส์",
+      "color": "#1E40AF",
+      "avatarColor": "#1E40AF"
+    },
+    "ton": {
+      "id": "ton",
+      "userId": "user_demo5",
+      "name": "ต้น",
+      "fullName": "ต้น (Demo 5)",
+      "bcId": "@ton.bc",
+      "persona": "สายวิ่ง & แคมป์ปิ้ง",
+      "color": "#6D28D9",
+      "avatarColor": "#6D28D9"
+    },
+    "ai": {
+      "id": "ai",
+      "userId": "user_ai",
+      "name": "🤖 BC AI",
+      "fullName": "🤖 BC AI ผู้ช่วยส่วนตัว",
+      "bcId": "@bc.ai",
+      "persona": "ผู้ช่วย AI ส่วนตัว & ประจำกลุ่ม",
+      "color": "#4F46E5",
+      "avatarColor": "#4F46E5"
+    }
+  },
+  "recapFeatures": [
+    {
+      "title": "แชทกลุ่ม & 1-ต่อ-1 ซิงค์สด",
+      "desc": "สถานะอ่านแล้วขึ้นทันทีทุกเครื่อง พร้อมโฟลเดอร์เลื่อนแนวนอน 4 แท็บ Mobile-First"
+    },
+    {
+      "title": "ข้อความลับล็อกรหัส PIN",
+      "desc": "ซ่อนเนื้อหาสำคัญด้วย PIN 4 หลัก เปิดอ่านได้เฉพาะคนที่รู้รหัสเท่านั้น"
+    },
+    {
+      "title": "ยกเลิกส่งไร้ร่องรอย 100%",
+      "desc": "ลบข้อความที่ส่งผิดออกทันที สะอาดตา ไม่ทิ้งป้ายแจ้งเตือนค้างกวนใจ"
+    },
+    {
+      "title": "สมุดบันทึก BC & ไฟล์ถาวร",
+      "desc": "เก็บรูป 4K ข้อความเสียง และไฟล์ PDF ถาวร ไม่หมดอายุ ซิงค์มือถือ-คอม-เว็บ"
+    },
+    {
+      "title": "🤖 BC AI ผู้ช่วยส่วนตัว",
+      "desc": "เรียก @ai ช่วยวางแผนทริปในกลุ่ม หรือทักคุยส่วนตัว 1-ต่อ-1 ได้ตลอดเวลา"
+    },
+    {
+      "title": "โพลโหวตสด & นัดหมาย RSVP",
+      "desc": "โหวตที่พัก-ร้านอาหาร และกดยืนยันนัดหมายเห็นยอดอัปเดตพร้อมกันทุกจอ"
+    },
+    {
+      "title": "การ์ดโต้ตอบหารค่าข้าว & จัดทริป",
+      "desc": "คำนวณยอดหารค่าข้าวและจัดทริปผ่านถาด Inline ในห้องแชท ไร้ป๊อปอัปบังจอ"
+    },
+    {
+      "title": "7 ธีมไทย & โทนมืดดินเผา",
+      "desc": "บ้านเชียงเป็นค่าเริ่มต้น พร้อมสลับ 7 ธีมไทยและโทนมืดดินเผาสบายตา"
+    }
+  ],
+  "chapters": [
+    {
+      "id": "intro",
+      "title": "เปิดตัว BC Ai Chat แชทส่วนตัวธีมบ้านเชียง",
+      "mode": "intro",
+      "dmPair": null,
+      "start": 0,
+      "end": 4.2,
+      "headerBadge": "✨ BC Ai Chat • แชทส่วนตัว ครอบครัว & แก๊งเพื่อน",
+      "featurePill": "Mobile-First 100% • ไร้โฆษณา • ไร้ป๊อปอัปบังจอ"
+    },
+    {
+      "id": "group_open",
+      "title": "แชทกลุ่ม 5 เครื่องซิงค์สด & สติกเกอร์ดินเผาไทย",
+      "mode": "group",
+      "dmPair": null,
+      "start": 4.2,
+      "end": 37.0233,
+      "headerBadge": "👨‍👩‍👧‍👦 แชทกลุ่ม 5 เครื่องพร้อมกัน • แก๊งเพื่อนสนิท 5 คน + BC AI",
+      "featurePill": "ธีมบ้านเชียง • 4 แท็บ Mobile-First • อ่านแล้ว 4 • สติกเกอร์ดินเผาไทย"
+    },
+    {
+      "id": "dm_kong_prae",
+      "title": "แชทส่วนตัว ก้อง ↔ แพร ล็อก PIN ลับ & ยกเลิกไร้ร่องรอย",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "start": 37.0233,
+      "end": 68.3991,
+      "headerBadge": "🔒 แชทส่วนตัว 1-ต่อ-1 • ก้อง ↔ แพร (วางแผนเซอร์ไพรส์บอส)",
+      "featurePill": "ข้อความ [ลับส่วนตัว] ล็อก PIN • ยกเลิกส่งไร้ร่องรอย • สมุดบันทึก BC"
+    },
+    {
+      "id": "dm_boss_ton",
+      "title": "แชทส่วนตัว บอส ↔ ต้น เสียง รูป 4K & ไฟล์ PDF เก็บถาวรไม่หมดอายุ",
+      "mode": "dm",
+      "dmPair": [
+        "boss",
+        "ton"
+      ],
+      "start": 68.3991,
+      "end": 91.5503,
+      "headerBadge": "🔒 แชทส่วนตัว 1-ต่อ-1 • บอส ↔ ต้น (สำรวจลานกางเต็นท์เขาใหญ่)",
+      "featurePill": "ข้อความเสียง • รูป 4K ไม่บีบอัด • ไฟล์ PDF เก็บถาวรไม่หมดอายุ • ซิงค์ทุกเครื่อง"
+    },
+    {
+      "id": "group_ai_poll",
+      "title": "เรียก @ai จัดทริปเขาใหญ่ โพลโหวตสด RSVP & อัลบั้มถาวร",
+      "mode": "group",
+      "dmPair": null,
+      "start": 91.5503,
+      "end": 132.0987,
+      "headerBadge": "🤖 ผู้ช่วย AI ส่วนตัวในกลุ่ม + โพลโหวตสด & นัดหมาย RSVP",
+      "featurePill": "เรียก @ai จัดทริป • ทัก 1-1 @bc.ai • ถาด Inline โพล & RSVP • อัลบั้มถาวร"
+    },
+    {
+      "id": "group_miniapp_theme",
+      "title": "การ์ดโต้ตอบหารค่าข้าว & สลับ 7 ธีมไทย + โทนมืดดินเผา",
+      "mode": "group",
+      "dmPair": null,
+      "start": 132.0987,
+      "end": 160.793,
+      "headerBadge": "🎨 การ์ดโต้ตอบหารค่าข้าว & 7 ธีมไทยร่วมสมัย + โทนมืดดินเผา",
+      "featurePill": "หารค่าข้าวอัตโนมัติ • จัดทริปเที่ยว • 7 ธีมไทยซิงค์สด • โทนมืดดินเผาสบายตา"
+    },
+    {
+      "id": "recap_outro",
+      "title": "สรุปความประทับใจจากเพื่อนทั้ง 5 คน & ภาพรวมความสามารถ",
+      "mode": "group",
+      "dmPair": null,
+      "start": 160.793,
+      "end": 192.3662,
+      "headerBadge": "🌟 สรุปจุดเด่น BC Ai Chat จากแก๊งเพื่อนสนิททั้ง 5 คน",
+      "featurePill": "แชทส่วนตัว ครอบครัว แก๊งเพื่อน & ผู้ช่วย AI • ครบจบในแอปเดียว"
+    },
+    {
+      "id": "outro",
+      "title": "สรุป 8 ความสามารถเด่นของ BC Ai Chat",
+      "mode": "outro",
+      "dmPair": null,
+      "start": 192.3662,
+      "end": 197.8667,
+      "headerBadge": "✨ สรุปครบ 8 ความสามารถเด่นของ BC Ai Chat",
+      "featurePill": "BC Ai Chat • แชทส่วนตัวของคนไทย"
+    }
+  ],
+  "lines": [
+    {
+      "index": 0,
+      "id": "L01",
+      "scene": "group_open",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 4.2,
+      "end": 11.5667,
+      "duration": 7.3667,
+      "displayText": "ลองเปิด BC Ai Chat ดูสิ ธีมบ้านเชียงสวยมาก มี 4 แท็บ Mobile-First สะอาดตาสุดๆ",
+      "ttsText": "ลองเปิด บีซี เอไอ แชท ดูสิ ธีมบ้านเชียงสวยมาก มี สี่ แท็บ โมบายเฟิร์ส สะอาดตาสุดๆ",
+      "rawText": "ลองเปิด {BC Ai Chat|บีซี เอไอ แชท} ดูสิ ธีมบ้านเชียงสวยมาก มี {4|สี่} แท็บ {Mobile-First|โมบายเฟิร์ส} สะอาดตาสุดๆ",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ธีมบ้านเชียง • 4 แท็บ Mobile-First • ซิงค์สด 5 เครื่อง",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 1,
+      "id": "L02",
+      "scene": "group_open",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "prae",
+      "speakerName": "แพร",
+      "speakerFullName": "แพร (Demo 2)",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "start": 11.8467,
+      "end": 17.8888,
+      "duration": 6.0422,
+      "displayText": "แถบโฟลเดอร์ด้านบนก็เลื่อนง่าย สลับหมวดลื่น ไม่มีป๊อปอัปเด้งบังจอเลย",
+      "ttsText": "แถบโฟลเดอร์ด้านบนก็เลื่อนง่าย สลับหมวดลื่น ไม่มีป๊อปอัปเด้งบังจอเลย",
+      "rawText": "แถบโฟลเดอร์ด้านบนก็เลื่อนง่าย สลับหมวดลื่น ไม่มีป๊อปอัปเด้งบังจอเลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "pinned",
+      "featurePill": "แถบโฟลเดอร์เลื่อนแนวนอน • ไร้ป๊อปอัปบังหน้าจอ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 2,
+      "id": "L03",
+      "scene": "group_open",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "boss",
+      "speakerName": "บอส",
+      "speakerFullName": "บอส (Demo 3)",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "start": 18.1688,
+      "end": 25.0126,
+      "duration": 6.8438,
+      "displayText": "กดส่งปุ๊บเด้งครบทั้ง 5 เครื่องไวมาก ขึ้น อ่านแล้ว 4 ทันทีเลย",
+      "ttsText": "กดส่งปุ๊บเด้งครบทั้ง ห้า เครื่องไวมาก ขึ้น อ่านแล้ว สี่ ทันทีเลย",
+      "rawText": "กดส่งปุ๊บเด้งครบทั้ง {5|ห้า} เครื่องไวมาก ขึ้น อ่านแล้ว {4|สี่} ทันทีเลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ส่งข้อความเรียลไทม์ • ขึ้นสถานะ อ่านแล้ว 4 ทันที",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 3,
+      "id": "L04",
+      "scene": "group_open",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "mind",
+      "speakerName": "มายด์",
+      "speakerFullName": "มายด์ (Demo 4)",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "start": 25.2926,
+      "end": 32.3565,
+      "duration": 7.0639,
+      "displayText": "สติกเกอร์ อารมณ์ดีดินเผาไทย น่ารักสุดๆ ส่งน้องดินเผาโบกมือทักทายจ้า",
+      "ttsText": "สติกเกอร์ อารมณ์ดีดินเผาไทย น่ารักสุดๆ ส่งน้องดินเผาโบกมือทักทายจ้า",
+      "rawText": "สติกเกอร์ อารมณ์ดีดินเผาไทย น่ารักสุดๆ ส่งน้องดินเผาโบกมือทักทายจ้า",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ชุดสติกเกอร์ต้นฉบับ • อารมณ์ดีดินเผาไทย",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "mind",
+        "type": "sticker"
+      }
+    },
+    {
+      "index": 4,
+      "id": "L05",
+      "scene": "group_open",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 32.6365,
+      "end": 36.7433,
+      "duration": 4.1068,
+      "displayText": "งั้นส่งสติกเกอร์ชนแก้วดินเผาฉลองทริปเขาใหญ่เสาร์นี้เลย",
+      "ttsText": "งั้นส่งสติกเกอร์ชนแก้วดินเผาฉลองทริปเขาใหญ่เสาร์นี้เลย",
+      "rawText": "งั้นส่งสติกเกอร์ชนแก้วดินเผาฉลองทริปเขาใหญ่เสาร์นี้เลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สติกเกอร์ดินเผาไทย • เตรียมลุยทริปเขาใหญ่",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 5,
+      "id": "L06",
+      "scene": "dm_kong_prae",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "speaker": "prae",
+      "speakerName": "แพร",
+      "speakerFullName": "แพร (Demo 2)",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "start": 37.0233,
+      "end": 43.419,
+      "duration": 6.3957,
+      "displayText": "ก้อง ทักแชท 1-ต่อ-1 แป๊บ เสาร์นี้วันเกิดบอส แอบเตรียมเค้กกันไหม",
+      "ttsText": "ก้อง ทักแชท แบบตัวต่อตัว แป๊บ เสาร์นี้วันเกิดบอส แอบเตรียมเค้กกันไหม",
+      "rawText": "ก้อง ทักแชท {1-ต่อ-1|แบบตัวต่อตัว} แป๊บ เสาร์นี้วันเกิดบอส แอบเตรียมเค้กกันไหม",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "แชทส่วนตัว 1-ต่อ-1 ก้อง ↔ แพร • วางแผนเซอร์ไพรส์บอส",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "notes",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "notes",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 6,
+      "id": "L07",
+      "scene": "dm_kong_prae",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 43.699,
+      "end": 48.5577,
+      "duration": 4.8587,
+      "displayText": "เอาสิแพร ส่งแผนมาแบบ ลับส่วนตัว ล็อกรหัส PIN ไว้เลย",
+      "ttsText": "เอาสิแพร ส่งแผนมาแบบ ลับส่วนตัว ล็อกรหัส พิน ไว้เลย",
+      "rawText": "เอาสิแพร ส่งแผนมาแบบ ลับส่วนตัว ล็อกรหัส {PIN|พิน} ไว้เลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "โหมดข้อความ [ลับส่วนตัว] • ป้องกันคนแอบมองจอ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "notes",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "notes",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 7,
+      "id": "L08",
+      "scene": "dm_kong_prae",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "speaker": "prae",
+      "speakerName": "แพร",
+      "speakerFullName": "แพร (Demo 2)",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "start": 48.8377,
+      "end": 55.5667,
+      "duration": 6.729,
+      "displayText": "ล็อกรหัส PIN 2580 ให้แล้ว กดใส่รหัสปุ๊บ เปิดอ่านแผนเค้กได้ทันที",
+      "ttsText": "ล็อกรหัส พิน สองห้าแปดศูนย์ ให้แล้ว กดใส่รหัสปุ๊บ เปิดอ่านแผนเค้กได้ทันที",
+      "rawText": "ล็อกรหัส {PIN|พิน} {2580|สองห้าแปดศูนย์} ให้แล้ว กดใส่รหัสปุ๊บ เปิดอ่านแผนเค้กได้ทันที",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ใส่รหัส PIN 2580 ปลดล็อกข้อความลับทันที",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "notes",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "notes",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 8,
+      "id": "L09",
+      "scene": "dm_kong_prae",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 55.8468,
+      "end": 61.5006,
+      "duration": 5.6538,
+      "displayText": "อุ๊ยพิมพ์ผิด กดยกเลิกข้อความไร้ร่องรอยก่อนนะ หายวับไม่ทิ้งป้ายเลย",
+      "ttsText": "อุ๊ยพิมพ์ผิด กดยกเลิกข้อความไร้ร่องรอยก่อนนะ หายวับไม่ทิ้งป้ายเลย",
+      "rawText": "อุ๊ยพิมพ์ผิด กดยกเลิกข้อความไร้ร่องรอยก่อนนะ หายวับไม่ทิ้งป้ายเลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ยกเลิกข้อความแบบไร้ร่องรอย • ไม่ทิ้งป้ายแจ้งเตือนค้าง",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "notes",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "notes",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 9,
+      "id": "L10",
+      "scene": "dm_kong_prae",
+      "mode": "dm",
+      "dmPair": [
+        "kong",
+        "prae"
+      ],
+      "speaker": "mind",
+      "speakerName": "มายด์",
+      "speakerFullName": "มายด์ (Demo 4)",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "start": 61.7806,
+      "end": 68.1191,
+      "duration": 6.3385,
+      "displayText": "ส่วนมายด์จดเช็กลิสต์ทริปไว้ใน สมุดบันทึก BC ส่วนตัว เก็บถาวรเลยจ้า",
+      "ttsText": "ส่วนมายด์จดเช็กลิสต์ทริปไว้ใน สมุดบันทึก บีซี ส่วนตัว เก็บถาวรเลยจ้า",
+      "rawText": "ส่วนมายด์จดเช็กลิสต์ทริปไว้ใน สมุดบันทึก {BC|บีซี} ส่วนตัว เก็บถาวรเลยจ้า",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "สมุดบันทึก BC ส่วนตัว • เก็บเช็กลิสต์และโน้ตถาวร",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "notes",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "notes",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 10,
+      "id": "L11",
+      "scene": "dm_boss_ton",
+      "mode": "dm",
+      "dmPair": [
+        "boss",
+        "ton"
+      ],
+      "speaker": "boss",
+      "speakerName": "บอส",
+      "speakerFullName": "บอส (Demo 3)",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "start": 68.3991,
+      "end": 72.9544,
+      "duration": 4.5553,
+      "displayText": "ต้น ทักส่วนตัวหน่อย จุดกางเต็นท์เขาใหญ่เป็นไง ส่งมาดูที",
+      "ttsText": "ต้น ทักส่วนตัวหน่อย จุดกางเต็นท์เขาใหญ่เป็นไง ส่งมาดูที",
+      "rawText": "ต้น ทักส่วนตัวหน่อย จุดกางเต็นท์เขาใหญ่เป็นไง ส่งมาดูที",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "แชทส่วนตัว 1-ต่อ-1 บอส ↔ ต้น • คุยแผนจุดกางเต็นท์",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 11,
+      "id": "L12",
+      "scene": "dm_boss_ton",
+      "mode": "dm",
+      "dmPair": [
+        "boss",
+        "ton"
+      ],
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 73.2344,
+      "end": 79.1638,
+      "duration": 5.9294,
+      "displayText": "ส่งข้อความเสียงกับรูปวิวชัดระดับ 4K ต้นฉบับให้เลย ภาพไม่แตกแน่นอน",
+      "ttsText": "ส่งข้อความเสียงกับรูปวิวชัดระดับ โฟร์เค ต้นฉบับให้เลย ภาพไม่แตกแน่นอน",
+      "rawText": "ส่งข้อความเสียงกับรูปวิวชัดระดับ {4K|โฟร์เค} ต้นฉบับให้เลย ภาพไม่แตกแน่นอน",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ข้อความเสียงคมชัด & รูปภาพ 4K ต้นฉบับไม่บีบอัด",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 12,
+      "id": "L13",
+      "scene": "dm_boss_ton",
+      "mode": "dm",
+      "dmPair": [
+        "boss",
+        "ton"
+      ],
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 79.4438,
+      "end": 85.8195,
+      "duration": 6.3757,
+      "displayText": "พร้อมไฟล์ PDF แผนที่กางเต็นท์ เก็บถาวรในคลัง ไม่หมดอายุ ไม่ถูกลบทิ้ง",
+      "ttsText": "พร้อมไฟล์ พีดีเอฟ แผนที่กางเต็นท์ เก็บถาวรในคลัง ไม่หมดอายุ ไม่ถูกลบทิ้ง",
+      "rawText": "พร้อมไฟล์ {PDF|พีดีเอฟ} แผนที่กางเต็นท์ เก็บถาวรในคลัง ไม่หมดอายุ ไม่ถูกลบทิ้ง",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "คลังไฟล์ PDF ถาวร • ไม่หมดอายุ ไม่ถูกลบทิ้ง",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 13,
+      "id": "L14",
+      "scene": "dm_boss_ton",
+      "mode": "dm",
+      "dmPair": [
+        "boss",
+        "ton"
+      ],
+      "speaker": "boss",
+      "speakerName": "บอส",
+      "speakerFullName": "บอส (Demo 3)",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "start": 86.0995,
+      "end": 91.2703,
+      "duration": 5.1709,
+      "displayText": "เจ๋งเลย เปิดดูต่อบนคอมและเว็บได้ทันที ซิงค์ตรงกันครบทุกเครื่อง",
+      "ttsText": "เจ๋งเลย เปิดดูต่อบนคอมและเว็บได้ทันที ซิงค์ตรงกันครบทุกเครื่อง",
+      "rawText": "เจ๋งเลย เปิดดูต่อบนคอมและเว็บได้ทันที ซิงค์ตรงกันครบทุกเครื่อง",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ซิงค์ประวัติแชท & ไฟล์ครบทุกเครื่อง มือถือ • คอม • เว็บ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 14,
+      "id": "L15",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "mind",
+      "speakerName": "มายด์",
+      "speakerFullName": "มายด์ (Demo 4)",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "start": 91.5503,
+      "end": 99.7745,
+      "duration": 8.2241,
+      "displayText": "กลับเข้ากลุ่มแล้ว เรียก @ai ให้ ผู้ช่วย AI ส่วนตัว จัดทริปเขาใหญ่ 2 วัน 1 คืน จ้า",
+      "ttsText": "กลับเข้ากลุ่มแล้ว เรียก แอด เอไอ ให้ ผู้ช่วย เอไอ ส่วนตัว จัดทริปเขาใหญ่ สองวันหนึ่งคืน จ้า",
+      "rawText": "กลับเข้ากลุ่มแล้ว เรียก {@ai|แอด เอไอ} ให้ ผู้ช่วย {AI|เอไอ} ส่วนตัว จัดทริปเขาใหญ่ {2 วัน 1 คืน|สองวันหนึ่งคืน} จ้า",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "เรียก @ai ผู้ช่วย AI ส่วนตัวในห้องกลุ่ม",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 15,
+      "id": "L16",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ai",
+      "speakerName": "🤖 BC AI",
+      "speakerFullName": "🤖 BC AI ผู้ช่วยส่วนตัว",
+      "voiceId": "B4NdgwdU97lHqA8Udh2D",
+      "start": 100.0545,
+      "end": 107.0274,
+      "duration": 6.973,
+      "displayText": "จัดให้ค่ะ เสาร์แวะคาเฟ่วิวเขาและกางเต็นท์ดูดาว อาทิตย์ชมน้ำตกค่ะ",
+      "ttsText": "จัดให้ค่ะ เสาร์แวะคาเฟ่วิวเขาและกางเต็นท์ดูดาว อาทิตย์ชมน้ำตกค่ะ",
+      "rawText": "จัดให้ค่ะ เสาร์แวะคาเฟ่วิวเขาและกางเต็นท์ดูดาว อาทิตย์ชมน้ำตกค่ะ",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "🤖 BC AI ตอบกลับในกลุ่มพร้อมกันทั้ง 5 เครื่อง",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 16,
+      "id": "L17",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ai",
+      "speakerName": "🤖 BC AI",
+      "speakerFullName": "🤖 BC AI ผู้ช่วยส่วนตัว",
+      "voiceId": "B4NdgwdU97lHqA8Udh2D",
+      "start": 107.3074,
+      "end": 114.5724,
+      "duration": 7.265,
+      "displayText": "หรือทักแชท 1-ต่อ-1 หา @bc.ai ให้ช่วยจัดของส่วนตัวได้ตลอดนะคะ",
+      "ttsText": "หรือทักแชท แบบตัวต่อตัว หา แอด บีซี ดอท เอไอ ให้ช่วยจัดของส่วนตัวได้ตลอดนะคะ",
+      "rawText": "หรือทักแชท {1-ต่อ-1|แบบตัวต่อตัว} หา {@bc.ai|แอด บีซี ดอท เอไอ} ให้ช่วยจัดของส่วนตัวได้ตลอดนะคะ",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ทักแชทส่วนตัว 1-ต่อ-1 กับ @bc.ai ได้ตลอดเวลา",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 17,
+      "id": "L18",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 114.8524,
+      "end": 120.9152,
+      "duration": 6.0628,
+      "displayText": "เป๊ะมาก งั้นเปิดถาด Inline สร้างโพลโหวตที่พักกับนัดหมาย RSVP เลย",
+      "ttsText": "เป๊ะมาก งั้นเปิดถาด อินไลน์ สร้างโพลโหวตที่พักกับนัดหมาย อาร์เอสวีพี เลย",
+      "rawText": "เป๊ะมาก งั้นเปิดถาด {Inline|อินไลน์} สร้างโพลโหวตที่พักกับนัดหมาย {RSVP|อาร์เอสวีพี} เลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ถาด Inline สร้างโพลโหวตที่พัก & การ์ดนัดหมาย RSVP",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "kong",
+        "type": "poll_builder"
+      }
+    },
+    {
+      "index": 18,
+      "id": "L19",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 121.1952,
+      "end": 125.992,
+      "duration": 4.7968,
+      "displayText": "กดโหวตลานกางเต็นท์และยืนยันไปครบ 5 คน คะแนนขยับสดๆ เลย",
+      "ttsText": "กดโหวตลานกางเต็นท์และยืนยันไปครบ ห้า คน คะแนนขยับสดๆ เลย",
+      "rawText": "กดโหวตลานกางเต็นท์และยืนยันไปครบ {5|ห้า} คน คะแนนขยับสดๆ เลย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "โหวตโพลสด & กดเข้าร่วม RSVP ครบ 5 เครื่องเรียลไทม์",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 19,
+      "id": "L20",
+      "scene": "group_ai_poll",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "mind",
+      "speakerName": "มายด์",
+      "speakerFullName": "มายด์ (Demo 4)",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "start": 126.272,
+      "end": 131.8187,
+      "duration": 5.5467,
+      "displayText": "มายด์สร้างอัลบั้มรูปทริปกับปักหมุดโน้ตกลุ่มร้านอร่อยไว้ถาวรแล้วจ้า",
+      "ttsText": "มายด์สร้างอัลบั้มรูปทริปกับปักหมุดโน้ตกลุ่มร้านอร่อยไว้ถาวรแล้วจ้า",
+      "rawText": "มายด์สร้างอัลบั้มรูปทริปกับปักหมุดโน้ตกลุ่มร้านอร่อยไว้ถาวรแล้วจ้า",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "อัลบั้มรูปทริป & โน้ตกลุ่มถาวร • เก็บความทรงจำไม่หมดอายุ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 20,
+      "id": "L21",
+      "scene": "group_miniapp_theme",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "prae",
+      "speakerName": "แพร",
+      "speakerFullName": "แพร (Demo 2)",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "start": 132.0987,
+      "end": 139.0416,
+      "duration": 6.9429,
+      "displayText": "แพรส่ง การ์ดโต้ตอบ หารค่าข้าวกับเพื่อน และ จัดทริปเที่ยว เข้ากลุ่มให้นะ",
+      "ttsText": "แพรส่ง การ์ดโต้ตอบ หารค่าข้าวกับเพื่อน และ จัดทริปเที่ยว เข้ากลุ่มให้นะ",
+      "rawText": "แพรส่ง การ์ดโต้ตอบ หารค่าข้าวกับเพื่อน และ จัดทริปเที่ยว เข้ากลุ่มให้นะ",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "การ์ดโต้ตอบ • หารค่าข้าวกับเพื่อน & จัดทริปเที่ยว",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "prae",
+        "type": "split_bill"
+      }
+    },
+    {
+      "index": 21,
+      "id": "L22",
+      "scene": "group_miniapp_theme",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 139.3216,
+      "end": 146.5722,
+      "duration": 7.2506,
+      "displayText": "ยอด 1,850 บาท หาร 5 ตกคนละ 370 บาทเป๊ะ ดูง่ายในใบเดียว",
+      "ttsText": "ยอด หนึ่งพันแปดร้อยห้าสิบ บาท หาร ห้า ตกคนละ สามร้อยเจ็ดสิบ บาทเป๊ะ ดูง่ายในใบเดียว",
+      "rawText": "ยอด {1,850|หนึ่งพันแปดร้อยห้าสิบ} บาท หาร {5|ห้า} ตกคนละ {370|สามร้อยเจ็ดสิบ} บาทเป๊ะ ดูง่ายในใบเดียว",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "คำนวณยอด 1,850 บาท ÷ 5 = คนละ 370 บาท อัตโนมัติ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "prae",
+        "type": "split_bill"
+      }
+    },
+    {
+      "index": 22,
+      "id": "L23",
+      "scene": "group_miniapp_theme",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "boss",
+      "speakerName": "บอส",
+      "speakerFullName": "บอส (Demo 3)",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "start": 146.8522,
+      "end": 154.0161,
+      "duration": 7.1639,
+      "displayText": "แถมสลับได้ 7 ธีมไทย ทั้งบ้านเชียง ครามสุโขทัย หยกสังคโลก และไหมทอง",
+      "ttsText": "แถมสลับได้ เจ็ด ธีมไทย ทั้งบ้านเชียง ครามสุโขทัย หยกสังคโลก และไหมทอง",
+      "rawText": "แถมสลับได้ {7|เจ็ด} ธีมไทย ทั้งบ้านเชียง ครามสุโขทัย หยกสังคโลก และไหมทอง",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "7 ธีมไทยร่วมสมัย • บ้านเชียง • ครามสุโขทัย • หยกสังคโลก • ไหมทอง",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "boss",
+        "type": "theme_picker"
+      }
+    },
+    {
+      "index": 23,
+      "id": "L24",
+      "scene": "group_miniapp_theme",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 154.2961,
+      "end": 160.513,
+      "duration": 6.2169,
+      "displayText": "ตกดึกก็เปิด โทนมืดดินเผา สบายตา เช้าค่อยกลับเป็นโทนครีมบ้านเชียง",
+      "ttsText": "ตกดึกก็เปิด โทนมืดดินเผา สบายตา เช้าค่อยกลับเป็นโทนครีมบ้านเชียง",
+      "rawText": "ตกดึกก็เปิด โทนมืดดินเผา สบายตา เช้าค่อยกลับเป็นโทนครีมบ้านเชียง",
+      "theme": "ban_chiang",
+      "roomTone": "terracotta_night",
+      "activeFolderChip": "group",
+      "featurePill": "โทนมืดดินเผา (Terracotta Night) • สบายตากลางคืน",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": {
+        "phone": "boss",
+        "type": "theme_picker"
+      }
+    },
+    {
+      "index": 24,
+      "id": "L25",
+      "scene": "recap_outro",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "kong",
+      "speakerName": "ก้อง",
+      "speakerFullName": "ก้อง (Demo 1)",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "start": 160.793,
+      "end": 165.5658,
+      "duration": 4.7729,
+      "displayText": "ก้องชอบที่แชทไว สะอาดตา และยกเลิกข้อความไร้ร่องรอยได้จริง",
+      "ttsText": "ก้องชอบที่แชทไว สะอาดตา และยกเลิกข้อความไร้ร่องรอยได้จริง",
+      "rawText": "ก้องชอบที่แชทไว สะอาดตา และยกเลิกข้อความไร้ร่องรอยได้จริง",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากก้อง • แชทเร็ว สะอาดตา & ยกเลิกไร้ร่องรอย",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 25,
+      "id": "L26",
+      "scene": "recap_outro",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "prae",
+      "speakerName": "แพร",
+      "speakerFullName": "แพร (Demo 2)",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "start": 165.8458,
+      "end": 172.2062,
+      "duration": 6.3604,
+      "displayText": "แพรชอบล็อกรหัส PIN ลับ การ์ดหารค่าข้าว โพล และนัดหมาย",
+      "ttsText": "แพรชอบล็อกรหัส พิน ลับ การ์ดหารค่าข้าว โพล และนัดหมาย",
+      "rawText": "แพรชอบล็อกรหัส {PIN|พิน} ลับ การ์ดหารค่าข้าว โพล และนัดหมาย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากแพร • ล็อก PIN ลับ การ์ดหารค่าข้าว โพล & นัดหมาย",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 26,
+      "id": "L27",
+      "scene": "recap_outro",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "boss",
+      "speakerName": "บอส",
+      "speakerFullName": "บอส (Demo 3)",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "start": 172.4862,
+      "end": 178.5643,
+      "duration": 6.0781,
+      "displayText": "บอสชอบซิงค์ครบ มือถือ คอม เว็บ พร้อม 7 ธีมไทยและโทนมืด",
+      "ttsText": "บอสชอบซิงค์ครบ มือถือ คอม เว็บ พร้อม เจ็ด ธีมไทยและโทนมืด",
+      "rawText": "บอสชอบซิงค์ครบ มือถือ คอม เว็บ พร้อม {7|เจ็ด} ธีมไทยและโทนมืด",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากบอส • ซิงค์ลื่นทุกอุปกรณ์ & 7 ธีมไทยร่วมสมัย",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 27,
+      "id": "L28",
+      "scene": "recap_outro",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "mind",
+      "speakerName": "มายด์",
+      "speakerFullName": "มายด์ (Demo 4)",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "start": 178.8443,
+      "end": 186.0243,
+      "duration": 7.18,
+      "displayText": "มายด์รัก ผู้ช่วย AI ส่วนตัว สมุดบันทึก BC และสติกเกอร์ดินเผาไทย",
+      "ttsText": "มายด์รัก ผู้ช่วย เอไอ ส่วนตัว สมุดบันทึก บีซี และสติกเกอร์ดินเผาไทย",
+      "rawText": "มายด์รัก ผู้ช่วย {AI|เอไอ} ส่วนตัว สมุดบันทึก {BC|บีซี} และสติกเกอร์ดินเผาไทย",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากมายด์ • ผู้ช่วย AI ส่วนตัว & สมุดบันทึก BC",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    },
+    {
+      "index": 28,
+      "id": "L29",
+      "scene": "recap_outro",
+      "mode": "group",
+      "dmPair": null,
+      "speaker": "ton",
+      "speakerName": "ต้น",
+      "speakerFullName": "ต้น (Demo 5)",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "start": 186.3043,
+      "end": 192.0862,
+      "duration": 5.7819,
+      "displayText": "ต้นชอบรูป 4K และไฟล์ถาวรไม่หมดอายุ มาลอง BC Ai Chat ด้วยกันนะครับ",
+      "ttsText": "ต้นชอบรูป โฟร์เค และไฟล์ถาวรไม่หมดอายุ มาลอง บีซี เอไอ แชท ด้วยกันนะครับ",
+      "rawText": "ต้นชอบรูป {4K|โฟร์เค} และไฟล์ถาวรไม่หมดอายุ มาลอง {BC Ai Chat|บีซี เอไอ แชท} ด้วยกันนะครับ",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากต้น • รูป 4K & ไฟล์เก็บถาวรไม่หมดอายุ",
+      "screenMode": {
+        "kong": "chat",
+        "prae": "chat",
+        "boss": "chat",
+        "mind": "chat",
+        "ton": "chat"
+      },
+      "activeTab": {
+        "kong": "chats",
+        "prae": "chats",
+        "boss": "chats",
+        "mind": "chats",
+        "ton": "chats"
+      },
+      "inlineTray": null
+    }
+  ],
+  "uiEvents": [
+    {
+      "id": "ev_01_group_hello",
+      "at": 4.45,
+      "scene": "group_open",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:41",
+      "text": "ลองเปิด BC Ai Chat ธีมบ้านเชียงดูสิ มี 4 แท็บหลัก สะอาดตาสุดๆ 🏺✨",
+      "readSteps": [
+        {
+          "at": 4.95,
+          "count": 1
+        },
+        {
+          "at": 5.35,
+          "count": 2
+        },
+        {
+          "at": 5.75,
+          "count": 3
+        },
+        {
+          "at": 6.15,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_02_folder_chips",
+      "at": 12.127,
+      "scene": "group_open",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "prae",
+      "senderName": "แพร",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:41",
+      "text": "แถบโฟลเดอร์ ส่วนตัว • ครอบครัว • กลุ่ม เลื่อนลื่นมาก ไม่มีป๊อปอัปบังจอเลย!",
+      "readSteps": [
+        {
+          "at": 12.697,
+          "count": 2
+        },
+        {
+          "at": 13.297,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_03_sync_read4",
+      "at": 18.419,
+      "scene": "group_open",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:42",
+      "text": "ซิงค์ไวจริง! ส่งปุ๊บเด้งครบ 5 เครื่อง ขึ้น อ่านแล้ว 4 ทันใจ ⚡",
+      "readSteps": [
+        {
+          "at": 18.919,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_04_sticker_wave",
+      "at": 25.643,
+      "scene": "group_open",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "mind",
+      "senderName": "มายด์",
+      "kind": "sticker",
+      "type": "sticker",
+      "clock": "09:42",
+      "stickerId": "clay_wave",
+      "stickerCode": "clay_wave",
+      "label": "ทักทายจ้า!",
+      "text": "สติกเกอร์ดินเผาโบกมือทักทายทริปเขาใหญ่",
+      "readSteps": [
+        {
+          "at": 26.193,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_05_sticker_cheers",
+      "at": 32.986,
+      "scene": "group_open",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "sticker",
+      "type": "sticker",
+      "clock": "09:42",
+      "stickerId": "clay_cheers",
+      "stickerCode": "clay_cheers",
+      "label": "ชนแก้วลุยเขาใหญ่!",
+      "text": "สติกเกอร์ดินเผาชนแก้วฉลองทริปเขาใหญ่",
+      "readSteps": [
+        {
+          "at": 33.536,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_06_mind_notebook",
+      "at": 37.023,
+      "until": 68.379,
+      "scene": "dm_kong_prae",
+      "room": "notes",
+      "participants": [
+        "mind"
+      ],
+      "phone": "mind",
+      "sender": "mind",
+      "senderName": "มายด์",
+      "kind": "notebook_focus",
+      "type": "notebook_focus",
+      "clock": "09:44",
+      "notes": [
+        {
+          "title": "เช็กลิสต์จัดกระเป๋าทริปเขาใหญ่",
+          "items": [
+            {
+              "done": true,
+              "text": "เสื้อกันหนาว & หมวกไหมพรม"
+            },
+            {
+              "done": true,
+              "text": "กล้องฟิล์ม & แบตเตอรี่สำรอง"
+            },
+            {
+              "done": false,
+              "text": "ขนมกองกลางไว้กินบนรถ"
+            }
+          ],
+          "badge": "สมุดบันทึก BC • เก็บถาวรไม่หมดอายุ"
+        },
+        {
+          "title": "ลิสต์หนัง & ซีรีส์ดูวันหยุด",
+          "items": [
+            {
+              "done": true,
+              "text": "หนังอบอุ่นหัวใจดูริมเต็นท์"
+            },
+            {
+              "done": false,
+              "text": "รหัส Wi-Fi บ้านเก็บไว้ส่วนตัว"
+            }
+          ],
+          "badge": "ส่วนตัวเฉพาะฉัน"
+        }
+      ]
+    },
+    {
+      "id": "ev_06_dm_surprise",
+      "at": 37.283,
+      "scene": "dm_kong_prae",
+      "room": "dm_kong_prae",
+      "participants": [
+        "kong",
+        "prae"
+      ],
+      "sender": "prae",
+      "senderName": "แพร",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:44",
+      "text": "ก้อง เสาร์นี้วันเกิดบอสพอดี แอบสั่งเค้กไปเซอร์ไพรส์กันไหม 🤫🎂",
+      "readSteps": [
+        {
+          "at": 37.873,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_07_dm_request_pin",
+      "at": 43.959,
+      "scene": "dm_kong_prae",
+      "room": "dm_kong_prae",
+      "participants": [
+        "kong",
+        "prae"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:44",
+      "text": "เอาสิแพร! ส่งแผนมาแบบ [ลับส่วนตัว] ล็อกรหัส PIN เลย 🔐",
+      "readSteps": [
+        {
+          "at": 44.549,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_08_secret_pin",
+      "at": 49.058,
+      "unlockAt": 50.888,
+      "scene": "dm_kong_prae",
+      "room": "dm_kong_prae",
+      "participants": [
+        "kong",
+        "prae"
+      ],
+      "sender": "prae",
+      "senderName": "แพร",
+      "kind": "secret_pin",
+      "type": "secret_pin",
+      "clock": "09:45",
+      "pin": "2580",
+      "previewLabel": "[ลับส่วนตัว] ล็อกรหัส PIN",
+      "unlockedText": "🎂 สั่งเค้กช็อกโกแลตลาวาร้านโปรดบอส ซ่อนไว้ท้ายรถก้อง ตอนสองทุ่มจุดเทียนเลย!",
+      "text": "[ลับส่วนตัว] สั่งเค้กช็อกโกแลตลาวาเซอร์ไพรส์บอส",
+      "readSteps": [
+        {
+          "at": 49.638,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_09_unsend_vanish",
+      "at": 56.047,
+      "unsendAt": 57.997,
+      "scene": "dm_kong_prae",
+      "room": "dm_kong_prae",
+      "participants": [
+        "kong",
+        "prae"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "unsend_demo",
+      "type": "unsend_demo",
+      "clock": "09:45",
+      "text": "อ้าวเผลอพิมพ์ชื่อร้านเค้กหน้าปากช่องผิดช่อง!"
+    },
+    {
+      "id": "ev_11_dm_camp_query",
+      "at": 68.659,
+      "scene": "dm_boss_ton",
+      "room": "dm_boss_ton",
+      "participants": [
+        "boss",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:47",
+      "text": "ต้น จุดกางเต็นท์เขาใหญ่เป็นไงบ้าง ส่งมาให้ดูที ⛺",
+      "readSteps": [
+        {
+          "at": 69.249,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_12_voice_note",
+      "at": 73.454,
+      "scene": "dm_boss_ton",
+      "room": "dm_boss_ton",
+      "participants": [
+        "boss",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "voice",
+      "type": "voice",
+      "clock": "09:47",
+      "durationSec": 12,
+      "waveform": [
+        6,
+        12,
+        17,
+        11,
+        18,
+        9,
+        15,
+        19,
+        13,
+        8,
+        16,
+        11,
+        14,
+        7
+      ],
+      "caption": "ลมเย็นสบาย ลานหญ้าริมน้ำกว้างมาก",
+      "text": "ข้อความเสียงจากต้น",
+      "readSteps": [
+        {
+          "at": 74.034,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_12_photo_4k",
+      "at": 74.884,
+      "scene": "dm_boss_ton",
+      "room": "dm_boss_ton",
+      "participants": [
+        "boss",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "photo",
+      "type": "photo",
+      "clock": "09:48",
+      "title": "วิวจุดกางเต็นท์ลำตะคอง_4K.jpg",
+      "resolution": "4K ต้นฉบับ • ไม่บีบอัด",
+      "permanentBadge": "เก็บถาวร • ไม่หมดอายุ",
+      "syncBadges": [
+        "มือถือ",
+        "คอม",
+        "เว็บ"
+      ],
+      "text": "รูปภาพ 4K ต้นฉบับไม่บีบอัด",
+      "readSteps": [
+        {
+          "at": 75.484,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_13_pdf_permanent",
+      "at": 79.704,
+      "scene": "dm_boss_ton",
+      "room": "dm_boss_ton",
+      "participants": [
+        "boss",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "file",
+      "type": "file",
+      "clock": "09:48",
+      "fileName": "แผนที่จุดกางเต็นท์เขาใหญ่.pdf",
+      "fileSize": "4.8 MB",
+      "mime": "PDF",
+      "permanentBadge": "เก็บถาวร • ไม่หมดอายุ",
+      "syncBadges": [
+        "มือถือ",
+        "คอม",
+        "เว็บ"
+      ],
+      "text": "ไฟล์ PDF แผนที่จุดกางเต็นท์เขาใหญ่",
+      "readSteps": [
+        {
+          "at": 80.294,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_14_sync_multi_device",
+      "at": 86.36,
+      "scene": "dm_boss_ton",
+      "room": "dm_boss_ton",
+      "participants": [
+        "boss",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:49",
+      "text": "เจ๋งเลย! เปิดดูต่อบนคอมและเว็บได้ทันที ซิงค์ครบทุกเครื่อง 💻📱",
+      "readSteps": [
+        {
+          "at": 86.95,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ev_15_ai_mention",
+      "at": 91.83,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "mind",
+      "senderName": "มายด์",
+      "kind": "ai_prompt",
+      "type": "ai_prompt",
+      "clock": "09:50",
+      "text": "@ai ช่วยจัดแพลนทริปเขาใหญ่ 2 วัน 1 คืน ให้แก๊งเพื่อน 5 คนหน่อยจ้า 🌲✨",
+      "readSteps": [
+        {
+          "at": 92.45,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_16_ai_plan_reply",
+      "at": 100.195,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ai",
+      "senderName": "🤖 BC AI",
+      "kind": "ai_reply",
+      "type": "ai_reply",
+      "clock": "09:50",
+      "text": "แพลนทริปเขาใหญ่ 2 วัน 1 คืนพร้อมแล้วค่ะ:",
+      "highlights": [
+        "วัน 1: แวะคาเฟ่วิวเขา • กางเต็นท์ดูดาวลำตะคอง",
+        "วัน 2: ชมน้ำตกเหวสุวัต • แวะซื้อของฝากกลับบ้าน"
+      ],
+      "directHint": "ทักแชท 1-ต่อ-1 กับ @bc.ai ได้ตลอดเวลา"
+    },
+    {
+      "id": "ev_17_ai_direct_tip",
+      "at": 107.467,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ai",
+      "senderName": "🤖 BC AI",
+      "kind": "ai_reply",
+      "type": "ai_reply",
+      "clock": "09:51",
+      "text": "อยากจัดลิสต์ของใช้ส่วนตัว ทักหา @bc.ai แบบตัวต่อตัวได้เลยนะคะ",
+      "highlights": [
+        "ช่วยจัดเช็กลิสต์ของใช้ & แนะนำร้านอร่อยส่วนตัว"
+      ],
+      "directHint": "พร้อมดูแลทั้งในกลุ่มและแชท 1-ต่อ-1"
+    },
+    {
+      "id": "ev_18_poll_stay",
+      "at": 115.202,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "poll",
+      "type": "poll",
+      "clock": "09:52",
+      "question": "คืนวันเสาร์พักโซนไหนดีที่เขาใหญ่?",
+      "options": [
+        {
+          "id": "opt_camp",
+          "text": "⛺ ลานกางเต็นท์ดูดาวริมน้ำ",
+          "votesTimeline": [
+            {
+              "at": 116.002,
+              "voters": [
+                "kong"
+              ]
+            },
+            {
+              "at": 121.445,
+              "voters": [
+                "kong",
+                "ton"
+              ]
+            },
+            {
+              "at": 122.145,
+              "voters": [
+                "kong",
+                "ton",
+                "boss"
+              ]
+            },
+            {
+              "at": 123.045,
+              "voters": [
+                "kong",
+                "ton",
+                "boss",
+                "mind"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "opt_villa",
+          "text": "🏡 รีสอร์ทใกล้คาเฟ่วิวเขา",
+          "votesTimeline": [
+            {
+              "at": 122.595,
+              "voters": [
+                "prae"
+              ]
+            }
+          ]
+        }
+      ],
+      "text": "โพลโหวตที่พักเขาใหญ่",
+      "readSteps": [
+        {
+          "at": 115.852,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_18_rsvp_card",
+      "at": 116.952,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "rsvp",
+      "type": "rsvp",
+      "clock": "09:52",
+      "title": "นัดล้อหมุนทริปเขาใหญ่ 2 วัน 1 คืน",
+      "timeLabel": "เสาร์ 07:30 น.",
+      "location": "จุดนัดพบคาเฟ่ปากช่อง",
+      "rsvpTimeline": [
+        {
+          "at": 120.565,
+          "going": [
+            "kong"
+          ],
+          "maybe": []
+        },
+        {
+          "at": 121.745,
+          "going": [
+            "kong",
+            "ton"
+          ],
+          "maybe": []
+        },
+        {
+          "at": 122.445,
+          "going": [
+            "kong",
+            "ton",
+            "prae"
+          ],
+          "maybe": []
+        },
+        {
+          "at": 123.145,
+          "going": [
+            "kong",
+            "ton",
+            "prae",
+            "boss"
+          ],
+          "maybe": []
+        },
+        {
+          "at": 123.745,
+          "going": [
+            "kong",
+            "ton",
+            "prae",
+            "boss",
+            "mind"
+          ],
+          "maybe": []
+        }
+      ],
+      "text": "การ์ดนัดหมายล้อหมุนเสาร์ 07:30 น.",
+      "readSteps": [
+        {
+          "at": 120.765,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_20_album_notes",
+      "at": 126.552,
+      "scene": "group_ai_poll",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "mind",
+      "senderName": "มายด์",
+      "kind": "album",
+      "type": "album",
+      "clock": "09:54",
+      "title": "อัลบั้มภาพทริปเขาใหญ่ & ร้านเด็ด",
+      "photoCount": 18,
+      "noteTitle": "ปักหมุดโน้ตกลุ่ม: พิกัดร้านอร่อยปากช่อง",
+      "permanentBadge": "เก็บถาวร • ไม่หมดอายุ",
+      "text": "อัลบั้มรูปทริปเขาใหญ่ & โน้ตกลุ่มถาวร",
+      "readSteps": [
+        {
+          "at": 127.172,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_21_rich_split_bill",
+      "at": 132.399,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "prae",
+      "senderName": "แพร",
+      "kind": "rich_card",
+      "type": "rich_card",
+      "cardType": "split_bill",
+      "clock": "09:55",
+      "title": "หารค่าข้าวกับเพื่อน • ทริปเขาใหญ่",
+      "subtitle": "ยอดรวม 1,850 บาท (หาร 5 คนเท่ากัน)",
+      "totalLabel": "คนละ 370 บาท",
+      "perPersonLabel": "ครบ 5/5 คน",
+      "items": [
+        {
+          "label": "ชุดปิ้งย่าง & อาหารเย็น",
+          "amount": "1,150 ฿"
+        },
+        {
+          "label": "เครื่องดื่ม & ขนมคาเฟ่",
+          "amount": "450 ฿"
+        },
+        {
+          "label": "ค่าธรรมเนียมกางเต็นท์",
+          "amount": "250 ฿"
+        }
+      ],
+      "text": "การ์ดโต้ตอบหารค่าข้าวกับเพื่อน 1,850 บาท",
+      "readSteps": [
+        {
+          "at": 133.049,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_22_rich_trip_planner",
+      "at": 139.672,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "rich_card",
+      "type": "rich_card",
+      "cardType": "trip_planner",
+      "clock": "09:56",
+      "title": "จัดทริปเที่ยว • เขาใหญ่ 2 วัน 1 คืน",
+      "subtitle": "ตารางทริป & งบกองกลางโปร่งใส",
+      "totalLabel": "งบคนละ 370 ฿ เป๊ะ!",
+      "perPersonLabel": "พร้อมเดินทาง",
+      "items": [
+        {
+          "label": "เสาร์ 07:30 น.",
+          "amount": "แวะคาเฟ่ปากช่อง"
+        },
+        {
+          "label": "เสาร์ 14:00 น.",
+          "amount": "กางเต็นท์ลำตะคอง"
+        },
+        {
+          "label": "อาทิตย์ 10:30 น.",
+          "amount": "น้ำตก & ของฝาก"
+        }
+      ],
+      "text": "การ์ดโต้ตอบจัดทริปเที่ยวเขาใหญ่",
+      "readSteps": [
+        {
+          "at": 140.272,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_23_theme_indigo",
+      "at": 148.152,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "theme_change",
+      "type": "theme_change",
+      "theme": "indigo_kram",
+      "roomTone": "ban_chiang_cream",
+      "label": "ครามสุโขทัย"
+    },
+    {
+      "id": "ev_23_theme_celadon",
+      "at": 149.202,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "theme_change",
+      "type": "theme_change",
+      "theme": "jade_celadon",
+      "roomTone": "ban_chiang_cream",
+      "label": "หยกสังคโลก"
+    },
+    {
+      "id": "ev_23_theme_amber",
+      "at": 150.202,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "theme_change",
+      "type": "theme_change",
+      "theme": "silk_amber",
+      "roomTone": "ban_chiang_cream",
+      "label": "ไหมทองอำพัน"
+    },
+    {
+      "id": "ev_24_tone_night",
+      "at": 154.446,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "theme_change",
+      "type": "theme_change",
+      "theme": "ban_chiang",
+      "roomTone": "terracotta_night",
+      "label": "โทนมืดดินเผา"
+    },
+    {
+      "id": "ev_24_tone_cream_morning",
+      "at": 157.902,
+      "scene": "group_miniapp_theme",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "theme_change",
+      "type": "theme_change",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "label": "โทนครีมบ้านเชียง"
+    },
+    {
+      "id": "ev_25_recap_kong",
+      "at": 161.043,
+      "scene": "recap_outro",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "kong",
+      "senderName": "ก้อง",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:58",
+      "text": "แชทไว สะอาดตา + ยกเลิกไร้ร่องรอยได้จริง 👍",
+      "readSteps": [
+        {
+          "at": 161.643,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_26_recap_prae",
+      "at": 166.096,
+      "scene": "recap_outro",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "prae",
+      "senderName": "แพร",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:58",
+      "text": "ล็อก PIN ลับ + การ์ดหารค่าข้าว โพล & นัดหมาย 💛",
+      "readSteps": [
+        {
+          "at": 166.696,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_27_recap_boss",
+      "at": 172.736,
+      "scene": "recap_outro",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "boss",
+      "senderName": "บอส",
+      "kind": "text",
+      "type": "text",
+      "clock": "09:59",
+      "text": "ซิงค์ครบ มือถือ คอม เว็บ + 7 ธีมไทย & โทนมืด ✨",
+      "readSteps": [
+        {
+          "at": 173.336,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_28_recap_mind",
+      "at": 179.124,
+      "scene": "recap_outro",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "mind",
+      "senderName": "มายด์",
+      "kind": "sticker",
+      "type": "sticker",
+      "clock": "09:59",
+      "stickerId": "clay_love",
+      "stickerCode": "clay_love",
+      "label": "รักเลย BC Ai Chat!",
+      "text": "ผู้ช่วย AI ส่วนตัว & สมุดบันทึก BC สุดน่ารัก",
+      "readSteps": [
+        {
+          "at": 179.694,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": "ev_29_recap_ton",
+      "at": 186.584,
+      "scene": "recap_outro",
+      "room": "group",
+      "participants": [
+        "kong",
+        "prae",
+        "boss",
+        "mind",
+        "ton"
+      ],
+      "sender": "ton",
+      "senderName": "ต้น",
+      "kind": "sticker",
+      "type": "sticker",
+      "clock": "10:00",
+      "stickerId": "clay_ok",
+      "stickerCode": "clay_ok",
+      "label": "โอเคจัดไป!",
+      "text": "รูป 4K & ไฟล์ถาวรไม่หมดอายุ • BC Ai Chat",
+      "readSteps": [
+        {
+          "at": 187.154,
+          "count": 4
+        }
+      ]
+    }
+  ]
+}

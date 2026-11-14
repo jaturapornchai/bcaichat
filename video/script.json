@@ -1,0 +1,489 @@
+{
+  "title": "BC Ai Chat — แชทส่วนตัว แก๊งเพื่อน & ผู้ช่วย AI ครบจบในธีมบ้านเชียง",
+  "subtitle": "ชมการทำงานจริง 5 มือถือพร้อมกันระดับ 4K UHD • Mobile-First ไร้ป๊อปอัป • เก็บไฟล์ถาวรไม่หมดอายุ",
+  "fps": 30,
+  "width": 3840,
+  "height": 2160,
+  "introDuration": 4.2,
+  "outroDuration": 5.5,
+  "lineGapSec": 0.28,
+  "modelId": "eleven_v4",
+  "languageCode": "th",
+  "voiceSettings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75
+  },
+  "phones": [
+    {
+      "id": "kong",
+      "slot": 0,
+      "userId": "user_demo1",
+      "name": "ก้อง",
+      "fullName": "ก้อง (Demo 1)",
+      "bcId": "@kong.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายเที่ยว & ถ่ายรูป",
+      "avatarColor": "#812920",
+      "voiceId": "H9eYlNHpm1vah6PPgYAk",
+      "voiceLabel": "Ekkarat"
+    },
+    {
+      "id": "prae",
+      "slot": 1,
+      "userId": "user_demo2",
+      "name": "แพร",
+      "fullName": "แพร (Demo 2)",
+      "bcId": "@prae.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายคาเฟ่ & ชวนกินข้าว",
+      "avatarColor": "#B45309",
+      "voiceId": "nealpwJT5tCyJFKDzEq8",
+      "voiceLabel": "Aom"
+    },
+    {
+      "id": "boss",
+      "slot": 2,
+      "userId": "user_demo3",
+      "name": "บอส",
+      "fullName": "บอส (Demo 3)",
+      "bcId": "@boss.bc",
+      "category": "ครอบครัว",
+      "persona": "ครอบครัว & แกดเจ็ต",
+      "avatarColor": "#13795B",
+      "voiceId": "MeUerI8vM5Ce2GSTXsRT",
+      "voiceLabel": "Chai"
+    },
+    {
+      "id": "mind",
+      "slot": 3,
+      "userId": "user_demo4",
+      "name": "มายด์",
+      "fullName": "มายด์ (Demo 4)",
+      "bcId": "@mind.bc",
+      "category": "เพื่อนสนิท",
+      "persona": "สายดูหนัง & ซีรีส์",
+      "avatarColor": "#1E40AF",
+      "voiceId": "v2NF9R77fF8wZRdbGYTg",
+      "voiceLabel": "Siriporn"
+    },
+    {
+      "id": "ton",
+      "slot": 4,
+      "userId": "user_demo5",
+      "name": "ต้น",
+      "fullName": "ต้น (Demo 5)",
+      "bcId": "@ton.bc",
+      "category": "ก๊วนกีฬา",
+      "persona": "สายวิ่ง & แคมป์ปิ้ง",
+      "avatarColor": "#6D28D9",
+      "voiceId": "FaUQoAqt8WX5mfvrvb3A",
+      "voiceLabel": "Preecha"
+    }
+  ],
+  "aiSpeaker": {
+    "id": "ai",
+    "userId": "user_ai",
+    "name": "🤖 BC AI",
+    "fullName": "🤖 BC AI ผู้ช่วยส่วนตัว",
+    "bcId": "@bc.ai",
+    "persona": "ผู้ช่วย AI ส่วนตัว & ประจำกลุ่ม",
+    "avatarColor": "#4F46E5",
+    "voiceId": "B4NdgwdU97lHqA8Udh2D",
+    "voiceLabel": "Kanya"
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "title": "เปิดตัว BC Ai Chat แชทส่วนตัวธีมบ้านเชียง",
+      "mode": "intro",
+      "dmPair": null,
+      "headerBadge": "✨ BC Ai Chat • แชทส่วนตัว ครอบครัว & แก๊งเพื่อน",
+      "featurePill": "Mobile-First 100% • ไร้โฆษณา • ไร้ป๊อปอัปบังจอ"
+    },
+    {
+      "id": "group_open",
+      "title": "แชทกลุ่ม 5 เครื่องซิงค์สด & สติกเกอร์ดินเผาไทย",
+      "mode": "group",
+      "dmPair": null,
+      "headerBadge": "👨‍👩‍👧‍👦 แชทกลุ่ม 5 เครื่องพร้อมกัน • แก๊งเพื่อนสนิท 5 คน + BC AI",
+      "featurePill": "ธีมบ้านเชียง • 4 แท็บ Mobile-First • อ่านแล้ว 4 • สติกเกอร์ดินเผาไทย"
+    },
+    {
+      "id": "dm_kong_prae",
+      "title": "แชทส่วนตัว ก้อง ↔ แพร ล็อก PIN ลับ & ยกเลิกไร้ร่องรอย",
+      "mode": "dm",
+      "dmPair": ["kong", "prae"],
+      "headerBadge": "🔒 แชทส่วนตัว 1-ต่อ-1 • ก้อง ↔ แพร (วางแผนเซอร์ไพรส์บอส)",
+      "featurePill": "ข้อความ [ลับส่วนตัว] ล็อก PIN • ยกเลิกส่งไร้ร่องรอย • สมุดบันทึก BC"
+    },
+    {
+      "id": "dm_boss_ton",
+      "title": "แชทส่วนตัว บอส ↔ ต้น เสียง รูป 4K & ไฟล์ PDF เก็บถาวรไม่หมดอายุ",
+      "mode": "dm",
+      "dmPair": ["boss", "ton"],
+      "headerBadge": "🔒 แชทส่วนตัว 1-ต่อ-1 • บอส ↔ ต้น (สำรวจลานกางเต็นท์เขาใหญ่)",
+      "featurePill": "ข้อความเสียง • รูป 4K ไม่บีบอัด • ไฟล์ PDF เก็บถาวรไม่หมดอายุ • ซิงค์ทุกเครื่อง"
+    },
+    {
+      "id": "group_ai_poll",
+      "title": "เรียก @ai จัดทริปเขาใหญ่ โพลโหวตสด RSVP & อัลบั้มถาวร",
+      "mode": "group",
+      "dmPair": null,
+      "headerBadge": "🤖 ผู้ช่วย AI ส่วนตัวในกลุ่ม + โพลโหวตสด & นัดหมาย RSVP",
+      "featurePill": "เรียก @ai จัดทริป • ทัก 1-1 @bc.ai • ถาด Inline โพล & RSVP • อัลบั้มถาวร"
+    },
+    {
+      "id": "group_miniapp_theme",
+      "title": "การ์ดโต้ตอบหารค่าข้าว & สลับ 7 ธีมไทย + โทนมืดดินเผา",
+      "mode": "group",
+      "dmPair": null,
+      "headerBadge": "🎨 การ์ดโต้ตอบหารค่าข้าว & 7 ธีมไทยร่วมสมัย + โทนมืดดินเผา",
+      "featurePill": "หารค่าข้าวอัตโนมัติ • จัดทริปเที่ยว • 7 ธีมไทยซิงค์สด • โทนมืดดินเผาสบายตา"
+    },
+    {
+      "id": "recap_outro",
+      "title": "สรุปความประทับใจจากเพื่อนทั้ง 5 คน & ภาพรวมความสามารถ",
+      "mode": "group",
+      "dmPair": null,
+      "headerBadge": "🌟 สรุปจุดเด่น BC Ai Chat จากแก๊งเพื่อนสนิททั้ง 5 คน",
+      "featurePill": "แชทส่วนตัว ครอบครัว แก๊งเพื่อน & ผู้ช่วย AI • ครบจบในแอปเดียว"
+    }
+  ],
+  "recapFeatures": [
+    {
+      "title": "แชทกลุ่ม & 1-ต่อ-1 ซิงค์สด",
+      "desc": "สถานะอ่านแล้วขึ้นทันทีทุกเครื่อง พร้อมโฟลเดอร์เลื่อนแนวนอน 4 แท็บ Mobile-First"
+    },
+    {
+      "title": "ข้อความลับล็อกรหัส PIN",
+      "desc": "ซ่อนเนื้อหาสำคัญด้วย PIN 4 หลัก เปิดอ่านได้เฉพาะคนที่รู้รหัสเท่านั้น"
+    },
+    {
+      "title": "ยกเลิกส่งไร้ร่องรอย 100%",
+      "desc": "ลบข้อความที่ส่งผิดออกทันที สะอาดตา ไม่ทิ้งป้ายแจ้งเตือนค้างกวนใจ"
+    },
+    {
+      "title": "สมุดบันทึก BC & ไฟล์ถาวร",
+      "desc": "เก็บรูป 4K ข้อความเสียง และไฟล์ PDF ถาวร ไม่หมดอายุ ซิงค์มือถือ-คอม-เว็บ"
+    },
+    {
+      "title": "🤖 BC AI ผู้ช่วยส่วนตัว",
+      "desc": "เรียก @ai ช่วยวางแผนทริปในกลุ่ม หรือทักคุยส่วนตัว 1-ต่อ-1 ได้ตลอดเวลา"
+    },
+    {
+      "title": "โพลโหวตสด & นัดหมาย RSVP",
+      "desc": "โหวตที่พัก-ร้านอาหาร และกดยืนยันนัดหมายเห็นยอดอัปเดตพร้อมกันทุกจอ"
+    },
+    {
+      "title": "การ์ดโต้ตอบหารค่าข้าว & จัดทริป",
+      "desc": "คำนวณยอดหารค่าข้าวและจัดทริปผ่านถาด Inline ในห้องแชท ไร้ป๊อปอัปบังจอ"
+    },
+    {
+      "title": "7 ธีมไทย & โทนมืดดินเผา",
+      "desc": "บ้านเชียงเป็นค่าเริ่มต้น พร้อมสลับ 7 ธีมไทยและโทนมืดดินเผาสบายตา"
+    }
+  ],
+  "lines": [
+    {
+      "id": "L01",
+      "scene": "group_open",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ธีมบ้านเชียง • 4 แท็บ Mobile-First • ซิงค์สด 5 เครื่อง",
+      "text": "ลองเปิด {BC Ai Chat|บีซี เอไอ แชท} ดูสิ ธีมบ้านเชียงสวยมาก มี {4|สี่} แท็บ {Mobile-First|โมบายเฟิร์ส} สะอาดตาสุดๆ"
+    },
+    {
+      "id": "L02",
+      "scene": "group_open",
+      "speaker": "prae",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "pinned",
+      "featurePill": "แถบโฟลเดอร์เลื่อนแนวนอน • ไร้ป๊อปอัปบังหน้าจอ",
+      "text": "แถบโฟลเดอร์ด้านบนก็เลื่อนง่าย สลับหมวดลื่น ไม่มีป๊อปอัปเด้งบังจอเลย"
+    },
+    {
+      "id": "L03",
+      "scene": "group_open",
+      "speaker": "boss",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ส่งข้อความเรียลไทม์ • ขึ้นสถานะ อ่านแล้ว 4 ทันที",
+      "text": "กดส่งปุ๊บเด้งครบทั้ง {5|ห้า} เครื่องไวมาก ขึ้น อ่านแล้ว {4|สี่} ทันทีเลย"
+    },
+    {
+      "id": "L04",
+      "scene": "group_open",
+      "speaker": "mind",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "mind", "type": "sticker" },
+      "featurePill": "ชุดสติกเกอร์ต้นฉบับ • อารมณ์ดีดินเผาไทย",
+      "text": "สติกเกอร์ อารมณ์ดีดินเผาไทย น่ารักสุดๆ ส่งน้องดินเผาโบกมือทักทายจ้า"
+    },
+    {
+      "id": "L05",
+      "scene": "group_open",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สติกเกอร์ดินเผาไทย • เตรียมลุยทริปเขาใหญ่",
+      "text": "งั้นส่งสติกเกอร์ชนแก้วดินเผาฉลองทริปเขาใหญ่เสาร์นี้เลย"
+    },
+    {
+      "id": "L06",
+      "scene": "dm_kong_prae",
+      "speaker": "prae",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "screenMode": { "kong": "chat", "prae": "chat", "boss": "chat", "mind": "notes", "ton": "chat" },
+      "featurePill": "แชทส่วนตัว 1-ต่อ-1 ก้อง ↔ แพร • วางแผนเซอร์ไพรส์บอส",
+      "text": "ก้อง ทักแชท {1-ต่อ-1|แบบตัวต่อตัว} แป๊บ เสาร์นี้วันเกิดบอส แอบเตรียมเค้กกันไหม"
+    },
+    {
+      "id": "L07",
+      "scene": "dm_kong_prae",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "screenMode": { "kong": "chat", "prae": "chat", "boss": "chat", "mind": "notes", "ton": "chat" },
+      "featurePill": "โหมดข้อความ [ลับส่วนตัว] • ป้องกันคนแอบมองจอ",
+      "text": "เอาสิแพร ส่งแผนมาแบบ ลับส่วนตัว ล็อกรหัส {PIN|พิน} ไว้เลย"
+    },
+    {
+      "id": "L08",
+      "scene": "dm_kong_prae",
+      "speaker": "prae",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "screenMode": { "kong": "chat", "prae": "chat", "boss": "chat", "mind": "notes", "ton": "chat" },
+      "featurePill": "ใส่รหัส PIN 2580 ปลดล็อกข้อความลับทันที",
+      "text": "ล็อกรหัส {PIN|พิน} {2580|สองห้าแปดศูนย์} ให้แล้ว กดใส่รหัสปุ๊บ เปิดอ่านแผนเค้กได้ทันที"
+    },
+    {
+      "id": "L09",
+      "scene": "dm_kong_prae",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "screenMode": { "kong": "chat", "prae": "chat", "boss": "chat", "mind": "notes", "ton": "chat" },
+      "featurePill": "ยกเลิกข้อความแบบไร้ร่องรอย • ไม่ทิ้งป้ายแจ้งเตือนค้าง",
+      "text": "อุ๊ยพิมพ์ผิด กดยกเลิกข้อความไร้ร่องรอยก่อนนะ หายวับไม่ทิ้งป้ายเลย"
+    },
+    {
+      "id": "L10",
+      "scene": "dm_kong_prae",
+      "speaker": "mind",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "screenMode": { "kong": "chat", "prae": "chat", "boss": "chat", "mind": "notes", "ton": "chat" },
+      "featurePill": "สมุดบันทึก BC ส่วนตัว • เก็บเช็กลิสต์และโน้ตถาวร",
+      "text": "ส่วนมายด์จดเช็กลิสต์ทริปไว้ใน สมุดบันทึก {BC|บีซี} ส่วนตัว เก็บถาวรเลยจ้า"
+    },
+    {
+      "id": "L11",
+      "scene": "dm_boss_ton",
+      "speaker": "boss",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "แชทส่วนตัว 1-ต่อ-1 บอส ↔ ต้น • คุยแผนจุดกางเต็นท์",
+      "text": "ต้น ทักส่วนตัวหน่อย จุดกางเต็นท์เขาใหญ่เป็นไง ส่งมาดูที"
+    },
+    {
+      "id": "L12",
+      "scene": "dm_boss_ton",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ข้อความเสียงคมชัด & รูปภาพ 4K ต้นฉบับไม่บีบอัด",
+      "text": "ส่งข้อความเสียงกับรูปวิวชัดระดับ {4K|โฟร์เค} ต้นฉบับให้เลย ภาพไม่แตกแน่นอน"
+    },
+    {
+      "id": "L13",
+      "scene": "dm_boss_ton",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "คลังไฟล์ PDF ถาวร • ไม่หมดอายุ ไม่ถูกลบทิ้ง",
+      "text": "พร้อมไฟล์ {PDF|พีดีเอฟ} แผนที่กางเต็นท์ เก็บถาวรในคลัง ไม่หมดอายุ ไม่ถูกลบทิ้ง"
+    },
+    {
+      "id": "L14",
+      "scene": "dm_boss_ton",
+      "speaker": "boss",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "personal",
+      "featurePill": "ซิงค์ประวัติแชท & ไฟล์ครบทุกเครื่อง มือถือ • คอม • เว็บ",
+      "text": "เจ๋งเลย เปิดดูต่อบนคอมและเว็บได้ทันที ซิงค์ตรงกันครบทุกเครื่อง"
+    },
+    {
+      "id": "L15",
+      "scene": "group_ai_poll",
+      "speaker": "mind",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "เรียก @ai ผู้ช่วย AI ส่วนตัวในห้องกลุ่ม",
+      "text": "กลับเข้ากลุ่มแล้ว เรียก {@ai|แอด เอไอ} ให้ ผู้ช่วย {AI|เอไอ} ส่วนตัว จัดทริปเขาใหญ่ {2 วัน 1 คืน|สองวันหนึ่งคืน} จ้า"
+    },
+    {
+      "id": "L16",
+      "scene": "group_ai_poll",
+      "speaker": "ai",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "🤖 BC AI ตอบกลับในกลุ่มพร้อมกันทั้ง 5 เครื่อง",
+      "text": "จัดให้ค่ะ เสาร์แวะคาเฟ่วิวเขาและกางเต็นท์ดูดาว อาทิตย์ชมน้ำตกค่ะ"
+    },
+    {
+      "id": "L17",
+      "scene": "group_ai_poll",
+      "speaker": "ai",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "ทักแชทส่วนตัว 1-ต่อ-1 กับ @bc.ai ได้ตลอดเวลา",
+      "text": "หรือทักแชท {1-ต่อ-1|แบบตัวต่อตัว} หา {@bc.ai|แอด บีซี ดอท เอไอ} ให้ช่วยจัดของส่วนตัวได้ตลอดนะคะ"
+    },
+    {
+      "id": "L18",
+      "scene": "group_ai_poll",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "kong", "type": "poll_builder" },
+      "featurePill": "ถาด Inline สร้างโพลโหวตที่พัก & การ์ดนัดหมาย RSVP",
+      "text": "เป๊ะมาก งั้นเปิดถาด {Inline|อินไลน์} สร้างโพลโหวตที่พักกับนัดหมาย {RSVP|อาร์เอสวีพี} เลย"
+    },
+    {
+      "id": "L19",
+      "scene": "group_ai_poll",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "โหวตโพลสด & กดเข้าร่วม RSVP ครบ 5 เครื่องเรียลไทม์",
+      "text": "กดโหวตลานกางเต็นท์และยืนยันไปครบ {5|ห้า} คน คะแนนขยับสดๆ เลย"
+    },
+    {
+      "id": "L20",
+      "scene": "group_ai_poll",
+      "speaker": "mind",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "อัลบั้มรูปทริป & โน้ตกลุ่มถาวร • เก็บความทรงจำไม่หมดอายุ",
+      "text": "มายด์สร้างอัลบั้มรูปทริปกับปักหมุดโน้ตกลุ่มร้านอร่อยไว้ถาวรแล้วจ้า"
+    },
+    {
+      "id": "L21",
+      "scene": "group_miniapp_theme",
+      "speaker": "prae",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "prae", "type": "split_bill" },
+      "featurePill": "การ์ดโต้ตอบ • หารค่าข้าวกับเพื่อน & จัดทริปเที่ยว",
+      "text": "แพรส่ง การ์ดโต้ตอบ หารค่าข้าวกับเพื่อน และ จัดทริปเที่ยว เข้ากลุ่มให้นะ"
+    },
+    {
+      "id": "L22",
+      "scene": "group_miniapp_theme",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "prae", "type": "split_bill" },
+      "featurePill": "คำนวณยอด 1,850 บาท ÷ 5 = คนละ 370 บาท อัตโนมัติ",
+      "text": "ยอด {1,850|หนึ่งพันแปดร้อยห้าสิบ} บาท หาร {5|ห้า} ตกคนละ {370|สามร้อยเจ็ดสิบ} บาทเป๊ะ ดูง่ายในใบเดียว"
+    },
+    {
+      "id": "L23",
+      "scene": "group_miniapp_theme",
+      "speaker": "boss",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "boss", "type": "theme_picker" },
+      "featurePill": "7 ธีมไทยร่วมสมัย • บ้านเชียง • ครามสุโขทัย • หยกสังคโลก • ไหมทอง",
+      "text": "แถมสลับได้ {7|เจ็ด} ธีมไทย ทั้งบ้านเชียง ครามสุโขทัย หยกสังคโลก และไหมทอง"
+    },
+    {
+      "id": "L24",
+      "scene": "group_miniapp_theme",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "terracotta_night",
+      "activeFolderChip": "group",
+      "inlineTray": { "phone": "boss", "type": "theme_picker" },
+      "featurePill": "โทนมืดดินเผา (Terracotta Night) • สบายตากลางคืน",
+      "text": "ตกดึกก็เปิด โทนมืดดินเผา สบายตา เช้าค่อยกลับเป็นโทนครีมบ้านเชียง"
+    },
+    {
+      "id": "L25",
+      "scene": "recap_outro",
+      "speaker": "kong",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากก้อง • แชทเร็ว สะอาดตา & ยกเลิกไร้ร่องรอย",
+      "text": "ก้องชอบที่แชทไว สะอาดตา และยกเลิกข้อความไร้ร่องรอยได้จริง"
+    },
+    {
+      "id": "L26",
+      "scene": "recap_outro",
+      "speaker": "prae",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากแพร • ล็อก PIN ลับ การ์ดหารค่าข้าว โพล & นัดหมาย",
+      "text": "แพรชอบล็อกรหัส {PIN|พิน} ลับ การ์ดหารค่าข้าว โพล และนัดหมาย"
+    },
+    {
+      "id": "L27",
+      "scene": "recap_outro",
+      "speaker": "boss",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากบอส • ซิงค์ลื่นทุกอุปกรณ์ & 7 ธีมไทยร่วมสมัย",
+      "text": "บอสชอบซิงค์ครบ มือถือ คอม เว็บ พร้อม {7|เจ็ด} ธีมไทยและโทนมืด"
+    },
+    {
+      "id": "L28",
+      "scene": "recap_outro",
+      "speaker": "mind",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากมายด์ • ผู้ช่วย AI ส่วนตัว & สมุดบันทึก BC",
+      "text": "มายด์รัก ผู้ช่วย {AI|เอไอ} ส่วนตัว สมุดบันทึก {BC|บีซี} และสติกเกอร์ดินเผาไทย"
+    },
+    {
+      "id": "L29",
+      "scene": "recap_outro",
+      "speaker": "ton",
+      "theme": "ban_chiang",
+      "roomTone": "ban_chiang_cream",
+      "activeFolderChip": "group",
+      "featurePill": "สรุปจากต้น • รูป 4K & ไฟล์เก็บถาวรไม่หมดอายุ",
+      "text": "ต้นชอบรูป {4K|โฟร์เค} และไฟล์ถาวรไม่หมดอายุ มาลอง {BC Ai Chat|บีซี เอไอ แชท} ด้วยกันนะครับ"
+    }
+  ]
+}

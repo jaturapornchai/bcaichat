@@ -1,0 +1,626 @@
+use axum::{
+    extract::{Path, State},
+    Json,
+};
+use bson::{doc, Document};
+use chrono::Utc;
+use futures_util::TryStreamExt;
+use serde::Deserialize;
+use serde_json::{json, Value};
+use std::collections::HashMap;
+use uuid::Uuid;
+
+use crate::{
+    auth::{AdminUser, ApiError},
+    models::{
+        ConversationDoc, FileDoc, FileDto, LastMessageSummary, MessageDoc, MessageDto, MiniAppDoc,
+        MiniAppDto, UserDoc, UserDto,
+    },
+    seed::ensure_direct_conversation,
+    AppState,
+};
+
+pub async fn admin_overview_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+) -> Result<Json<Value>, ApiError> {
+    let users_coll = state.db.collection::<UserDoc>("users");
+    let conv_coll = state.db.collection::<ConversationDoc>("conversations");
+    let msg_coll = state.db.collection::<MessageDoc>("messages");
+    let files_coll = state.db.collection::<FileDoc>("files");
+    let mini_coll = state.db.collection::<MiniAppDoc>("mini_apps");
+
+    let total_users = users_coll.count_documents(doc! {}).await.unwrap_or(0);
+    let total_conversations = conv_coll.count_documents(doc! {}).await.unwrap_or(0);
+    let total_messages = msg_coll.count_documents(doc! {}).await.unwrap_or(0);
+    let total_mini_apps = mini_coll.count_documents(doc! {}).await.unwrap_or(0);
+
+    let file_cursor = files_coll
+        .find(doc! {})
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let mut all_files: Vec<FileDoc> = file_cursor
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    let total_files = all_files.len() as u64;
+    let total_storage_bytes: u64 = all_files.iter().map(|f| f.file_size).sum();
+
+    all_files.sort_by(|a, b| b.created_at.cmp(&a.created_at));
+    let recent_files: Vec<FileDto> = all_files.into_iter().take(20).map(FileDto::from).collect();
+
+    Ok(Json(json!({
+        "total_users": total_users,
+        "total_conversations": total_conversations,
+        "total_messages": total_messages,
+        "total_files": total_files,
+        "total_storage_bytes": total_storage_bytes,
+        "total_mini_apps": total_mini_apps,
+        "minio_bucket": state.config.minio_bucket,
+        "mongo_db": format!("{} ({})", state.config.mongodb_db, state.config.mongodb_uri),
+        "recent_files": recent_files,
+    })))
+}
+
+pub async fn admin_list_users_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+) -> Result<Json<Vec<UserDto>>, ApiError> {
+    let users_coll = state.db.collection::<UserDoc>("users");
+    let cursor = users_coll
+        .find(doc! {})
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let mut docs: Vec<UserDoc> = cursor
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    docs.sort_by(|a, b| a.display_name.cmp(&b.display_name));
+    Ok(Json(docs.into_iter().map(UserDto::from).collect()))
+}
+
+#[derive(Debug, Deserialize)]
+pub struct UpdateRoleRequest {
+    pub role: String,
+}
+
+pub async fn admin_update_user_role_handler(
+    _admin: AdminUser,
+    Path(user_id): Path<String>,
+    State(state): State<AppState>,
+    Json(payload): Json<UpdateRoleRequest>,
+) -> Result<Json<UserDto>, ApiError> {
+    let role = if payload.role.trim().eq_ignore_ascii_case("admin") {
+        "admin".to_string()
+    } else {
+        "user".to_string()
+    };
+
+    let users_coll = state.db.collection::<UserDoc>("users");
+    let mut user = users_coll
+        .find_one(doc! { "_id": &user_id })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?
+        .ok_or_else(|| ApiError::not_found("ไม่พบผู้ใช้ที่ระบุ"))?;
+
+    user.role = role.clone();
+    users_coll
+        .update_one(
+            doc! { "_id": &user_id },
+            doc! { "$set": { "role": &role } },
+        )
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    Ok(Json(UserDto::from(user)))
+}
+
+pub async fn admin_list_mini_apps_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+) -> Result<Json<Vec<MiniAppDto>>, ApiError> {
+    let coll = state.db.collection::<MiniAppDoc>("mini_apps");
+    let cursor = coll
+        .find(doc! {})
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let mut docs: Vec<MiniAppDoc> = cursor
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    docs.sort_by_key(|a| a.sort_order);
+    Ok(Json(docs.into_iter().map(MiniAppDto::from).collect()))
+}
+
+#[derive(Debug, Deserialize)]
+pub struct CreateMiniAppRequest {
+    pub app_code: Option<String>,
+    pub code: Option<String>,
+    pub title: String,
+    pub subtitle: Option<String>,
+    pub category: Option<String>,
+    pub icon_name: Option<String>,
+    pub icon: Option<String>,
+    pub color_hex: Option<String>,
+    pub color: Option<String>,
+    pub entry_url: Option<String>,
+    pub url: Option<String>,
+    pub is_active: Option<bool>,
+    pub enabled: Option<bool>,
+    pub sort_order: Option<i32>,
+}
+
+pub async fn admin_create_mini_app_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+    Json(payload): Json<CreateMiniAppRequest>,
+) -> Result<Json<MiniAppDto>, ApiError> {
+    let title = payload.title.trim().to_string();
+    if title.is_empty() {
+        return Err(ApiError::bad_request("กรุณาระบุชื่อเครื่องมือไลฟ์สไตล์"));
+    }
+
+    let app_code = payload
+        .app_code
+        .or(payload.code)
+        .map(|s| s.trim().to_string())
+        .filter(|s| !s.is_empty())
+        .unwrap_or_else(|| format!("app_{}", &Uuid::new_v4().simple().to_string()[..8]));
+
+    let entry_url = payload
+        .entry_url
+        .or(payload.url)
+        .map(|s| s.trim().to_string())
+        .filter(|s| !s.is_empty())
+        .unwrap_or_else(|| format!("{}/miniapp/{}", state.config.public_base_url, app_code));
+
+    let now = Utc::now().to_rfc3339();
+    let doc_item = MiniAppDoc {
+        id: format!("mini_{}", &Uuid::new_v4().simple().to_string()[..10]),
+        app_code,
+        title,
+        subtitle: payload
+            .subtitle
+            .unwrap_or_else(|| "เครื่องมือไลฟ์สไตล์ส่วนตัวสำหรับแชร์ในห้องแชท".to_string()),
+        category: payload.category.unwrap_or_else(|| "lifestyle".to_string()),
+        icon_name: payload
+            .icon_name
+            .or(payload.icon)
+            .unwrap_or_else(|| "widgets".to_string()),
+        color_hex: payload
+            .color_hex
+            .or(payload.color)
+            .unwrap_or_else(|| "#812920".to_string()),
+        entry_url,
+        is_active: payload.is_active.or(payload.enabled).unwrap_or(true),
+        sort_order: payload.sort_order.unwrap_or(10),
+        created_at: now.clone(),
+        updated_at: now,
+    };
+
+    let coll = state.db.collection::<MiniAppDoc>("mini_apps");
+    coll.insert_one(&doc_item)
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    let dto = MiniAppDto::from(doc_item);
+    state.ws_hub.broadcast_event(json!({
+        "event": "mini_apps_updated",
+        "mini_app": dto,
+    }));
+
+    Ok(Json(dto))
+}
+
+#[derive(Debug, Deserialize)]
+pub struct UpdateMiniAppRequest {
+    pub app_code: Option<String>,
+    pub code: Option<String>,
+    pub title: Option<String>,
+    pub subtitle: Option<String>,
+    pub category: Option<String>,
+    pub icon_name: Option<String>,
+    pub icon: Option<String>,
+    pub color_hex: Option<String>,
+    pub color: Option<String>,
+    pub entry_url: Option<String>,
+    pub url: Option<String>,
+    pub is_active: Option<bool>,
+    pub enabled: Option<bool>,
+    pub sort_order: Option<i32>,
+}
+
+pub async fn admin_update_mini_app_handler(
+    _admin: AdminUser,
+    Path(app_id): Path<String>,
+    State(state): State<AppState>,
+    Json(payload): Json<UpdateMiniAppRequest>,
+) -> Result<Json<MiniAppDto>, ApiError> {
+    let coll = state.db.collection::<MiniAppDoc>("mini_apps");
+    let mut app = coll
+        .find_one(doc! { "_id": &app_id })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?
+        .ok_or_else(|| ApiError::not_found("ไม่พบเครื่องมือที่ระบุ"))?;
+
+    if let Some(code) = payload.app_code.or(payload.code) {
+        if !code.trim().is_empty() {
+            app.app_code = code.trim().to_string();
+        }
+    }
+    if let Some(title) = payload.title {
+        if !title.trim().is_empty() {
+            app.title = title.trim().to_string();
+        }
+    }
+    if let Some(sub) = payload.subtitle {
+        app.subtitle = sub.trim().to_string();
+    }
+    if let Some(cat) = payload.category {
+        if !cat.trim().is_empty() {
+            app.category = cat.trim().to_string();
+        }
+    }
+    if let Some(icon) = payload.icon_name.or(payload.icon) {
+        if !icon.trim().is_empty() {
+            app.icon_name = icon.trim().to_string();
+        }
+    }
+    if let Some(color) = payload.color_hex.or(payload.color) {
+        if !color.trim().is_empty() {
+            app.color_hex = color.trim().to_string();
+        }
+    }
+    if let Some(url) = payload.entry_url.or(payload.url) {
+        if !url.trim().is_empty() {
+            app.entry_url = url.trim().to_string();
+        }
+    }
+    if let Some(active) = payload.is_active.or(payload.enabled) {
+        app.is_active = active;
+    }
+    if let Some(order) = payload.sort_order {
+        app.sort_order = order;
+    }
+    app.updated_at = Utc::now().to_rfc3339();
+
+    coll.replace_one(doc! { "_id": &app_id }, &app)
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    let dto = MiniAppDto::from(app);
+    state.ws_hub.broadcast_event(json!({
+        "event": "mini_apps_updated",
+        "mini_app": dto,
+    }));
+
+    Ok(Json(dto))
+}
+
+pub async fn admin_delete_mini_app_handler(
+    _admin: AdminUser,
+    Path(app_id): Path<String>,
+    State(state): State<AppState>,
+) -> Result<Json<Value>, ApiError> {
+    let coll = state.db.collection::<MiniAppDoc>("mini_apps");
+    coll.delete_one(doc! { "_id": &app_id })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    state.ws_hub.broadcast_event(json!({
+        "event": "mini_apps_updated",
+        "deleted_id": app_id,
+    }));
+
+    Ok(Json(json!({
+        "status": "ok",
+        "id": app_id,
+    })))
+}
+
+#[derive(Debug, Deserialize)]
+pub struct BroadcastRequest {
+    pub title: String,
+    pub content: String,
+}
+
+pub async fn admin_broadcast_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+    Json(payload): Json<BroadcastRequest>,
+) -> Result<Json<Value>, ApiError> {
+    let title = payload.title.trim().to_string();
+    let content = payload.content.trim().to_string();
+    if title.is_empty() && content.is_empty() {
+        return Err(ApiError::bad_request("กรุณาระบุข้อความข่าวสาร"));
+    }
+
+    let users_coll = state.db.collection::<UserDoc>("users");
+    let conv_coll = state.db.collection::<ConversationDoc>("conversations");
+    let msg_coll = state.db.collection::<MessageDoc>("messages");
+
+    let official = users_coll
+        .find_one(doc! { "_id": "user_official" })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?
+        .ok_or_else(|| ApiError::not_found("ไม่พบบัญชีข่าวสาร BC Ai Chat"))?;
+
+    let u_cursor = users_coll
+        .find(doc! { "_id": { "$ne": "user_official" } })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let all_users: Vec<UserDoc> = u_cursor
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    let formatted = if title.is_empty() {
+        format!("📢 ข่าวสาร: {}", content)
+    } else {
+        format!("📢 {}\n{}", title, content)
+    };
+
+    let now = Utc::now().to_rfc3339();
+    let mut sent_count = 0usize;
+
+    for u in all_users {
+        if let Ok(mut conv) = ensure_direct_conversation(
+            &state,
+            &u,
+            &official,
+            "official",
+            "personal",
+            true,
+            &formatted,
+        )
+        .await
+        {
+            let msg_id = Uuid::new_v4().to_string();
+            let card = json!({
+                "app_code": "official_broadcast",
+                "title": "ข่าวสารจาก BC Ai Chat",
+                "color_hex": "#812920",
+                "heading": if title.is_empty() { "อัปเดตข่าวสารส่วนตัว" } else { &title },
+                "subtitle": content,
+                "highlight_value": "อัปเดตฟีเจอร์ส่วนตัว",
+                "status_label": "ข่าวสาร BC Ai Chat"
+            });
+            let msg_doc = MessageDoc {
+                id: msg_id.clone(),
+                conversation_id: conv.id.clone(),
+                sender_id: official.id.clone(),
+                sender_name: official.display_name.clone(),
+                sender_avatar: official.avatar_url.clone(),
+                msg_type: "rich_card".to_string(),
+                content: formatted.clone(),
+                sticker_code: None,
+                attachment: None,
+                card_payload: Some(card.clone()),
+                flex_payload: Some(card),
+                reply_to: None,
+                read_by: vec![official.id.clone()],
+                is_unsent: false,
+                is_confidential: false,
+                confidential_pin: None,
+                expire_at: None,
+                priority: "normal".to_string(),
+                task_status: None,
+                accepted_by: None,
+                accepted_at: None,
+                reactions: HashMap::new(),
+                mentions: Vec::new(),
+                audio_duration_sec: None,
+                poll: None,
+                event_data: None,
+                deleted_for: Vec::new(),
+                created_at: now.clone(),
+            };
+
+            if msg_coll.insert_one(&msg_doc).await.is_ok() {
+                conv.last_message = Some(LastMessageSummary {
+                    id: msg_id,
+                    sender_id: official.id.clone(),
+                    sender_name: official.display_name.clone(),
+                    msg_type: "rich_card".to_string(),
+                    content: formatted.clone(),
+                    created_at: now.clone(),
+                    read_count: 0,
+                });
+                conv.updated_at = now.clone();
+                let _ = conv_coll
+                    .replace_one(doc! { "_id": &conv.id }, &conv)
+                    .await;
+
+                let dto = MessageDto::from(msg_doc);
+                state.ws_hub.broadcast_event(json!({
+                    "event": "new_message",
+                    "conversation_id": conv.id,
+                    "message": dto,
+                }));
+                crate::push::notify_new_message(&state, &conv, &dto);
+                sent_count += 1;
+            }
+        }
+    }
+
+    Ok(Json(json!({
+        "status": "ok",
+        "sent_count": sent_count,
+    })))
+}
+
+#[derive(Debug, Deserialize)]
+pub struct HandoverRequest {
+    pub from_user_id: String,
+    pub to_user_id: String,
+}
+
+pub async fn admin_handover_handler(
+    _admin: AdminUser,
+    State(state): State<AppState>,
+    Json(payload): Json<HandoverRequest>,
+) -> Result<Json<Value>, ApiError> {
+    let from_id = payload.from_user_id.trim();
+    let to_id = payload.to_user_id.trim();
+    if from_id.is_empty() || to_id.is_empty() {
+        return Err(ApiError::bad_request(
+            "กรุณาระบุรหัสสมาชิกต้นทางและผู้รับดูแลห้องแชทคนใหม่",
+        ));
+    }
+
+    let conv_coll = state.db.collection::<ConversationDoc>("conversations");
+    let cursor = conv_coll
+        .find(doc! { "member_ids": from_id })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let mut convs: Vec<ConversationDoc> = cursor
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+
+    let users: Vec<UserDoc> = state
+        .db
+        .collection::<UserDoc>("users")
+        .find(doc! { "_id": { "$in": [from_id, to_id] } })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?
+        .try_collect()
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    let name_of = |id: &str| {
+        users
+            .iter()
+            .find(|u| u.id == id)
+            .map_or_else(|| id.to_string(), |u| u.display_name.clone())
+    };
+    let (from_name, to_name) = (name_of(from_id), name_of(to_id));
+    let prompt = format!(
+        "{from_name} ฝากให้ {to_name} ช่วยดูแลนัดหมายและเรื่องราวในห้องแชทนี้ต่อ จากแชทล่าสุด สรุปเรื่องสำคัญหรือนัดหมายที่ค้างอยู่ไม่เกิน 6 ข้อ ถ้าไม่มีให้บอกว่าไม่มี"
+    );
+    let briefings = futures_util::future::join_all(
+        convs.iter().map(|conv| handover_briefing(&state, &conv.id, &prompt)),
+    )
+    .await;
+
+    let mut ai_briefed = 0usize;
+    for (conv, briefing) in convs.iter_mut().zip(&briefings) {
+        if !conv.member_ids.iter().any(|m| m == to_id) {
+            conv.member_ids.push(to_id.to_string());
+        }
+        ai_briefed += usize::from(briefing.is_some());
+        let text = handover_message(&from_name, &to_name, briefing.as_deref());
+        let _ = crate::routes::ai_routes::insert_ai_message(&state, conv, &text).await;
+    }
+
+    Ok(Json(json!({
+        "transferred_conversations": convs.len(),
+        "ai_briefed": ai_briefed,
+        "status": "ok",
+    })))
+}
+
+async fn handover_briefing(state: &AppState, conv_id: &str, prompt: &str) -> Option<String> {
+    let mut history: Vec<MessageDoc> = state
+        .db
+        .collection::<MessageDoc>("messages")
+        .find(doc! { "conversation_id": conv_id, "is_unsent": false })
+        .sort(doc! { "created_at": -1 })
+        .limit(15)
+        .await
+        .ok()?
+        .try_collect()
+        .await
+        .ok()?;
+    if history.is_empty() {
+        return None;
+    }
+    history.reverse();
+    let (reply, _, live) =
+        crate::routes::ai_routes::call_deepseek_brain(state, None, prompt, &history).await;
+    live.then_some(reply)
+}
+
+fn handover_message(from_name: &str, to_name: &str, briefing: Option<&str>) -> String {
+    let head = format!("🔄 ส่งต่อการดูแลห้องแชทจาก {from_name} ให้ {to_name} แล้ว");
+    match briefing {
+        Some(b) => format!("{head}\nAI สรุปนัดหมายและเรื่องสำคัญ:\n{b}"),
+        None => format!("{head} เปิดดูประวัติแชทและอัลบั้มรูปถาวรย้อนหลังได้ครบ"),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::handover_message;
+
+    #[test]
+    fn handover_claims_ai_only_for_a_real_briefing() {
+        let offline = handover_message("สมชาย", "นิดา", None);
+        assert!(offline.contains("สมชาย") && offline.contains("นิดา"));
+        assert!(!offline.contains("AI"), "{offline}");
+        let live = handover_message("สมชาย", "นิดา", Some("- นัดกินข้าวเสาร์นี้ 18:00 น."));
+        assert!(live.contains("AI") && live.ends_with("- นัดกินข้าวเสาร์นี้ 18:00 น."));
+    }
+}
+
+/// Contemporary Thai theme presets inspired by Ban Chiang heritage.
+pub const THEME_PRESETS: [&str; 7] = [
+    "ban_chiang",
+    "silk_amber",
+    "indigo_kram",
+    "jade_celadon",
+    "lotus_rose",
+    "spice_cinnamon",
+    "royal_amethyst",
+];
+pub const DEFAULT_THEME: &str = "ban_chiang";
+
+/// Public: the login screen needs the theme before anyone signs in.
+pub async fn get_theme_handler(State(state): State<AppState>) -> Result<Json<Value>, ApiError> {
+    let preset = state
+        .db
+        .collection::<Document>("app_settings")
+        .find_one(doc! { "_id": "theme" })
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?
+        .and_then(|d| d.get_str("preset").ok().map(str::to_string))
+        .filter(|p| THEME_PRESETS.contains(&p.as_str()))
+        .unwrap_or_else(|| DEFAULT_THEME.to_string());
+    Ok(Json(json!({ "preset": preset })))
+}
+
+#[derive(Deserialize)]
+pub struct UpdateThemeRequest {
+    pub preset: String,
+}
+
+pub async fn update_theme_handler(
+    AdminUser(auth): AdminUser,
+    State(state): State<AppState>,
+    Json(payload): Json<UpdateThemeRequest>,
+) -> Result<Json<Value>, ApiError> {
+    let preset = payload.preset.trim();
+    if !THEME_PRESETS.contains(&preset) {
+        return Err(ApiError::bad_request("ไม่พบธีมที่เลือก"));
+    }
+    state
+        .db
+        .collection::<Document>("app_settings")
+        .update_one(
+            doc! { "_id": "theme" },
+            doc! { "$set": {
+                "preset": preset,
+                "updated_by": &auth.user_id,
+                "updated_at": Utc::now().to_rfc3339(),
+            } },
+        )
+        .upsert(true)
+        .await
+        .map_err(|e| ApiError::internal(e.to_string()))?;
+    state
+        .ws_hub
+        .broadcast_event(json!({ "event": "theme_changed", "preset": preset }));
+    Ok(Json(json!({ "preset": preset })))
+}

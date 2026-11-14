@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1.0" />
+    <title>BC Ai Chat — 4K 5-Phone Studio Stage</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='10' fill='%23812920'/%3E%3Ccircle cx='18' cy='18' r='11' fill='none' stroke='%23D4A373' stroke-width='2.4'/%3E%3Ccircle cx='18' cy='18' r='4' fill='%23FBF9F8'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stage_styles.css" />
+  </head>
+  <body>
+    <div id="stage-root" class="stage-root" data-theme="ban_chiang" data-room-tone="ban_chiang_cream">
+      <!-- 1. TOP HEADER BAR (76px) -->
+      <header class="top-header">
+        <div class="brand-group">
+          <div class="brand-emblem" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="18" r="15" stroke="#FBF9F8" stroke-width="2.2" />
+              <path
+                d="M7 14C11 9.5 15 18.5 19 14C23 9.5 26 17 29 14"
+                stroke="#D4A373"
+                stroke-width="2.4"
+                stroke-linecap="round"
+              />
+              <path
+                d="M8 22.5C12.5 18 16.5 26.5 21 22C24.5 18.5 27 23.5 29 21.5"
+                stroke="#FADBD4"
+                stroke-width="2.2"
+                stroke-linecap="round"
+              />
+              <circle cx="18" cy="18" r="3.2" fill="#D4A373" />
+            </svg>
+          </div>
+          <div class="brand-texts">
+            <div class="brand-title-row">
+              <h1 class="brand-name">BC Ai Chat</h1>
+              <span class="brand-badge">4K 5-Phone Studio</span>
+            </div>
+            <div class="brand-subtitle">แชทส่วนตัว แก๊งเพื่อน ครอบครัว &amp; ผู้ช่วย AI • ธีมบ้านเชียง</div>
+          </div>
+        </div>
+
+        <div class="header-center-pills">
+          <div id="mode-pill" class="mode-pill">👨‍👩‍👧‍👦 แชทกลุ่ม 5 เครื่องพร้อมกัน</div>
+          <div id="feature-pill" class="feature-pill">✨ ธีมบ้านเชียง • 4 แท็บ Mobile-First</div>
+        </div>
+
+        <div class="header-right-status">
+          <div id="theme-chip" class="theme-chip">
+            <span class="theme-swatch-dot"></span>
+            <span id="theme-chip-label">ธีม: บ้านเชียง</span>
+          </div>
+          <div class="progress-widget">
+            <div class="progress-meta">
+              <span id="chapter-label">บทที่ 1/6</span>
+              <span id="time-label">00:00 / 02:50</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- SPECIAL YOUTUBE 4K THUMBNAIL BANNER (?thumbnail=1) -->
+      <section id="thumbnail-banner" class="thumbnail-banner" aria-hidden="true">
+        <div class="thumb-kicker-row">
+          <span class="thumb-kicker">✨ ใหม่! แอปแชทส่วนตัวคนไทย • ธีมบ้านเชียง</span>
+          <span class="thumb-ai-pill">🤖 มี BC AI ผู้ช่วยส่วนตัวในแชท</span>
+        </div>
+        <h2 class="thumb-headline">
+          BC Ai Chat <span>5 มือถือคุยสดพร้อมกัน!</span>
+        </h2>
+        <div class="thumb-sub">
+          แชทลับล็อก PIN • ยกเลิกไร้ร่องรอย • คลังไฟล์ไม่หมดอายุ • โพล &amp; หารค่าข้าวในห้องแชท
+        </div>
+      </section>
+
+      <!-- 2. 5-PHONE STAGE AREA (888px) -->
+      <main id="phones-stage" class="phones-stage">
+        <div class="stage-floor-glow"></div>
+
+        <!-- SVG Arc Overlay for 1-on-1 DM Focus -->
+        <svg
+          id="stage-arc-overlay"
+          class="stage-arc-overlay"
+          viewBox="0 0 1920 888"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        ></svg>
+
+        <!-- DM & AI Floating Stage Banners -->
+        <div id="dm-arc-banner" class="dm-arc-banner"></div>
+        <div id="ai-copilot-banner" class="ai-copilot-banner"></div>
+
+        <!-- 5 Real-time Synchronized Mobile Phones -->
+        <div id="phones-row" class="phones-row"></div>
+
+        <!-- Intro Motion Card Overlay -->
+        <div id="intro-overlay" class="intro-overlay"></div>
+
+        <!-- Outro 8-Feature Recap Card Overlay -->
+        <div id="outro-overlay" class="outro-overlay"></div>
+      </main>
+
+      <!-- 3. DEDICATED BOTTOM SUBTITLE BAR (116px) -->
+      <footer id="subtitle-bar" class="subtitle-bar">
+        <div id="subtitle-inner" class="subtitle-inner"></div>
+      </footer>
+    </div>
+
+    <script src="./stage_engine.js"></script>
+  </body>
+</html>
