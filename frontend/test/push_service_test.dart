@@ -290,4 +290,65 @@ void main() {
       expect(opened, ['conv_boot_1', 'conv_bg_2']);
     },
   );
+
+  test(
+    'ค. Android: start() activates persistent BcRealtimeAlertService and logout() stops it cleanly',
+    () async {
+      AndroidFlutterLocalNotificationsPlugin.registerWith();
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+      SharedPreferences.setMockInitialValues({
+        'bcaichat_jwt_token': 'jwt-bg-test',
+        'bcaichat_device_id': 'android-bg-dev-1234',
+        'bcaichat_alert_popup': true,
+        'bcaichat_alert_sound': true,
+      });
+      await ApiService.instance.restoreSession();
+
+      HttpOverrides.global = _MockHttpOverrides((
+        method,
+        uri,
+        headers,
+        body,
+      ) async {});
+
+      final calls = <String>[];
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(notificationsChannel, (call) async => true);
+      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+          .setMockMethodCallHandler(pushChannel, (call) async {
+            calls.add(call.method);
+            switch (call.method) {
+              case 'startBackgroundService':
+              case 'syncBackgroundSettings':
+              case 'stopBackgroundService':
+                return true;
+              case 'getToken':
+                return null;
+              default:
+                return null;
+            }
+          });
+
+      await PushService.instance.start();
+      expect(calls, contains('startBackgroundService'));
+      expect(calls, contains('syncBackgroundSettings'));
+      expect(PushService.instance.backgroundServiceActive, isTrue);
+
+      await ApiService.instance.logout();
+      expect(calls, contains('stopBackgroundService'));
+      expect(PushService.instance.backgroundServiceActive, isFalse);
+
+      final serviceKt = File(
+        'android/app/src/main/kotlin/com/bcaichat/app/BcRealtimeAlertService.kt',
+      ).readAsStringSync();
+      final manifest = File(
+        'android/app/src/main/AndroidManifest.xml',
+      ).readAsStringSync();
+      expect(serviceKt, contains('PARTIAL_WAKE_LOCK'));
+      expect(serviceKt, contains('VISIBILITY_PUBLIC'));
+      expect(serviceKt, contains('FOREGROUND_SERVICE_TYPE_REMOTE_MESSAGING'));
+      expect(manifest, contains('android:foregroundServiceType="remoteMessaging"'));
+      expect(manifest, contains('android:stopWithTask="false"'));
+    },
+  );
 }

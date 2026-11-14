@@ -9,6 +9,7 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../models/models.dart';
 import '../theme/app_theme.dart';
+import 'push_service.dart';
 
 class ApiService {
   static final ApiService instance = ApiService._internal();
@@ -87,6 +88,7 @@ class ApiService {
     }
     if (_token != null && _token!.isNotEmpty) {
       connectWebSocket();
+      unawaited(PushService.instance.start());
     }
   }
 
@@ -215,6 +217,7 @@ class ApiService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_prefTokenKey);
     await prefs.remove(_prefUserKey);
+    await PushService.instance.stop();
   }
 
   void connectWebSocket() {

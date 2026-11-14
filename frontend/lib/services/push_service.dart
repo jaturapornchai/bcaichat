@@ -5,20 +5,22 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'api_service.dart';
 import 'notification_service.dart';
 
-/// Alerts while the app is closed, through Firebase Cloud Messaging on Android
-/// via MainActivity + BcPushService (channel bcaichat/push). The backend pushes
-/// only to devices with no WebSocket open; desktop and iOS platforms use
-/// in-app alerts when active or OS local notifications.
+/// Alerts while the app is closed or screen-off, via Android's native
+/// persistent WebSocket foreground service (`BcRealtimeAlertService`) plus
+/// optional Firebase Cloud Messaging (`BcPushService`) when configured.
 class PushService {
   PushService._();
   static final PushService instance = PushService._();
   static const MethodChannel _android = MethodChannel('bcaichat/push');
   static const String _prefApiBase = 'bcaichat_api_base';
+  static const String _prefEffectiveApiBase = 'bcaichat_effective_api_base';
 
   String? _token;
+  bool _backgroundServiceActive = false;
   void Function(String conversationId)? _onOpenConversation;
 
   static bool get supported => defaultTargetPlatform == TargetPlatform.android;
+  bool get backgroundServiceActive => _backgroundServiceActive;
 
   void _bindAndroidHandler() {
     if (defaultTargetPlatform != TargetPlatform.android) return;
@@ -37,16 +39,28 @@ class PushService {
     });
   }
 
-  /// After sign-in: get this install's token, listen for native token rotation,
-  /// and save it with the alert settings. Does nothing when push is not set up.
+  /// After sign-in: starts Android's persistent WebSocket background service,
+  /// acquires any configured FCM token, and syncs alert settings.
   Future<void> start() async {
     if (!supported) return;
     try {
       _bindAndroidHandler();
       await NotificationService.instance.init();
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString(_prefApiBase, ApiService.baseUrl);
+      if ((prefs.getString(_prefApiBase) ?? '').isEmpty) {
+        await prefs.setString(_prefApiBase, ApiService.baseUrl);
+      }
+      await prefs.setString(_prefEffectiveApiBase, ApiService.baseUrl);
       await ApiService.instance.deviceId();
+      await NotificationService.instance.createPushChannels();
+      try {
+        final started = await _android.invokeMethod<bool>(
+          'startBackgroundService',
+        );
+        _backgroundServiceActive = started == true;
+      } catch (e) {
+        debugPrint('background alert service start failed: $e');
+      }
       _token = await _fetchToken();
       await syncSettings();
     } catch (e) {
@@ -54,8 +68,46 @@ class PushService {
     }
   }
 
-  /// Sends the current alert settings (pop-up, sound per kind) with the token.
+  /// Stops Android's persistent WebSocket background service (called on logout).
+  Future<void> stop() async {
+    _backgroundServiceActive = false;
+    _token = null;
+    if (!supported) return;
+    try {
+      await _android.invokeMethod<bool>('stopBackgroundService');
+    } catch (e) {
+      debugPrint('background alert service stop failed: $e');
+    }
+  }
+
+  Future<bool> isIgnoringBatteryOptimizations() async {
+    if (!supported) return true;
+    try {
+      final ok = await _android.invokeMethod<bool>(
+        'isIgnoringBatteryOptimizations',
+      );
+      return ok ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<void> requestIgnoreBatteryOptimizations() async {
+    if (!supported) return;
+    try {
+      await _android.invokeMethod<bool>('requestIgnoreBatteryOptimizations');
+    } catch (e) {
+      debugPrint('battery optimization prompt failed: $e');
+    }
+  }
+
+  /// Syncs alert settings to native Android service and backend push registry.
   Future<void> syncSettings() async {
+    if (supported) {
+      try {
+        await _android.invokeMethod<bool>('syncBackgroundSettings');
+      } catch (_) {}
+    }
     final token = _token;
     if (token == null || token.isEmpty) return;
     final n = NotificationService.instance;
@@ -79,7 +131,6 @@ class PushService {
   }
 
   Future<String?> _fetchToken() async {
-    await NotificationService.instance.createPushChannels();
     return _android.invokeMethod<String>('getToken');
   }
 

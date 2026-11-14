@@ -188,6 +188,11 @@ class NotificationService {
     );
     final appInFront =
         WidgetsBinding.instance.lifecycleState == AppLifecycleState.resumed;
+    if (defaultTargetPlatform == TargetPlatform.android &&
+        !appInFront &&
+        PushService.instance.backgroundServiceActive) {
+      return;
+    }
     if (appInFront && msg.conversationId == openConversationId) return;
     final alert = describe(msg, myUserId: myUserId, room: room);
     if (alert == null) return;

@@ -45,13 +45,13 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
   };
 
   return (
-    <div className="bc-spiral-bg min-h-[100dvh] overflow-x-hidden px-3 py-4 sm:px-6 sm:py-8 lg:px-10">
+    <div className="bc-spiral-bg min-h-[100dvh] overflow-x-hidden px-2.5 py-2 sm:px-4 sm:py-4 lg:px-6">
       <div className="mx-auto max-w-6xl">
         {/* Top bar */}
-        <header className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)]/95 px-4 py-3 shadow-sm backdrop-blur sm:mb-8 sm:px-5">
+        <header className="mb-2.5 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)]/95 px-3 py-1.5 shadow-sm backdrop-blur sm:mb-3.5 sm:px-4">
           <div className="flex min-w-0 items-center gap-3">
             <div
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold text-white shadow-sm sm:h-11 sm:w-11"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-xs font-extrabold text-white shadow-sm sm:h-9 sm:w-9"
               style={{
                 background: "linear-gradient(135deg, var(--bc-deep), var(--bc-primary))",
               }}
@@ -76,7 +76,7 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
           <Link
             href="/multi-demo"
             data-testid="open-multi-demo-btn"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-[var(--bc-primary)] bg-[var(--bc-soft)] px-3 py-2 text-xs font-semibold text-[var(--bc-deep)] transition hover:brightness-95 sm:px-4 sm:text-sm"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-[var(--bc-primary)] bg-[var(--bc-soft)] px-2.5 py-1.5 text-xs font-semibold text-[var(--bc-deep)] transition hover:brightness-95"
           >
             <Columns className="h-4 w-4 shrink-0" />
             <span>จอคุย 5 คน (/multi-demo)</span>
@@ -84,10 +84,10 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
         </header>
 
         {/* Main Hero + Mobile-First Compact Login Grid */}
-        <main className="flex flex-col gap-5 lg:grid lg:grid-cols-12 lg:items-start lg:gap-8">
+        <main className="flex flex-col gap-3 lg:grid lg:grid-cols-12 lg:items-start lg:gap-4">
           {/* Login Card (First on Mobile, Right on Desktop) */}
-          <section className="order-1 mx-auto w-full max-w-md rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 shadow-md sm:p-6 lg:order-2 lg:col-span-5 lg:max-w-none">
-            <div className="mb-4">
+          <section className="order-1 mx-auto w-full max-w-md rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3 shadow-md sm:p-4 lg:order-2 lg:col-span-5 lg:max-w-none">
+            <div className="mb-2">
               <h2 className="text-base font-bold text-[var(--bc-text)] sm:text-lg">
                 แชทส่วนตัว ครอบครัว &amp; เพื่อนสนิท + ผู้ช่วย AI ส่วนตัว
               </h2>
@@ -106,7 +106,7 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
             )}
 
             {/* 5 Personal Demo Accounts */}
-            <div className="space-y-2">
+            <div className="space-y-1">
               {DEMO_ACCOUNTS.map((acc) => (
                 <button
                   key={acc.email}
@@ -114,12 +114,12 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                   disabled={isLoading}
                   data-testid={`demo-login-${acc.slot}`}
                   onClick={() => handleQuickDemo(acc)}
-                  className="flex w-full items-center justify-between gap-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-2.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)]/50 disabled:opacity-60"
+                  className="flex w-full items-center justify-between gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 py-1.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)]/50 disabled:opacity-60"
                 >
                   <div className="flex min-w-0 items-center gap-2.5">
                     <span
                       style={{ backgroundColor: acc.badgeColor }}
-                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-xs font-bold text-white"
+                      className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-[11px] font-bold text-white"
                     >
                       D{acc.slot}
                     </span>
@@ -144,12 +144,12 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                 disabled={isLoading}
                 data-testid="demo-login-jead"
                 onClick={() => handleQuickDemo(ADMIN_DEMO_ACCOUNT)}
-                className="flex w-full items-center justify-between gap-2.5 rounded-2xl border-2 border-[var(--bc-primary)]/40 bg-[var(--bc-soft)]/60 px-3 py-2.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)] disabled:opacity-60"
+                className="flex w-full items-center justify-between gap-2 rounded-xl border-2 border-[var(--bc-primary)]/40 bg-[var(--bc-soft)]/60 px-2.5 py-1.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)] disabled:opacity-60"
               >
                 <div className="flex min-w-0 items-center gap-2.5">
                   <span
                     style={{ backgroundColor: ADMIN_DEMO_ACCOUNT.badgeColor }}
-                    className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-white"
+                    className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-white"
                   >
                     <UserCheck className="h-4 w-4" />
                   </span>
@@ -168,7 +168,7 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
               </button>
             </div>
 
-            <div className="my-4 flex items-center gap-3">
+            <div className="my-2 flex items-center gap-2">
               <div className="h-px flex-1 bg-[var(--bc-border)]" />
               <span className="text-[11px] font-medium text-[var(--bc-muted)]">
                 หรือเข้าสู่ระบบด้วย Gmail / อีเมลส่วนตัว
@@ -176,7 +176,7 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
               <div className="h-px flex-1 bg-[var(--bc-border)]" />
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-2">
               <div>
                 <label className="mb-1 block text-xs font-semibold text-[var(--bc-text)]">
                   Gmail / อีเมลส่วนตัว
@@ -189,7 +189,7 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="yourname@gmail.com"
-                    className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] py-2.5 pl-9 pr-3 text-sm text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
+                    className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] py-1.5 pl-8 pr-2.5 text-xs text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
                   />
                 </div>
               </div>
@@ -203,14 +203,14 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                   value={displayName}
                   onChange={(e) => setDisplayName(e.target.value)}
                   placeholder="เช่น ก้อง หรือ น้องแพร"
-                  className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2.5 text-sm text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
+                  className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading}
-                className="flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:brightness-95 disabled:opacity-60"
+                className="flex w-full items-center justify-center gap-2 rounded-xl px-3 py-2 text-xs font-bold text-white shadow-sm transition hover:brightness-95 disabled:opacity-60"
                 style={{
                   background: "linear-gradient(135deg, var(--bc-deep), var(--bc-primary))",
                 }}
@@ -221,8 +221,8 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
           </section>
 
           {/* Hero + FAQ (Second on Mobile, Left on Desktop) */}
-          <section className="order-2 space-y-5 lg:order-1 lg:col-span-7">
-            <div className="rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-5 shadow-sm sm:p-8">
+          <section className="order-2 space-y-2.5 lg:order-1 lg:col-span-7">
+            <div className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3 shadow-sm sm:p-4">
               <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-1 text-xs font-semibold text-[var(--bc-primary)]">
                 <Sparkles className="h-3.5 w-3.5 shrink-0" />
                 <span>ระบบแชทส่วนตัว ปลอดลิขสิทธิ์ 100%</span>
@@ -238,9 +238,9 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                 อัลบั้มรูปถาวรไม่หมดอายุ โพลโหวต นัดเจอ RSVP โน้ตกลุ่ม และสมุดบันทึก BC ส่วนตัว
               </p>
 
-              <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <div className="flex items-start gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--bc-soft)] text-[var(--bc-primary)]">
+              <div className="mt-2.5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                <div className="flex items-start gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-soft)] text-[var(--bc-primary)]">
                     <Bot className="h-5 w-5" />
                   </div>
                   <div>
@@ -253,8 +253,8 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--bc-soft)] text-[var(--bc-primary)]">
+                <div className="flex items-start gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-soft)] text-[var(--bc-primary)]">
                     <Lock className="h-5 w-5" />
                   </div>
                   <div>
@@ -267,8 +267,8 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--bc-soft)] text-[var(--bc-primary)]">
+                <div className="flex items-start gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-soft)] text-[var(--bc-primary)]">
                     <Heart className="h-5 w-5" />
                   </div>
                   <div>
@@ -281,8 +281,8 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[var(--bc-soft)] text-[var(--bc-primary)]">
+                <div className="flex items-start gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-soft)] text-[var(--bc-primary)]">
                     <ShieldCheck className="h-5 w-5" />
                   </div>
                   <div>
@@ -298,12 +298,12 @@ export function LoginView({ onLogin, isLoading, errorMessage }: LoginViewProps) 
             </div>
 
             {/* FAQ Section matching JSON-LD */}
-            <div className="rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-5 shadow-sm sm:p-6">
+            <div className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3 shadow-sm sm:p-4">
               <h2 className="mb-3 flex items-center gap-2 text-base font-bold text-[var(--bc-text)]">
                 <MessageSquareText className="h-4 w-4 text-[var(--bc-primary)]" />
                 <span>คำถามที่พบบ่อย</span>
               </h2>
-              <div className="space-y-2.5 text-xs text-[var(--bc-muted)] sm:text-sm">
+              <div className="space-y-1.5 text-xs text-[var(--bc-muted)]">
                 <p>
                   <strong className="text-[var(--bc-text)]">ทดลองแชทกับแก๊งเพื่อน 5 คนพร้อมกันได้อย่างไร?</strong>{" "}
                   กดปุ่มบัญชี Demo 1–5 ในแต่ละแท็บเบราว์เซอร์ (ใช้{" "}

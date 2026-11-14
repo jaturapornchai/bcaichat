@@ -381,11 +381,11 @@ export function MainShell({
       <header
         className={`${
           isImmersiveMobileRoom ? "hidden md:flex" : "flex"
-        } shrink-0 items-center justify-between gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 sm:px-4`}
+        } shrink-0 items-center justify-between gap-1.5 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1 sm:px-3`}
       >
         <div className="flex min-w-0 items-center gap-2.5">
           <div
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-extrabold text-white shadow-2xs"
+            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg text-xs font-extrabold text-white shadow-2xs"
             style={{
               background: "linear-gradient(135deg, var(--bc-deep), var(--bc-primary))",
             }}
@@ -405,7 +405,7 @@ export function MainShell({
         <div className="flex shrink-0 items-center gap-2">
           <Link
             href="/multi-demo"
-            className="hidden items-center gap-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-1.5 text-xs font-semibold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)] sm:inline-flex"
+            className="hidden items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 py-1 text-[11px] font-semibold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)] sm:inline-flex"
           >
             <Columns className="h-3.5 w-3.5" />
             <span>จอคุย 5 คน</span>
@@ -414,7 +414,7 @@ export function MainShell({
             type="button"
             data-testid="logout-btn"
             onClick={onLogout}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-1.5 text-xs font-semibold text-[var(--bc-text)] hover:bg-red-50 hover:text-red-700"
+            className="inline-flex items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 py-1 text-[11px] font-semibold text-[var(--bc-text)] hover:bg-red-50 hover:text-red-700"
           >
             <LogOut className="h-3.5 w-3.5" />
             <span>สลับบัญชี</span>
@@ -427,9 +427,9 @@ export function MainShell({
         {/* Desktop Left Rail Navigation (md+) */}
         <nav
           aria-label="เมนูหลัก BC Ai Chat"
-          className="hidden w-20 shrink-0 flex-col items-center justify-between border-r border-[var(--bc-border)] bg-[var(--bc-panel)] py-3 md:flex"
+          className="hidden w-16 shrink-0 flex-col items-center justify-between border-r border-[var(--bc-border)] bg-[var(--bc-panel)] py-1.5 md:flex"
         >
-          <div className="flex w-full flex-col items-center gap-1.5 px-1.5">
+          <div className="flex w-full flex-col items-center gap-1 px-1">
             {navItems.map((item) => {
               const active =
                 activeTab === item.id ||
@@ -440,7 +440,7 @@ export function MainShell({
                   type="button"
                   data-testid={`nav-tab-${item.id}`}
                   onClick={() => handleSelectNavTab(item.id)}
-                  className={`relative flex w-full flex-col items-center justify-center gap-1 rounded-2xl px-1 py-2.5 text-[10px] font-bold transition ${
+                  className={`relative flex w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 text-[10px] font-bold transition ${
                     active
                       ? "bg-[var(--bc-primary)] text-white shadow-sm"
                       : "text-[var(--bc-muted)] hover:bg-[var(--bc-soft)] hover:text-[var(--bc-primary)]"
@@ -465,7 +465,7 @@ export function MainShell({
             }}
             title="QR Code ของฉัน"
             aria-label="QR Code ของฉัน"
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
           >
             <QrCode className="h-5 w-5" />
           </button>
@@ -476,23 +476,23 @@ export function MainShell({
           className={`${
             showRoomOnDesktop
               ? activeTab === "room"
-                ? "hidden md:flex md:w-[340px] lg:w-[370px]"
-                : "flex w-full md:w-[340px] lg:w-[370px]"
+                ? "hidden md:flex md:w-[290px] lg:w-[320px]"
+                : "flex w-full md:w-[290px] lg:w-[320px]"
               : "flex w-full flex-1"
           } min-h-0 shrink-0 flex-col overflow-hidden border-r border-[var(--bc-border)] bg-[var(--bc-surface)]`}
         >
           {/* TAB 1: เพื่อน & โปรไฟล์ (Home / Friends) */}
           {activeTab === "home" && (
-            <div className="flex-1 space-y-4 overflow-y-auto p-3.5 sm:p-6">
-              <div className="mx-auto max-w-4xl space-y-4">
+            <div className="flex-1 space-y-2.5 overflow-y-auto p-2 sm:p-3">
+              <div className="mx-auto max-w-4xl space-y-2.5">
                 {/* Profile Card + Inline QR & Edit Profile */}
-                <div className="space-y-3 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 shadow-xs sm:p-5">
+                <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5 shadow-xs sm:p-3">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="flex min-w-0 items-center gap-3">
                       <UserAvatar
                         name={currentUser.display_name}
                         avatarUrl={currentUser.avatar_url}
-                        size={52}
+                        size={40}
                       />
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-1.5">
@@ -517,7 +517,7 @@ export function MainShell({
                         type="button"
                         data-testid="toggle-qr-inline-btn"
                         onClick={() => setShowQrInline((v) => !v)}
-                        className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-2 text-xs font-bold transition ${
+                        className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-xs font-bold transition ${
                           showQrInline
                             ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-deep)]"
                             : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
@@ -529,7 +529,7 @@ export function MainShell({
                       <button
                         type="button"
                         onClick={() => setShowEditProfile((v) => !v)}
-                        className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3 py-2 text-xs font-bold text-white"
+                        className="inline-flex items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-2.5 py-1 text-xs font-bold text-white"
                       >
                         <Edit3 className="h-4 w-4" />
                         <span>แก้ไขโปรไฟล์</span>
@@ -541,9 +541,9 @@ export function MainShell({
                   {showQrInline && (
                     <div
                       data-testid="inline-qr-card"
-                      className="flex flex-col items-center gap-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-4 text-center sm:flex-row sm:text-left"
+                      className="flex flex-col items-center gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5 text-center sm:flex-row sm:text-left"
                     >
-                      <QrCodeSvg value={currentUser.qr_token || currentUser.bc_id} size={156} />
+                      <QrCodeSvg value={currentUser.qr_token || currentUser.bc_id} size={120} />
                       <div className="min-w-0 flex-1 space-y-1 text-xs">
                         <div className="text-sm font-bold text-[var(--bc-text)]">
                           QR Code เพิ่มเพื่อนของฉัน
@@ -582,25 +582,25 @@ export function MainShell({
                         setShowEditProfile(false);
                         notify("อัปเดตโปรไฟล์เรียบร้อย");
                       }}
-                      className="grid grid-cols-1 gap-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5 sm:grid-cols-3"
+                      className="grid grid-cols-1 gap-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2 sm:grid-cols-3"
                     >
                       <input
                         type="text"
                         value={editName}
                         onChange={(e) => setEditName(e.target.value)}
                         placeholder="ชื่อแสดงผล"
-                        className="rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs outline-none"
+                        className="rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 text-xs outline-none"
                       />
                       <input
                         type="text"
                         value={editStatus}
                         onChange={(e) => setEditStatus(e.target.value)}
                         placeholder="ข้อความสถานะ"
-                        className="rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs outline-none"
+                        className="rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 text-xs outline-none"
                       />
                       <button
                         type="submit"
-                        className="rounded-xl bg-[var(--bc-primary)] px-4 py-2 text-xs font-bold text-white"
+                        className="rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white"
                       >
                         บันทึกข้อมูล
                       </button>
@@ -609,8 +609,8 @@ export function MainShell({
                 </div>
 
                 {/* Add Friend + Search + Inline Create Group + Join Group */}
-                <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                  <div className="space-y-3 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4">
+                <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
+                  <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
                     <h3 className="flex items-center gap-2 text-sm font-bold text-[var(--bc-primary)]">
                       <UserPlus className="h-4 w-4" />
                       <span>ค้นหา &amp; เพิ่มเพื่อน</span>
@@ -621,7 +621,7 @@ export function MainShell({
                         value={addFriendInput}
                         onChange={(e) => setAddFriendInput(e.target.value)}
                         placeholder="BC ID (@prae.bc), อีเมล หรือ QR Token"
-                        className="min-w-0 flex-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none"
+                        className="min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none"
                       />
                       <button
                         type="button"
@@ -636,7 +636,7 @@ export function MainShell({
                                 : { bc_id: addFriendInput }
                           )
                         }
-                        className="shrink-0 rounded-xl bg-[var(--bc-primary)] px-3.5 py-2 text-xs font-bold text-white"
+                        className="shrink-0 rounded-lg bg-[var(--bc-primary)] px-2.5 py-1.5 text-xs font-bold text-white"
                       >
                         เพิ่มเพื่อน
                       </button>
@@ -647,14 +647,14 @@ export function MainShell({
                         value={userSearchQuery}
                         onChange={(e) => setUserSearchQuery(e.target.value)}
                         placeholder="ค้นหาชื่อเพื่อนด้วยชื่อหรือ BC ID..."
-                        className="min-w-0 flex-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none"
+                        className="min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none"
                       />
                       <button
                         type="button"
                         onClick={async () => {
                           setUserSearchResults(await api.searchUsers(userSearchQuery));
                         }}
-                        className="shrink-0 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-2 text-xs font-semibold"
+                        className="shrink-0 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 py-1.5 text-xs font-semibold"
                       >
                         ค้นหา
                       </button>
@@ -684,7 +684,7 @@ export function MainShell({
                     )}
                   </div>
 
-                  <div className="space-y-3 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4">
+                  <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
                     <h3 className="flex items-center gap-2 text-sm font-bold text-[var(--bc-primary)]">
                       <Users className="h-4 w-4" />
                       <span>สร้างกลุ่มใหม่ / เข้าร่วมด้วยรหัสเชิญ</span>
@@ -693,7 +693,7 @@ export function MainShell({
                       type="button"
                       data-testid="open-create-group-btn"
                       onClick={() => setShowCreateGroup((v) => !v)}
-                      className="flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--bc-primary)] px-4 py-2.5 text-xs font-bold text-white"
+                      className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white"
                     >
                       <Plus className="h-4 w-4" />
                       <span>
@@ -708,7 +708,7 @@ export function MainShell({
                       <form
                         data-testid="inline-create-group-form"
                         onSubmit={handleCreateGroup}
-                        className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5"
+                        className="space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5"
                       >
                         <div className="flex items-center justify-between">
                           <span className="text-xs font-bold text-[var(--bc-text)]">
@@ -729,7 +729,7 @@ export function MainShell({
                           value={newGroupName}
                           onChange={(e) => setNewGroupName(e.target.value)}
                           placeholder="ชื่อกลุ่ม เช่น แก๊งนัดกินหมูกระทะ / ทริปเชียงใหม่"
-                          className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs outline-none focus:border-[var(--bc-primary)]"
+                          className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
                         />
                         <div className="flex items-center gap-2 text-xs">
                           <span className="font-semibold text-[var(--bc-muted)]">หมวดหมู่:</span>
@@ -756,7 +756,7 @@ export function MainShell({
                             ครอบครัว
                           </button>
                         </div>
-                        <label className="flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 px-3 py-2 text-xs font-bold text-indigo-800">
+                        <label className="flex items-center gap-2 rounded-lg border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-xs font-bold text-indigo-800">
                           <input
                             type="checkbox"
                             checked={includeAiInGroup}
@@ -773,7 +773,7 @@ export function MainShell({
                               return (
                                 <label
                                   key={f.id}
-                                  className="flex cursor-pointer items-center gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs"
+                                  className="flex cursor-pointer items-center gap-2 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1 text-xs"
                                 >
                                   <input
                                     type="checkbox"
@@ -818,11 +818,11 @@ export function MainShell({
                         value={joinTokenInput}
                         onChange={(e) => setJoinTokenInput(e.target.value)}
                         placeholder="วางรหัสเชิญกลุ่ม (invite_token)"
-                        className="min-w-0 flex-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none"
+                        className="min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none"
                       />
                       <button
                         type="submit"
-                        className="shrink-0 rounded-xl border border-[var(--bc-primary)] bg-[var(--bc-soft)] px-3.5 py-2 text-xs font-bold text-[var(--bc-deep)]"
+                        className="shrink-0 rounded-lg border border-[var(--bc-primary)] bg-[var(--bc-soft)] px-2.5 py-1.5 text-xs font-bold text-[var(--bc-deep)]"
                       >
                         เข้าร่วมกลุ่ม
                       </button>
@@ -831,7 +831,7 @@ export function MainShell({
                 </div>
 
                 {/* Friend List */}
-                <div className="rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4">
+                <div className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
                   <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                     <h3 className="text-sm font-bold text-[var(--bc-text)]">
                       รายชื่อเพื่อน &amp; ครอบครัว ({visibleFriends.length})
@@ -844,17 +844,17 @@ export function MainShell({
                       {showHiddenBlocked ? "ซ่อนรายการที่บล็อก/ซ่อน" : "ดูรายชื่อที่ซ่อน/บล็อก"}
                     </button>
                   </div>
-                  <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                  <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
                     {visibleFriends.map((f) => (
                       <div
                         key={f.id}
-                        className="flex items-center justify-between gap-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3"
+                        className="flex items-center justify-between gap-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2"
                       >
                         <div className="flex min-w-0 items-center gap-2.5">
                           <UserAvatar
                             name={f.display_name}
                             avatarUrl={f.avatar_url}
-                            size={38}
+                            size={32}
                             isAi={f.id === "user_ai"}
                           />
                           <div className="min-w-0">
@@ -874,7 +874,7 @@ export function MainShell({
                               await api.updateFriendStatus(f.id, { is_favorite: !f.is_favorite });
                               await refreshCore();
                             }}
-                            className={`rounded-lg p-1.5 ${
+                            className={`rounded-md p-1 ${
                               f.is_favorite ? "text-amber-500" : "text-[var(--bc-muted)]"
                             }`}
                           >
@@ -887,7 +887,7 @@ export function MainShell({
                               await api.updateFriendStatus(f.id, { is_hidden: !f.is_hidden });
                               await refreshCore();
                             }}
-                            className={`rounded-lg p-1.5 ${
+                            className={`rounded-md p-1 ${
                               f.is_hidden ? "text-[var(--bc-primary)]" : "text-[var(--bc-muted)]"
                             }`}
                           >
@@ -900,7 +900,7 @@ export function MainShell({
                               await api.updateFriendStatus(f.id, { is_blocked: !f.is_blocked });
                               await refreshCore();
                             }}
-                            className={`rounded-lg p-1.5 ${
+                            className={`rounded-md p-1 ${
                               f.is_blocked ? "text-red-600" : "text-[var(--bc-muted)]"
                             }`}
                           >
@@ -913,7 +913,7 @@ export function MainShell({
                               await refreshCore();
                               handleOpenRoom(conv.id);
                             }}
-                            className="rounded-xl bg-[var(--bc-primary)] px-2.5 py-1 text-[11px] font-bold text-white"
+                            className="rounded-lg bg-[var(--bc-primary)] px-2 py-0.5 text-[10px] font-bold text-white"
                           >
                             แชท
                           </button>
@@ -929,9 +929,9 @@ export function MainShell({
           {/* TAB 2 / 3 LEFT LIST: CHATS */}
           {(activeTab === "chats" || activeTab === "room") && (
             <div className="flex h-full min-h-0 flex-col">
-              <div className="space-y-2 border-b border-[var(--bc-border)] bg-[var(--bc-card)] p-3">
+              <div className="space-y-1 border-b border-[var(--bc-border)] bg-[var(--bc-card)] p-2">
                 <div className="flex items-center gap-2">
-                  <div className="flex min-w-0 flex-1 items-center gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-1.5">
+                  <div className="flex min-w-0 flex-1 items-center gap-1.5 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1">
                     <Search className="h-4 w-4 shrink-0 text-[var(--bc-muted)]" />
                     <input
                       type="text"
@@ -948,7 +948,7 @@ export function MainShell({
                       setShowCreateGroup(true);
                     }}
                     title="สร้างกลุ่มใหม่"
-                    className="inline-flex h-8 shrink-0 items-center gap-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 text-xs font-bold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
+                    className="inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 text-xs font-bold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
                   >
                     <Plus className="h-3.5 w-3.5" />
                     <span>กลุ่ม</span>
@@ -958,7 +958,7 @@ export function MainShell({
                 {/* 7 Horizontally Scrollable Folder Chips */}
                 <div
                   data-testid="chat-folder-chips"
-                  className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap pb-0.5"
+                  className="flex items-center gap-1 overflow-x-auto whitespace-nowrap pb-0"
                 >
                   {(
                     [
@@ -976,7 +976,7 @@ export function MainShell({
                       type="button"
                       data-testid={`folder-chip-${fid}`}
                       onClick={() => setChatFolder(fid)}
-                      className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-semibold transition ${
+                      className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold transition ${
                         chatFolder === fid
                           ? "bg-[var(--bc-primary)] text-white"
                           : "bg-[var(--bc-panel)] text-[var(--bc-muted)] hover:bg-[var(--bc-soft)]"
@@ -1016,7 +1016,7 @@ export function MainShell({
                       type="button"
                       data-testid={`conv-item-${c.id}`}
                       onClick={() => handleOpenRoom(c.id)}
-                      className={`flex w-full items-center gap-3 px-3.5 py-3 text-left transition ${
+                      className={`flex w-full items-center gap-2 px-2.5 py-1.5 text-left transition ${
                         selected
                           ? "bg-[var(--bc-soft)]/70"
                           : "bg-[var(--bc-card)] hover:bg-[var(--bc-panel)]"
@@ -1025,7 +1025,7 @@ export function MainShell({
                       <UserAvatar
                         name={c.name}
                         avatarUrl={c.avatar_url}
-                        size={42}
+                        size={34}
                         isAi={c.members.some((m) => m.id === "user_ai") && c.type === "direct"}
                         isOfficial={c.type === "official"}
                       />
@@ -1051,7 +1051,7 @@ export function MainShell({
                             {c.last_message?.content || "เริ่มสนทนาได้เลย"}
                           </p>
                           {c.unread_count > 0 && (
-                            <span className="inline-flex h-5 min-w-5 shrink-0 items-center justify-center rounded-full bg-[var(--bc-primary)] px-1.5 text-[10px] font-bold text-white">
+                            <span className="inline-flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-[var(--bc-primary)] px-1 text-[9px] font-bold text-white">
                               {c.unread_count}
                             </span>
                           )}
@@ -1066,8 +1066,8 @@ export function MainShell({
 
           {/* TAB 3: สมุดบันทึก BC (Personal Notes) */}
           {activeTab === "notes" && (
-            <div className="flex-1 overflow-y-auto p-3.5 sm:p-6">
-              <div className="mx-auto max-w-4xl space-y-4">
+            <div className="flex-1 overflow-y-auto p-2 sm:p-3">
+              <div className="mx-auto max-w-4xl space-y-2.5">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div>
                     <h2 className="text-lg font-bold text-[var(--bc-text)]">
@@ -1091,21 +1091,21 @@ export function MainShell({
 
                 <form
                   onSubmit={handleCreatePersonalNote}
-                  className="space-y-3 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4"
+                  className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
                 >
                   <input
                     type="text"
                     value={noteTitle}
                     onChange={(e) => setNoteTitle(e.target.value)}
                     placeholder="หัวข้อบันทึก..."
-                    className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-sm outline-none"
+                    className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none"
                   />
                   <textarea
                     rows={3}
                     value={noteBody}
                     onChange={(e) => setNoteBody(e.target.value)}
                     placeholder="เนื้อหาบันทึก..."
-                    className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none"
+                    className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none"
                   />
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <input
@@ -1116,7 +1116,7 @@ export function MainShell({
                     <button
                       type="submit"
                       data-testid="create-personal-note-btn"
-                      className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-4 py-2 text-xs font-bold text-white"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white"
                     >
                       <Plus className="h-3.5 w-3.5" />
                       <span>บันทึกลงสมุดบันทึก BC</span>
@@ -1124,7 +1124,7 @@ export function MainShell({
                   </div>
                 </form>
 
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                   {personalNotes
                     .filter((n) => {
                       const q = noteQuery.trim().toLowerCase();
@@ -1137,7 +1137,7 @@ export function MainShell({
                     .map((n) => (
                       <div
                         key={n.id}
-                        className="flex flex-col justify-between space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4"
+                        className="flex flex-col justify-between space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
                       >
                         <div>
                           <div className="flex items-start justify-between gap-2">
@@ -1198,8 +1198,8 @@ export function MainShell({
 
           {/* TAB 4: ตั้งค่า & เครื่องมือส่วนตัว */}
           {activeTab === "services" && (
-            <div className="flex-1 overflow-y-auto p-3.5 sm:p-6">
-              <div className="mx-auto max-w-5xl space-y-5">
+            <div className="flex-1 overflow-y-auto p-2 sm:p-3">
+              <div className="mx-auto max-w-5xl space-y-2.5">
                 {runningMiniApp ? (
                   /* Inline Mini-App Runner (Zero Modal) */
                   <div
@@ -1243,12 +1243,12 @@ export function MainShell({
                     </div>
 
                     {/* Personal Room Tone Chooser (All Users) */}
-                    <div className="space-y-2.5 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 sm:p-5">
+                    <div className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5 sm:p-3">
                       <div className="flex items-center gap-2 text-sm font-bold text-[var(--bc-primary)]">
                         <Palette className="h-4 w-4" />
                         <span>โทนสีพื้นหลังห้องแชทส่วนตัว (3 แบบ)</span>
                       </div>
-                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+                      <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-3">
                         {Object.values(ROOM_TONES).map((t) => {
                           const active = roomTone === t.id;
                           return (
@@ -1259,7 +1259,7 @@ export function MainShell({
                                 onChangeRoomTone(t.id);
                                 notify(`เปลี่ยนโทนห้องแชทเป็น "${t.label}" แล้ว`);
                               }}
-                              className={`flex items-center justify-between gap-2 rounded-2xl border p-3 text-left text-xs font-semibold transition ${
+                              className={`flex items-center justify-between gap-1.5 rounded-xl border p-2 text-left text-xs font-semibold transition ${
                                 active
                                   ? "border-[var(--bc-primary)] bg-[var(--bc-soft)]/70 text-[var(--bc-deep)]"
                                   : "border-[var(--bc-border)] bg-[var(--bc-panel)] hover:bg-[var(--bc-soft)]/30"
@@ -1280,18 +1280,18 @@ export function MainShell({
                     </div>
 
                     {/* Personal Lifestyle Tools (Mini-Apps) */}
-                    <div className="rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 sm:p-5">
-                      <h3 className="mb-3 flex items-center gap-2 text-sm font-bold text-[var(--bc-text)]">
+                    <div className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5 sm:p-3">
+                      <h3 className="mb-2 flex items-center gap-1.5 text-sm font-bold text-[var(--bc-text)]">
                         <Sparkles className="h-4 w-4 text-[var(--bc-primary)]" />
                         <span>เครื่องมือไลฟ์สไตล์ &amp; ผู้ช่วยส่วนตัว (Mini-Apps)</span>
                       </h3>
-                      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
                         {miniApps.map((app) => (
                           <button
                             key={app.id}
                             type="button"
                             onClick={() => setRunningMiniApp(app)}
-                            className="flex flex-col items-start rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-3.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)]/50"
+                            className="flex flex-col items-start rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5 text-left transition hover:border-[var(--bc-primary)] hover:bg-[var(--bc-soft)]/50"
                           >
                             <span
                               style={{
@@ -1310,7 +1310,7 @@ export function MainShell({
 
                     {/* Owner / Admin Personal Settings */}
                     {currentUser.role === "admin" ? (
-                      <div className="space-y-4 rounded-3xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 sm:p-5">
+                      <div className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5 sm:p-3">
                         <div className="flex items-center justify-between">
                           <h3 className="flex items-center gap-2 text-sm font-bold text-[var(--bc-primary)]">
                             <Shield className="h-4 w-4" />
@@ -1320,26 +1320,26 @@ export function MainShell({
 
                         {/* Stats */}
                         {adminOverview && (
-                          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-5">
-                            <div className="rounded-2xl bg-[var(--bc-panel)] p-3">
+                          <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-5">
+                            <div className="rounded-xl bg-[var(--bc-panel)] p-2">
                               <div className="text-[11px] text-[var(--bc-muted)]">สมาชิก</div>
                               <div className="text-lg font-extrabold">{adminOverview.total_users}</div>
                             </div>
-                            <div className="rounded-2xl bg-[var(--bc-panel)] p-3">
+                            <div className="rounded-xl bg-[var(--bc-panel)] p-2">
                               <div className="text-[11px] text-[var(--bc-muted)]">ห้องแชท</div>
                               <div className="text-lg font-extrabold">
                                 {adminOverview.total_conversations}
                               </div>
                             </div>
-                            <div className="rounded-2xl bg-[var(--bc-panel)] p-3">
+                            <div className="rounded-xl bg-[var(--bc-panel)] p-2">
                               <div className="text-[11px] text-[var(--bc-muted)]">ข้อความ</div>
                               <div className="text-lg font-extrabold">{adminOverview.total_messages}</div>
                             </div>
-                            <div className="rounded-2xl bg-[var(--bc-panel)] p-3">
+                            <div className="rounded-xl bg-[var(--bc-panel)] p-2">
                               <div className="text-[11px] text-[var(--bc-muted)]">ไฟล์ถาวร</div>
                               <div className="text-lg font-extrabold">{adminOverview.total_files}</div>
                             </div>
-                            <div className="col-span-2 rounded-2xl bg-[var(--bc-panel)] p-3 sm:col-span-1">
+                            <div className="col-span-2 rounded-xl bg-[var(--bc-panel)] p-2 sm:col-span-1">
                               <div className="text-[11px] text-[var(--bc-muted)]">พื้นที่ใช้ไป</div>
                               <div className="text-lg font-extrabold">
                                 {formatFileSize(adminOverview.total_storage_bytes)}
@@ -1349,12 +1349,12 @@ export function MainShell({
                         )}
 
                         {/* 7 Thai Heritage Themes Live Switcher */}
-                        <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-4">
+                        <div className="space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5">
                           <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                             <Palette className="h-4 w-4" />
                             <span>เลือก 7 ธีมส่วนตัวแบบเรียลไทม์ (ซิงค์ทุกจอทันที)</span>
                           </div>
-                          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
+                          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 lg:grid-cols-4">
                             {THEME_PRESET_LIST.map((th) => {
                               const active = th.id === activeTheme;
                               return (
@@ -1367,7 +1367,7 @@ export function MainShell({
                                     onThemeUpdated(th.id);
                                     notify(`เปลี่ยนธีมแชทเป็น "${th.name}" แล้ว`);
                                   }}
-                                  className={`flex items-center gap-2.5 rounded-xl border p-2.5 text-left text-xs transition ${
+                                  className={`flex items-center gap-2 rounded-lg border p-2 text-left text-xs transition ${
                                     active
                                       ? "border-[var(--bc-primary)] bg-white font-bold shadow-xs"
                                       : "border-[var(--bc-border)] bg-white/70 hover:bg-white"
@@ -1390,7 +1390,7 @@ export function MainShell({
                         </div>
 
                         {/* Personal Broadcast & Private AI Settings */}
-                        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-2.5 lg:grid-cols-2">
                           <form
                             onSubmit={async (e) => {
                               e.preventDefault();
@@ -1398,7 +1398,7 @@ export function MainShell({
                               setBroadcastBody("");
                               notify(`ส่งประกาศส่วนตัวแล้ว ${res.sent_count} บัญชี`);
                             }}
-                            className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-4"
+                            className="space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5"
                           >
                             <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                               <Megaphone className="h-4 w-4" />
@@ -1441,7 +1441,7 @@ export function MainShell({
                                 setAiSettings(updated);
                                 notify("บันทึกการตั้งค่า AI ส่วนตัวแล้ว");
                               }}
-                              className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-4"
+                              className="space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] p-2.5"
                             >
                               <div className="flex items-center justify-between gap-2">
                                 <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
@@ -1533,7 +1533,7 @@ export function MainShell({
         data-testid="mobile-bottom-nav"
         className={`${
           isImmersiveMobileRoom ? "hidden" : "flex"
-        } shrink-0 items-center justify-around border-t border-[var(--bc-border)] bg-[var(--bc-card)] px-1 py-1.5 pb-[max(0.375rem,env(safe-area-inset-bottom))] md:hidden`}
+        } shrink-0 items-center justify-around border-t border-[var(--bc-border)] bg-[var(--bc-card)] px-1 py-0.5 pb-[max(0.25rem,env(safe-area-inset-bottom))] md:hidden`}
       >
         {navItems.map((item) => {
           const active = activeTab === item.id;
@@ -1543,7 +1543,7 @@ export function MainShell({
               type="button"
               data-testid={`mobile-nav-tab-${item.id}`}
               onClick={() => handleSelectNavTab(item.id)}
-              className={`relative flex min-h-[44px] flex-1 flex-col items-center justify-center gap-0.5 rounded-xl px-2 py-1 text-[11px] font-bold transition ${
+              className={`relative flex min-h-[38px] flex-1 flex-col items-center justify-center gap-0.5 rounded-lg px-1.5 py-0.5 text-[10px] font-bold transition ${
                 active
                   ? "bg-[var(--bc-soft)]/60 text-[var(--bc-primary)]"
                   : "text-[var(--bc-muted)]"

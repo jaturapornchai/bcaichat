@@ -204,8 +204,8 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Center(
                 child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(
-                    horizontal: isWide ? 32 : 16,
-                    vertical: isWide ? 32 : 20,
+                    horizontal: isWide ? 24 : 12,
+                    vertical: isWide ? 18 : 10,
                   ),
                   child: ConstrainedBox(
                     constraints: BoxConstraints(maxWidth: isWide ? 1120 : 480),
@@ -230,7 +230,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         : Column(
                             children: [
                               _enter(child: _buildCompactHeroHeader()),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 10),
                               _enter(
                                 delayMs: 120,
                                 child: _buildLoginCard(wide: false),
@@ -396,12 +396,12 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 32),
+        const SizedBox(height: 16),
         ...features.map(
           (item) => Padding(
-            padding: const EdgeInsets.only(bottom: 14),
+            padding: const EdgeInsets.only(bottom: 8),
             child: Container(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(11),
               decoration: BoxDecoration(
                 color: Colors.white.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -460,7 +460,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildLoginCard({required bool wide}) {
     return Container(
-      padding: EdgeInsets.all(wide ? 32 : 20),
+      padding: EdgeInsets.all(wide ? 20 : 14),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusXl),
@@ -906,7 +906,7 @@ class _DemoAccountTileState extends State<_DemoAccountTile> {
         widget.role.contains('ผู้ดูแล') ||
         widget.role.contains('Admin');
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 5),
       child: MouseRegion(
         onEnter: (_) => setState(() => _hover = true),
         onExit: (_) => setState(() => _hover = false),
@@ -939,7 +939,7 @@ class _DemoAccountTileState extends State<_DemoAccountTile> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    UserAvatar(name: widget.name, radius: 19, showOnline: true),
+                    UserAvatar(name: widget.name, radius: 16, showOnline: true),
                     const SizedBox(width: 12),
                     Expanded(
                       child: Column(

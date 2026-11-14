@@ -285,7 +285,7 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(narrow ? 14 : 24),
+        padding: EdgeInsets.all(narrow ? 10 : 16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 920),
@@ -295,8 +295,8 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
                 // SSO Status Bar
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
+                    horizontal: 12,
+                    vertical: 8,
                   ),
                   decoration: BoxDecoration(
                     color: AppTheme.brandSoft,
@@ -543,7 +543,7 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
 
   Widget _buildFormCard(Color accentColor) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -575,15 +575,15 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
 
           _fieldLabel(_label1),
           TextField(controller: _field1Ctrl, onChanged: (_) => setState(() {})),
-          const SizedBox(height: 14),
+          const SizedBox(height: 8),
 
           _fieldLabel(_label2),
           TextField(controller: _field2Ctrl, onChanged: (_) => setState(() {})),
-          const SizedBox(height: 14),
+          const SizedBox(height: 8),
 
           _fieldLabel(_label3),
           TextField(controller: _field3Ctrl, onChanged: (_) => setState(() {})),
-          const SizedBox(height: 14),
+          const SizedBox(height: 8),
 
           _fieldLabel('หมายเหตุเพิ่มเติม'),
           TextField(
@@ -609,7 +609,7 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
           const SizedBox(height: 20),
           SizedBox(
             width: double.infinity,
-            height: 48,
+            height: 40,
             child: ElevatedButton.icon(
               onPressed: _isSending ? null : _sendRichCardToChat,
               style: ElevatedButton.styleFrom(backgroundColor: accentColor),
@@ -639,7 +639,7 @@ class _MiniAppRunnerScreenState extends State<MiniAppRunnerScreen> {
   Widget _buildRichCardPreview(Color accentColor) {
     final user = ApiService.instance.currentUser;
     return Container(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [Color(0xFFF5EFEA), Color(0xFFEADBD7)],

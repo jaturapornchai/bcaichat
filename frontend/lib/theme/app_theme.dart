@@ -161,10 +161,10 @@ class AppTheme {
   static const Color goldPin = Color(0xFFF59E0B);
 
   // Radius scale
-  static const double radiusSm = 10;
-  static const double radiusMd = 14;
-  static const double radiusLg = 20;
-  static const double radiusXl = 28;
+  static const double radiusSm = 8;
+  static const double radiusMd = 11;
+  static const double radiusLg = 15;
+  static const double radiusXl = 22;
 
   // Soft layered shadows: a tight contact shadow + a wide ambient one,
   // tinted with slate instead of pure black so cards look lifted, not dirty.
@@ -301,6 +301,7 @@ class AppTheme {
 
     return ThemeData(
       useMaterial3: true,
+      visualDensity: VisualDensity.compact,
       scaffoldBackgroundColor: surfaceBg,
       splashFactory: InkRipple.splashFactory,
       pageTransitionsTheme: transitionsTheme,
@@ -321,8 +322,9 @@ class AppTheme {
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
         centerTitle: false,
+        toolbarHeight: 48,
         titleTextStyle: GoogleFonts.prompt(
-          fontSize: 18,
+          fontSize: 16.5,
           fontWeight: FontWeight.w600,
           color: Colors.white,
           height: 1.3,
@@ -342,10 +344,7 @@ class AppTheme {
         filled: true,
         fillColor: Colors.white,
         isDense: true,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 14,
-          vertical: 13,
-        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 11, vertical: 8),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(radiusMd),
           borderSide: const BorderSide(color: borderSubtle),
@@ -375,8 +374,8 @@ class AppTheme {
           foregroundColor: Colors.white,
           elevation: 0,
           shadowColor: Colors.transparent,
-          minimumSize: const Size(0, 44),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          minimumSize: const Size(0, 36),
+          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
           shape: roundedMd,
           textStyle: GoogleFonts.prompt(
             fontSize: 14,
@@ -387,8 +386,8 @@ class AppTheme {
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          minimumSize: const Size(0, 44),
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          minimumSize: const Size(0, 36),
+          padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 7),
           shape: roundedMd,
           textStyle: GoogleFonts.prompt(
             fontSize: 14,
@@ -400,9 +399,9 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: slateDark,
-          minimumSize: const Size(0, 44),
+          minimumSize: const Size(0, 36),
           side: const BorderSide(color: borderSubtle),
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
           shape: roundedMd,
           textStyle: GoogleFonts.prompt(
             fontSize: 13.5,
@@ -448,7 +447,7 @@ class AppTheme {
         padding: const EdgeInsets.symmetric(horizontal: 6),
       ),
       navigationBarTheme: NavigationBarThemeData(
-        height: 66,
+        height: 54,
         elevation: 0,
         backgroundColor: Colors.white.withValues(alpha: 0.86),
         surfaceTintColor: Colors.transparent,
@@ -457,7 +456,7 @@ class AppTheme {
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         iconTheme: WidgetStateProperty.resolveWith(
           (states) => IconThemeData(
-            size: 23,
+            size: 20,
             color: states.contains(WidgetState.selected)
                 ? brandDeep
                 : slateMuted,
@@ -465,7 +464,7 @@ class AppTheme {
         ),
         labelTextStyle: WidgetStateProperty.resolveWith(
           (states) => GoogleFonts.prompt(
-            fontSize: 11.5,
+            fontSize: 10.5,
             height: 1.2,
             fontWeight: states.contains(WidgetState.selected)
                 ? FontWeight.w600
@@ -565,21 +564,23 @@ class AppTheme {
       ),
       listTileTheme: ListTileThemeData(
         shape: roundedMd,
+        dense: true,
+        visualDensity: VisualDensity.compact,
         iconColor: slateMuted,
         titleTextStyle: GoogleFonts.prompt(
-          fontSize: 14.5,
+          fontSize: 13.5,
           fontWeight: FontWeight.w600,
           color: slateDark,
           height: 1.35,
         ),
         subtitleTextStyle: GoogleFonts.prompt(
-          fontSize: 12.5,
+          fontSize: 11.5,
           color: slateMuted,
           height: 1.4,
         ),
       ),
       scrollbarTheme: ScrollbarThemeData(
-        thickness: WidgetStateProperty.all(6),
+        thickness: WidgetStateProperty.all(4),
         radius: const Radius.circular(999),
         thumbColor: WidgetStateProperty.all(slateMuted.withValues(alpha: 0.35)),
       ),
@@ -704,7 +705,7 @@ class UserAvatar extends StatelessWidget {
     super.key,
     required this.name,
     this.avatarUrl,
-    this.radius = 22,
+    this.radius = 19,
     this.showOnline = false,
     this.isOfficial = false,
     this.isGroup = false,
@@ -887,8 +888,8 @@ class PillBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 22,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      height: 19,
+      padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(999),
@@ -908,7 +909,7 @@ class PillBadge extends StatelessWidget {
               softWrap: false,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: FontWeight.w600,
                 color: textColor,
                 height: 1.0,

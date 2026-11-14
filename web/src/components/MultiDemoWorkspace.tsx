@@ -171,17 +171,17 @@ export function MultiDemoWorkspace() {
 
   return (
     <div className="bc-spiral-bg flex min-h-screen flex-col">
-      <header className="flex flex-wrap items-center justify-between gap-3 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-4 py-3 shadow-2xs">
+      <header className="flex flex-wrap items-center justify-between gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-1.5 shadow-2xs">
         <div className="flex items-center gap-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-1.5 text-xs font-bold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
+            className="inline-flex items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 py-1 text-xs font-bold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>กลับหน้าหลัก</span>
           </Link>
           <div>
-            <h1 className="text-base font-bold text-[var(--bc-text)] sm:text-lg">
+            <h1 className="text-sm font-bold text-[var(--bc-text)] sm:text-base">
               โหมดทดลองแชทแก๊งเพื่อน 5 จอพร้อมกัน (Multi-Demo Live)
             </h1>
             <p className="text-xs text-[var(--bc-muted)]">
@@ -193,24 +193,24 @@ export function MultiDemoWorkspace() {
         <button
           type="button"
           onClick={() => void bootAll()}
-          className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3.5 py-2 text-xs font-bold text-white"
+          className="inline-flex items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-2.5 py-1 text-xs font-bold text-white"
         >
           <RefreshCw className="h-3.5 w-3.5" />
           <span>รีเฟรชทั้ง 5 จอ</span>
         </button>
       </header>
 
-      <main className="grid flex-1 grid-cols-1 gap-3 p-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <main className="grid flex-1 grid-cols-1 gap-2 p-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {panes.map((pane, idx) => (
           <section
             key={pane.account.email}
             data-testid={`multi-demo-pane-${pane.account.slot}`}
-            className="flex h-[540px] flex-col overflow-hidden rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] shadow-sm xl:h-[calc(100vh-96px)]"
+            className="flex h-[540px] flex-col overflow-hidden rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] shadow-sm xl:h-[calc(100vh-72px)]"
           >
             {/* Pane Header */}
             <div
               style={{ backgroundColor: pane.account.badgeColor }}
-              className="flex items-center justify-between gap-2 px-3 py-2 text-white"
+              className="flex items-center justify-between gap-1.5 px-2.5 py-1 text-white"
             >
               <div className="min-w-0">
                 <div className="truncate text-xs font-bold">{pane.account.name}</div>
@@ -222,7 +222,7 @@ export function MultiDemoWorkspace() {
             </div>
 
             {/* Room Selector */}
-            <div className="border-b border-[var(--bc-border)] bg-[var(--bc-panel)] p-2">
+            <div className="border-b border-[var(--bc-border)] bg-[var(--bc-panel)] p-1.5">
               <select
                 value={pane.activeConvId}
                 onChange={(e) => {
@@ -243,7 +243,7 @@ export function MultiDemoWorkspace() {
             </div>
 
             {/* Messages */}
-            <div className="bc-room-spiral-light flex-1 space-y-2 overflow-y-auto bg-[#F5EFEA] p-2.5">
+            <div className="bc-room-spiral-light flex-1 space-y-1.5 overflow-y-auto bg-[#F5EFEA] p-2">
               {pane.messages.slice(-25).map((m) => {
                 const isMe = m.sender_id === pane.user?.id;
                 const isAi = m.sender_id === "user_ai";
@@ -269,13 +269,13 @@ export function MultiDemoWorkspace() {
                             ? { backgroundColor: "#EEF2FF", color: "#1E1B4B" }
                             : { backgroundColor: "#FFFFFF", color: "#1B1C1C" }
                       }
-                      className="max-w-[90%] rounded-xl border border-[var(--bc-border)] px-2.5 py-1.5 text-xs shadow-2xs"
+                      className="max-w-[90%] rounded-xl border border-[var(--bc-border)] px-2 py-1 text-xs shadow-2xs"
                     >
                       {m.type === "sticker" ? (
                         <StickerArt
                           code={m.sticker_code}
                           fallbackLabel={m.content}
-                          size={76}
+                          size={58}
                         />
                       ) : (
                         <p className="whitespace-pre-wrap break-words">{m.content}</p>
@@ -296,7 +296,7 @@ export function MultiDemoWorkspace() {
                 e.preventDefault();
                 void handleSend(idx);
               }}
-              className="flex items-center gap-1.5 border-t border-[var(--bc-border)] bg-[var(--bc-card)] p-2"
+              className="flex items-center gap-1 border-t border-[var(--bc-border)] bg-[var(--bc-card)] p-1.5"
             >
               <button
                 type="button"
@@ -311,7 +311,7 @@ export function MultiDemoWorkspace() {
                     )
                   )
                 }
-                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-700"
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-700"
               >
                 <Bot className="h-3.5 w-3.5" />
               </button>
@@ -324,13 +324,13 @@ export function MultiDemoWorkspace() {
                   )
                 }
                 placeholder={`พิมพ์ในนาม Demo ${pane.account.slot}...`}
-                className="h-8 min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2 text-xs outline-none focus:border-[var(--bc-primary)]"
+                className="h-7 min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <button
                 type="submit"
                 aria-label="ส่ง"
                 title="ส่ง"
-                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-primary)] text-white"
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--bc-primary)] text-white"
               >
                 <Send className="h-3.5 w-3.5" />
               </button>

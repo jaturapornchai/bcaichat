@@ -522,7 +522,7 @@ export function ChatRoomView({
       {/* Compact Top Room Header */}
       <header className="shrink-0 border-b border-[var(--bc-border)] bg-[var(--bc-card)]">
         {/* Row 1: Back + Avatar + Title + Quick Icons */}
-        <div className="flex items-center justify-between gap-2 px-3 py-2">
+        <div className="flex items-center justify-between gap-1.5 px-2.5 py-1">
           <div className="flex min-w-0 items-center gap-2">
             {onBackMobile && (
               <button
@@ -530,7 +530,7 @@ export function ChatRoomView({
                 data-testid="mobile-back-btn"
                 aria-label="กลับหน้ารายการแชท"
                 onClick={onBackMobile}
-                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] text-sm font-bold text-[var(--bc-text)] md:hidden"
+                className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] text-xs font-bold text-[var(--bc-text)] md:hidden"
               >
                 ←
               </button>
@@ -538,7 +538,7 @@ export function ChatRoomView({
             <UserAvatar
               name={conversation.name}
               avatarUrl={conversation.avatar_url}
-              size={34}
+              size={28}
               isAi={conversation.members.some((m) => m.id === "user_ai") && conversation.type === "direct"}
               isOfficial={conversation.type === "official"}
             />
@@ -546,7 +546,7 @@ export function ChatRoomView({
               <div className="flex items-center gap-1">
                 <h2
                   data-testid="active-room-title"
-                  className="truncate text-sm font-bold leading-tight text-[var(--bc-text)] sm:text-base"
+                  className="truncate text-xs font-bold leading-tight text-[var(--bc-text)] sm:text-sm"
                 >
                   {conversation.name}
                 </h2>
@@ -577,7 +577,7 @@ export function ChatRoomView({
               onClick={() => setShowRoomSearch((v) => !v)}
               title="ค้นหาในห้อง"
               aria-label="ค้นหาในห้อง"
-              className={`inline-flex h-8 w-8 items-center justify-center rounded-xl border text-xs font-semibold ${
+              className={`inline-flex h-7 w-7 items-center justify-center rounded-lg border text-xs font-semibold ${
                 showRoomSearch
                   ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                   : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
@@ -591,7 +591,7 @@ export function ChatRoomView({
               onClick={() => setShowToneMenu((v) => !v)}
               title="สลับโทนพื้นหลังห้องแชท"
               aria-label="สลับโทนพื้นหลังห้องแชท"
-              className={`inline-flex h-8 w-8 items-center justify-center rounded-xl border text-xs font-semibold ${
+              className={`inline-flex h-7 w-7 items-center justify-center rounded-lg border text-xs font-semibold ${
                 showToneMenu
                   ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                   : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
@@ -604,7 +604,7 @@ export function ChatRoomView({
               type="button"
               data-testid="btn-ai-summarize"
               onClick={() => void handleOpenAiSummary(false)}
-              className="inline-flex h-8 items-center gap-1 rounded-xl bg-[var(--bc-primary)] px-2.5 text-xs font-bold text-white shadow-2xs hover:brightness-95"
+              className="inline-flex h-7 items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-2 text-xs font-bold text-white shadow-2xs hover:brightness-95"
             >
               <Sparkles className="h-3.5 w-3.5" />
               <span className="sm:hidden">สรุป</span>
@@ -614,7 +614,7 @@ export function ChatRoomView({
         </div>
 
         {/* Row 2: Compact Horizontally Scrollable Room Tool Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap border-t border-[var(--bc-border)]/50 px-3 py-1.5">
+        <div className="flex items-center gap-1 overflow-x-auto whitespace-nowrap border-t border-[var(--bc-border)]/50 px-2 py-1">
           {toolButtons.map((tb) => {
             const active = sideTab === tb.id;
             return (
@@ -623,7 +623,7 @@ export function ChatRoomView({
                 type="button"
                 data-testid={tb.testId}
                 onClick={() => toggleSideTab(tb.id)}
-                className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-full border px-2.5 text-[11px] font-semibold transition ${
+                className={`inline-flex h-6 shrink-0 items-center gap-1 rounded-full border px-2 text-[10px] font-semibold transition ${
                   active
                     ? "border-[var(--bc-primary)] bg-[var(--bc-primary)] text-white"
                     : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
@@ -639,7 +639,7 @@ export function ChatRoomView({
 
       {/* Inline Tone & Watermark Strip */}
       {showToneMenu && (
-        <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-2 text-xs">
+        <div className="flex shrink-0 flex-wrap items-center justify-between gap-1.5 border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 py-1 text-xs">
           <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap">
             {Object.values(ROOM_TONES).map((t) => (
               <button
@@ -691,7 +691,7 @@ export function ChatRoomView({
 
       {/* Optional Room Search Bar */}
       {showRoomSearch && (
-        <div className="flex shrink-0 items-center gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-3.5 py-2">
+        <div className="flex shrink-0 items-center gap-1.5 border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 py-1">
           <Search className="h-4 w-4 text-[var(--bc-muted)]" />
           <input
             type="text"
@@ -714,7 +714,7 @@ export function ChatRoomView({
 
       {/* Pinned Announcement Banner */}
       {conversation.pinned_message && !sideTab && !runningMiniApp && (
-        <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-soft)]/70 px-3.5 py-1.5 text-xs">
+        <div className="flex shrink-0 items-center justify-between gap-1.5 border-b border-[var(--bc-border)] bg-[var(--bc-soft)]/70 px-2.5 py-1 text-xs">
           <div className="flex min-w-0 items-center gap-1.5">
             <Pin className="h-3.5 w-3.5 shrink-0 text-[var(--bc-primary)]" />
             <span className="shrink-0 font-bold text-[var(--bc-deep)]">
@@ -783,7 +783,7 @@ export function ChatRoomView({
           {/* Message Stream */}
           <div
             style={{ backgroundColor: toneOption.bg }}
-            className={`relative min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-5 sm:py-4 ${
+            className={`relative min-h-0 flex-1 overflow-y-auto px-2 py-1.5 sm:px-3 sm:py-2 ${
               isDarkRoom ? "bc-room-spiral-dark" : "bc-room-spiral-light"
             }`}
           >
@@ -805,7 +805,7 @@ export function ChatRoomView({
               </div>
             )}
 
-            <div className="relative z-10 space-y-3">
+            <div className="relative z-10 space-y-1.5">
               {filteredMessages.length === 0 ? (
                 <div
                   className={`mx-auto max-w-md rounded-2xl border p-6 text-center text-xs ${
@@ -851,18 +851,18 @@ export function ChatRoomView({
                     <div
                       key={msg.id}
                       data-testid={`message-item-${msg.id}`}
-                      className={`flex items-end gap-2 ${isMe ? "justify-end" : "justify-start"}`}
+                      className={`flex items-end gap-1.5 ${isMe ? "justify-end" : "justify-start"}`}
                     >
                       {!isMe && (
                         <UserAvatar
                           name={msg.sender_name}
                           avatarUrl={msg.sender_avatar}
-                          size={32}
+                          size={26}
                           isAi={isAi}
                         />
                       )}
 
-                      <div className={`flex max-w-[84%] flex-col ${isMe ? "items-end" : "items-start"} sm:max-w-[70%]`}>
+                      <div className={`flex max-w-[88%] flex-col ${isMe ? "items-end" : "items-start"} sm:max-w-[75%]`}>
                         {!isMe && (
                           <div className="mb-0.5 flex items-center gap-1.5 px-1">
                             <span
@@ -904,7 +904,7 @@ export function ChatRoomView({
                                       color: "#1B1C1C",
                                     }
                           }
-                          className={`group relative rounded-2xl px-3.5 py-2.5 shadow-2xs ${
+                          className={`group relative rounded-xl px-2.5 py-1.5 shadow-2xs ${
                             msg.is_unsent
                               ? "border border-dashed border-[var(--bc-border)] bg-white/70 text-xs italic text-[var(--bc-muted)]"
                               : isMe
@@ -932,7 +932,7 @@ export function ChatRoomView({
 
                           {/* Reply Quote */}
                           {!msg.is_unsent && msg.reply_to && (
-                            <div className="mb-2 rounded-xl border-l-4 border-[var(--bc-primary)] bg-black/5 px-2.5 py-1.5 text-[11px]">
+                            <div className="mb-1 rounded-lg border-l-4 border-[var(--bc-primary)] bg-black/5 px-2 py-1 text-[10px]">
                               <div className="font-bold text-[var(--bc-primary)]">
                                 ตอบกลับ {msg.reply_to.sender_name}
                               </div>
@@ -1046,7 +1046,7 @@ export function ChatRoomView({
                               )}
 
                               {msg.type === "rich_card" && msg.card_payload && (
-                                <div className="w-full min-w-[220px] max-w-[300px] overflow-hidden rounded-xl border border-[var(--bc-border)] bg-white text-[var(--bc-text)] shadow-xs">
+                                <div className="w-full min-w-[200px] max-w-[270px] overflow-hidden rounded-xl border border-[var(--bc-border)] bg-white text-[var(--bc-text)] shadow-xs">
                                   <div
                                     style={{
                                       backgroundColor: String(msg.card_payload.color_hex || "#812920"),
@@ -1055,7 +1055,7 @@ export function ChatRoomView({
                                   >
                                     {String(msg.card_payload.title || "การ์ดโต้ตอบ BC Ai Chat")}
                                   </div>
-                                  <div className="space-y-1.5 p-3 text-xs">
+                                  <div className="space-y-1 p-2 text-xs">
                                     {msg.card_payload.heading && (
                                       <div className="font-bold text-[var(--bc-text)]">
                                         {String(msg.card_payload.heading)}
@@ -1106,7 +1106,7 @@ export function ChatRoomView({
                               )}
 
                               {msg.type === "poll" && msg.poll && (
-                                <div className="w-full min-w-[230px] max-w-[310px] space-y-2 rounded-xl border border-[var(--bc-border)] bg-white p-3 text-[var(--bc-text)]">
+                                <div className="w-full min-w-[210px] max-w-[280px] space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-white p-2 text-[var(--bc-text)]">
                                   <div className="flex items-center justify-between gap-2">
                                     <span className="inline-flex items-center gap-1 text-xs font-bold text-[var(--bc-primary)]">
                                       <BarChart3 className="h-3.5 w-3.5" />
@@ -1161,7 +1161,7 @@ export function ChatRoomView({
                               )}
 
                               {msg.type === "event" && msg.event_data && (
-                                <div className="w-full min-w-[230px] max-w-[310px] space-y-2 rounded-xl border border-[var(--bc-border)] bg-white p-3 text-[var(--bc-text)]">
+                                <div className="w-full min-w-[210px] max-w-[280px] space-y-1.5 rounded-xl border border-[var(--bc-border)] bg-white p-2 text-[var(--bc-text)]">
                                   <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--bc-primary)]">
                                     <Calendar className="h-3.5 w-3.5" />
                                     <span>นัดหมาย &amp; RSVP</span>
@@ -1250,7 +1250,7 @@ export function ChatRoomView({
 
                         {/* Reactions Display */}
                         {reactionEntries.length > 0 && !msg.is_unsent && (
-                          <div className="mt-1 flex flex-wrap items-center gap-1">
+                          <div className="mt-0.5 flex flex-wrap items-center gap-1">
                             {reactionEntries.map(([emoji, uids]) => {
                               const mine = uids.includes(currentUser.id);
                               return (
@@ -1258,7 +1258,7 @@ export function ChatRoomView({
                                   key={emoji}
                                   type="button"
                                   onClick={() => handleReact(msg.id, emoji)}
-                                  className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-semibold shadow-2xs ${
+                                  className={`inline-flex items-center gap-1 rounded-full border px-1.5 py-0 text-[10px] font-semibold shadow-2xs ${
                                     mine
                                       ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-deep)]"
                                       : "border-[var(--bc-border)] bg-white text-[var(--bc-text)]"
@@ -1274,7 +1274,7 @@ export function ChatRoomView({
 
                         {/* Message Meta + Quick Actions Bar */}
                         <div
-                          className={`mt-1 flex flex-wrap items-center gap-1.5 px-1 text-[10px] ${
+                          className={`mt-0.5 flex flex-wrap items-center gap-1 px-0.5 text-[9px] ${
                             isDarkRoom ? "text-stone-300" : "text-[var(--bc-muted)]"
                           }`}
                         >
@@ -1355,7 +1355,7 @@ export function ChatRoomView({
 
           {/* Inline Sticker Picker */}
           {showStickerPicker && (
-            <div className="shrink-0 border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-3">
+            <div className="shrink-0 border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-2">
               <div className="mb-2 flex items-center justify-between">
                 <span className="text-xs font-bold text-[var(--bc-primary)]">
                   ชุดสติกเกอร์ &quot;อารมณ์ดีดินเผาไทย&quot;
@@ -1368,7 +1368,7 @@ export function ChatRoomView({
                   ปิด
                 </button>
               </div>
-              <div className="grid grid-cols-4 gap-2 sm:grid-cols-8">
+              <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-8">
                 {ORIGINAL_THAI_STICKERS.map((st) => (
                   <button
                     key={st.code}
@@ -1376,7 +1376,7 @@ export function ChatRoomView({
                     onClick={() => handleSendSticker(st.code, st.label)}
                     className="flex flex-col items-center rounded-xl border border-[var(--bc-border)] bg-white p-1 transition hover:border-[var(--bc-primary)]"
                   >
-                    <StickerArt code={st.code} fallbackLabel={st.label} size={66} />
+                    <StickerArt code={st.code} fallbackLabel={st.label} size={52} />
                   </button>
                 ))}
               </div>
@@ -1388,7 +1388,7 @@ export function ChatRoomView({
             <form
               data-testid="rich-card-inline-tray"
               onSubmit={handleSendRichCard}
-              className="shrink-0 space-y-2 border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-3"
+              className="shrink-0 space-y-1.5 border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-2"
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[var(--bc-primary)]">
@@ -1403,7 +1403,7 @@ export function ChatRoomView({
                   <X className="h-4 w-4" />
                 </button>
               </div>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
                 <input
                   type="text"
                   required
@@ -1456,7 +1456,7 @@ export function ChatRoomView({
           {aiModalMode && (
             <div
               data-testid="ai-inline-tray"
-              className="max-h-[44dvh] shrink-0 space-y-2.5 overflow-y-auto border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-3"
+              className="max-h-[38dvh] shrink-0 space-y-1.5 overflow-y-auto border-t border-[var(--bc-border)] bg-[var(--bc-panel)] p-2"
             >
               <div className="flex items-center justify-between gap-2">
                 <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--bc-primary)]">
@@ -1478,7 +1478,7 @@ export function ChatRoomView({
               </div>
 
               {aiModalMode === "assist" && (
-                <div className="flex items-center gap-1.5 overflow-x-auto whitespace-nowrap pb-0.5">
+                <div className="flex items-center gap-1 overflow-x-auto whitespace-nowrap pb-0">
                   {(
                     [
                       ["suggest_reply", "คิดคำตอบ 3 แบบ"],
@@ -1570,7 +1570,7 @@ export function ChatRoomView({
           )}
 
           {/* Composer Area */}
-          <div className="relative shrink-0 border-t border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 sm:px-3.5 sm:py-2.5">
+          <div className="relative shrink-0 border-t border-[var(--bc-border)] bg-[var(--bc-card)] px-2 py-1 sm:px-2.5 sm:py-1.5">
             {/* @Mention Autocomplete */}
             {mentionQuery !== null && mentionCandidates.length > 0 && (
               <div className="absolute bottom-full left-3 z-30 mb-1 w-72 max-w-[calc(100vw-1.5rem)] rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-1.5 shadow-xl">
@@ -1607,10 +1607,10 @@ export function ChatRoomView({
             )}
 
             {/* Compact Horizontally Scrollable Toolbar Row (Single line on 390px) */}
-            <div className="mb-2 flex items-center gap-1.5 overflow-x-auto whitespace-nowrap pb-0.5 sm:flex-wrap">
+            <div className="mb-1 flex items-center gap-1 overflow-x-auto whitespace-nowrap pb-0 sm:flex-wrap">
               <label
                 title="แนบไฟล์หรือรูปภาพ"
-                className="inline-flex h-7 shrink-0 cursor-pointer items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 text-xs font-semibold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
+                className="inline-flex h-6 shrink-0 cursor-pointer items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-1.5 text-[11px] font-semibold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
               >
                 <Paperclip className="h-3.5 w-3.5 text-[var(--bc-primary)]" />
                 <span>{uploading ? "อัปโหลด..." : "ไฟล์/รูป"}</span>
@@ -1628,7 +1628,7 @@ export function ChatRoomView({
               <button
                 type="button"
                 onClick={() => setShowStickerPicker((v) => !v)}
-                className="inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 text-xs font-semibold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
+                className="inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-1.5 text-[11px] font-semibold text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
               >
                 <Smile className="h-3.5 w-3.5 text-[var(--bc-primary)]" />
                 <span>สติกเกอร์</span>
@@ -1637,7 +1637,7 @@ export function ChatRoomView({
               <button
                 type="button"
                 onClick={handleToggleRecording}
-                className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border px-2 text-xs font-semibold ${
+                className={`inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border px-1.5 text-[11px] font-semibold ${
                   isRecording
                     ? "border-red-500 bg-red-600 text-white"
                     : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
@@ -1653,7 +1653,7 @@ export function ChatRoomView({
                   setAiModalMode(null);
                   setShowCardModal((v) => !v);
                 }}
-                className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border px-2 text-xs font-semibold ${
+                className={`inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border px-1.5 text-[11px] font-semibold ${
                   showCardModal
                     ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                     : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
@@ -1666,7 +1666,7 @@ export function ChatRoomView({
               <button
                 type="button"
                 onClick={() => setIsUrgent((v) => !v)}
-                className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border px-2 text-xs font-semibold ${
+                className={`inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border px-1.5 text-[11px] font-semibold ${
                   isUrgent
                     ? "border-amber-600 bg-amber-600 text-white"
                     : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)]"
@@ -1679,7 +1679,7 @@ export function ChatRoomView({
               <button
                 type="button"
                 onClick={() => setIsConfidential((v) => !v)}
-                className={`inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border px-2 text-xs font-semibold ${
+                className={`inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border px-1.5 text-[11px] font-semibold ${
                   isConfidential
                     ? "border-[var(--bc-deep)] bg-[var(--bc-deep)] text-white"
                     : "border-[var(--bc-border)] bg-[var(--bc-panel)] text-[var(--bc-text)]"
@@ -1722,7 +1722,7 @@ export function ChatRoomView({
                   setDraft((prev) => (prev.startsWith("@ai ") ? prev : `@ai ${prev}`));
                   inputRef.current?.focus();
                 }}
-                className="inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"
+                className="inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-1.5 text-[11px] font-semibold text-indigo-700 hover:bg-indigo-100"
               >
                 <Bot className="h-3.5 w-3.5" />
                 <span>✨ ถาม AI</span>
@@ -1732,7 +1732,7 @@ export function ChatRoomView({
                 type="button"
                 data-testid="btn-ai-assist"
                 onClick={() => void handleOpenAiAssist("suggest_reply")}
-                className="inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-2 text-xs font-semibold text-indigo-700 hover:bg-indigo-100"
+                className="inline-flex h-6 shrink-0 items-center gap-1 rounded-lg border border-indigo-200 bg-indigo-50 px-1.5 text-[11px] font-semibold text-indigo-700 hover:bg-indigo-100"
               >
                 <Wand2 className="h-3.5 w-3.5" />
                 <span>🪄 AI ช่วยคิด/เกลา</span>
@@ -1759,13 +1759,13 @@ export function ChatRoomView({
                 value={draft}
                 onChange={(e) => handleDraftChange(e.target.value)}
                 placeholder="พิมพ์ข้อความ... (@ แท็กเพื่อน, @ai ถาม AI)"
-                className="h-10 min-w-0 flex-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 text-sm text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
+                className="h-8 min-w-0 flex-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 text-xs text-[var(--bc-text)] outline-none focus:border-[var(--bc-primary)]"
               />
               <button
                 type="submit"
                 data-testid="chat-send-btn"
                 disabled={sending || !draft.trim()}
-                className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3.5 text-sm font-bold text-white shadow-xs transition hover:brightness-95 disabled:opacity-50 sm:px-4"
+                className="inline-flex h-8 shrink-0 items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-2.5 text-xs font-bold text-white shadow-xs transition hover:brightness-95 disabled:opacity-50 sm:px-3"
               >
                 <Send className="h-4 w-4" />
                 <span>ส่ง</span>

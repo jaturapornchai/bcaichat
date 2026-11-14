@@ -2,9 +2,13 @@ package com.bcaichat.app
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.PowerManager
+import android.provider.Settings
 import com.google.firebase.FirebaseApp
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -18,13 +22,17 @@ import org.json.JSONObject
 /**
  * Push for PushService (lib/services/push_service.dart), channel "bcaichat/push".
  * Firebase is on only when android/app/google-services.json was there at build
- * time; otherwise getToken answers null and the app keeps in-app alerts only.
+ * time; otherwise getToken answers null and BcRealtimeAlertService keeps
+ * self-hosted WebSocket alerts running even when closed or screen-off.
  * Tapping a push starts this activity with the message data as extras.
  */
 class MainActivity : FlutterActivity() {
     companion object {
         @Volatile
         var activeChannel: MethodChannel? = null
+
+        @Volatile
+        var isForegroundResumed: Boolean = false
     }
 
     private var channel: MethodChannel? = null
@@ -33,6 +41,26 @@ class MainActivity : FlutterActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         openedConversation = intent?.getStringExtra("conversation_id")
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isForegroundResumed = true
+    }
+
+    override fun onPause() {
+        isForegroundResumed = false
+        super.onPause()
+    }
+
+    override fun onStop() {
+        isForegroundResumed = false
+        super.onStop()
+    }
+
+    override fun onDestroy() {
+        isForegroundResumed = false
+        super.onDestroy()
     }
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
@@ -52,6 +80,35 @@ class MainActivity : FlutterActivity() {
                         result.success(openedConversation)
                         openedConversation = null
                     }
+                    "startBackgroundService", "syncBackgroundSettings" -> {
+                        result.success(BcRealtimeAlertService.startOrSync(applicationContext))
+                    }
+                    "stopBackgroundService" -> {
+                        result.success(BcRealtimeAlertService.stop(applicationContext))
+                    }
+                    "isIgnoringBatteryOptimizations" -> {
+                        val ignoring = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+                            pm.isIgnoringBatteryOptimizations(packageName)
+                        } else {
+                            true
+                        }
+                        result.success(ignoring)
+                    }
+                    "requestIgnoreBatteryOptimizations" -> {
+                        val launched = try {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                                    data = Uri.parse("package:$packageName")
+                                }
+                                startActivity(intent)
+                            }
+                            true
+                        } catch (_: Throwable) {
+                            false
+                        }
+                        result.success(launched)
+                    }
                     else -> result.notImplemented()
                 }
             }
@@ -60,6 +117,7 @@ class MainActivity : FlutterActivity() {
     }
 
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {
+        isForegroundResumed = false
         if (activeChannel === channel) {
             activeChannel = null
         }
@@ -69,8 +127,14 @@ class MainActivity : FlutterActivity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
+        setIntent(intent)
         val id = intent.getStringExtra("conversation_id") ?: return
-        channel?.invokeMethod("openConversation", id)
+        val ch = channel
+        if (ch != null) {
+            ch.invokeMethod("openConversation", id)
+        } else {
+            openedConversation = id
+        }
     }
 }
 

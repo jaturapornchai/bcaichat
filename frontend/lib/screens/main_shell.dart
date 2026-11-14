@@ -348,8 +348,8 @@ class _MainShellState extends State<MainShell> {
     required Widget child,
   }) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 14),
-      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.all(11),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -704,9 +704,9 @@ class _MainShellState extends State<MainShell> {
     const idleColor = Color(0xFF94A3B8);
 
     return Container(
-      width: 84,
+      width: 70,
       decoration: const BoxDecoration(gradient: AppTheme.navyGradient),
-      padding: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -719,7 +719,7 @@ class _MainShellState extends State<MainShell> {
             child: UserAvatar(
               name: _user.displayName,
               avatarUrl: _user.avatarUrl,
-              radius: 21,
+              radius: 18,
               showOnline: true,
             ),
           ),
@@ -741,7 +741,7 @@ class _MainShellState extends State<MainShell> {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Expanded(
             child: Column(
               children: navItems.map((item) {
@@ -753,7 +753,7 @@ class _MainShellState extends State<MainShell> {
                 final fg = selected ? Colors.white : idleColor;
 
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
+                  padding: const EdgeInsets.only(bottom: 4),
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
@@ -767,8 +767,8 @@ class _MainShellState extends State<MainShell> {
                       child: AnimatedContainer(
                         duration: AppTheme.motionMed,
                         curve: AppTheme.motionCurve,
-                        width: 68,
-                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        width: 58,
+                        padding: const EdgeInsets.symmetric(vertical: 7),
                         decoration: BoxDecoration(
                           gradient: selected ? AppTheme.brandGradient : null,
                           borderRadius: BorderRadius.circular(
@@ -1010,8 +1010,8 @@ class _MainShellState extends State<MainShell> {
       children: [
         // Top Header
         Container(
-          height: 64,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          height: 48,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: const BoxDecoration(
             color: Colors.white,
             border: Border(bottom: BorderSide(color: AppTheme.borderSubtle)),
@@ -1022,7 +1022,7 @@ class _MainShellState extends State<MainShell> {
               const Text(
                 'หน้าหลัก',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 17,
                   height: 1.35,
                   fontWeight: FontWeight.w800,
                   color: AppTheme.slateDark,
@@ -1066,11 +1066,11 @@ class _MainShellState extends State<MainShell> {
 
         Expanded(
           child: ListView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(10),
             children: [
               // My Profile Card (hero)
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   gradient: AppTheme.navyGradient,
                   borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -1084,7 +1084,7 @@ class _MainShellState extends State<MainShell> {
                         UserAvatar(
                           name: _user.displayName,
                           avatarUrl: _user.avatarUrl,
-                          radius: 24,
+                          radius: 20,
                           showOnline: true,
                         ),
                         const SizedBox(width: 12),
@@ -1322,7 +1322,7 @@ class _MainShellState extends State<MainShell> {
                     leading: UserAvatar(
                       name: c.name,
                       avatarUrl: c.avatarUrl,
-                      radius: 20,
+                      radius: 17,
                       isOfficial: true,
                     ),
                     title: Text(
@@ -1355,7 +1355,7 @@ class _MainShellState extends State<MainShell> {
                   leading: UserAvatar(
                     name: g.name,
                     avatarUrl: g.avatarUrl,
-                    radius: 20,
+                    radius: 17,
                     isGroup: true,
                   ),
                   title: Row(
@@ -1435,7 +1435,7 @@ class _MainShellState extends State<MainShell> {
                           leading: UserAvatar(
                             name: f.displayName,
                             avatarUrl: f.avatarUrl,
-                            radius: 20,
+                            radius: 17,
                             showOnline: f.isOnline && !f.isBlocked,
                             isOfficial: f.isOfficial,
                           ),
@@ -1586,8 +1586,8 @@ class _MainShellState extends State<MainShell> {
       children: [
         // Header
         Container(
-          height: 64,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          height: 48,
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: const BoxDecoration(
             color: Colors.white,
             border: Border(bottom: BorderSide(color: AppTheme.borderSubtle)),
@@ -1598,7 +1598,7 @@ class _MainShellState extends State<MainShell> {
               const Text(
                 'แชท',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 17,
                   height: 1.35,
                   fontWeight: FontWeight.w800,
                   color: AppTheme.slateDark,
@@ -1655,7 +1655,7 @@ class _MainShellState extends State<MainShell> {
           ConstrainedBox(
             constraints: const BoxConstraints(maxHeight: 340),
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(12, 10, 12, 0),
+              padding: const EdgeInsets.fromLTRB(10, 6, 10, 0),
               child: _buildActiveInlinePanel(
                 _chatInlinePanel,
                 isWide: isWide,
@@ -1666,7 +1666,7 @@ class _MainShellState extends State<MainShell> {
 
         // Search input
         Padding(
-          padding: const EdgeInsets.fromLTRB(12, 10, 12, 6),
+          padding: const EdgeInsets.fromLTRB(10, 6, 10, 3),
           child: TextField(
             controller: _chatSearchCtrl,
             onChanged: _performGlobalSearch,
@@ -1688,9 +1688,9 @@ class _MainShellState extends State<MainShell> {
 
         // Folder Filter Bar (Solves Work vs Personal Chat Clutter!)
         SizedBox(
-          height: 44,
+          height: 34,
           child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             scrollDirection: Axis.horizontal,
             itemCount: folders.length,
             separatorBuilder: (context, index) => const SizedBox(width: 8),
@@ -1708,8 +1708,8 @@ class _MainShellState extends State<MainShell> {
                     child: AnimatedContainer(
                       duration: AppTheme.motionFast,
                       curve: AppTheme.motionCurve,
-                      height: 32,
-                      padding: const EdgeInsets.symmetric(horizontal: 14),
+                      height: 26,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: active ? AppTheme.slateDark : AppTheme.surfaceBg,
@@ -1821,8 +1821,8 @@ class _MainShellState extends State<MainShell> {
                           children: [
                             Padding(
                               padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                                vertical: 12,
+                                horizontal: 10,
+                                vertical: 6,
                               ),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -1830,12 +1830,12 @@ class _MainShellState extends State<MainShell> {
                                   UserAvatar(
                                     name: conv.name,
                                     avatarUrl: conv.avatarUrl,
-                                    radius: 23,
+                                    radius: 18,
                                     showOnline: !conv.isGroup,
                                     isOfficial: conv.isOfficial,
                                     isGroup: conv.isGroup,
                                   ),
-                                  const SizedBox(width: 12),
+                                  const SizedBox(width: 9),
                                   Expanded(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
@@ -1844,7 +1844,7 @@ class _MainShellState extends State<MainShell> {
                                       children: [
                                         // แถว 1: ปักหมุด · ชื่อ · โฟลเดอร์ · เวลา
                                         SizedBox(
-                                          height: 22,
+                                          height: 20,
                                           child: Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
@@ -1874,8 +1874,8 @@ class _MainShellState extends State<MainShell> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: const TextStyle(
-                                                    fontSize: 14.5,
-                                                    height: 1.35,
+                                                    fontSize: 13.5,
+                                                    height: 1.3,
                                                     fontWeight: FontWeight.w700,
                                                     color: AppTheme.slateDark,
                                                   ),
@@ -1909,10 +1909,10 @@ class _MainShellState extends State<MainShell> {
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(height: 2),
+                                        const SizedBox(height: 1),
                                         // แถว 2: ข้อความล่าสุด · จำนวนที่ยังไม่อ่าน
                                         SizedBox(
-                                          height: 22,
+                                          height: 19,
                                           child: Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.center,
@@ -1927,8 +1927,8 @@ class _MainShellState extends State<MainShell> {
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   style: TextStyle(
-                                                    fontSize: 12.5,
-                                                    height: 1.35,
+                                                    fontSize: 12,
+                                                    height: 1.3,
                                                     color: hasUnread
                                                         ? AppTheme.slateDark
                                                         : AppTheme.slateMuted,
@@ -2054,7 +2054,7 @@ class _MainShellState extends State<MainShell> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(isCompact ? 14 : 24),
+        padding: EdgeInsets.all(isCompact ? 10 : 16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1020),
@@ -2062,7 +2062,7 @@ class _MainShellState extends State<MainShell> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: AppTheme.brandSoft,
                     borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2128,12 +2128,12 @@ class _MainShellState extends State<MainShell> {
                   )
                 else
                   Wrap(
-                    spacing: 16,
-                    runSpacing: 16,
+                    spacing: 10,
+                    runSpacing: 10,
                     children: _notebookNotes.map((note) {
                       return Container(
                         width: isCompact ? double.infinity : 320,
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(
@@ -2305,7 +2305,7 @@ class _MainShellState extends State<MainShell> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(isCompact ? 14 : 24),
+        padding: EdgeInsets.all(isCompact ? 10 : 16),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1120),
@@ -2314,7 +2314,7 @@ class _MainShellState extends State<MainShell> {
               children: [
                 // Personal Profile Quick Card
                 Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2389,7 +2389,7 @@ class _MainShellState extends State<MainShell> {
 
                 // Inline Notification & Sound Settings (for everyone, zero popup)
                 Container(
-                  padding: const EdgeInsets.all(18),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2406,7 +2406,7 @@ class _MainShellState extends State<MainShell> {
 
                 // Personal Mini-Apps Hub (plus Admin editor if admin)
                 Container(
-                  padding: EdgeInsets.all(isCompact ? 16 : 20),
+                  padding: EdgeInsets.all(isCompact ? 12 : 14),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2798,7 +2798,7 @@ class _MainShellState extends State<MainShell> {
     }
     return Container(
       width: width,
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2827,7 +2827,7 @@ class _MainShellState extends State<MainShell> {
         ? double.infinity
         : 236.0;
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2927,7 +2927,7 @@ class _MainShellState extends State<MainShell> {
     return StatefulBuilder(
       builder: (ctx, setCardState) {
         return Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(13),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -3102,7 +3102,7 @@ class _MainShellState extends State<MainShell> {
     );
 
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -3171,7 +3171,7 @@ class _MainShellState extends State<MainShell> {
 
   Widget _buildUserManagementCard() {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(13),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -3879,8 +3879,41 @@ class _InlineNotificationPanel extends StatefulWidget {
       _InlineNotificationPanelState();
 }
 
-class _InlineNotificationPanelState extends State<_InlineNotificationPanel> {
+class _InlineNotificationPanelState extends State<_InlineNotificationPanel>
+    with WidgetsBindingObserver {
   final _n = NotificationService.instance;
+  bool? _ignoringBatteryOptimizations;
+
+  @override
+  void initState() {
+    super.initState();
+    if (PushService.supported) {
+      WidgetsBinding.instance.addObserver(this);
+      _refreshBatteryStatus();
+    }
+  }
+
+  @override
+  void dispose() {
+    if (PushService.supported) {
+      WidgetsBinding.instance.removeObserver(this);
+    }
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && PushService.supported) {
+      _refreshBatteryStatus();
+    }
+  }
+
+  Future<void> _refreshBatteryStatus() async {
+    final ok = await PushService.instance.isIgnoringBatteryOptimizations();
+    if (mounted) {
+      setState(() => _ignoringBatteryOptimizations = ok);
+    }
+  }
 
   Future<void> _update(Future<void> Function() fn) async {
     await fn();
@@ -3889,6 +3922,7 @@ class _InlineNotificationPanelState extends State<_InlineNotificationPanel> {
 
   @override
   Widget build(BuildContext context) {
+    final batteryOk = _ignoringBatteryOptimizations;
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -3915,6 +3949,75 @@ class _InlineNotificationPanelState extends State<_InlineNotificationPanel> {
               ),
           ],
         ),
+        if (PushService.supported && batteryOk != null) ...[
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: BoxDecoration(
+              color: batteryOk
+                  ? const Color(0xFFECFDF5)
+                  : const Color(0xFFFFF7ED),
+              borderRadius: BorderRadius.circular(AppTheme.radiusSm),
+              border: Border.all(
+                color: batteryOk
+                    ? const Color(0xFFA7F3D0)
+                    : const Color(0xFFFED7AA),
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  batteryOk
+                      ? Icons.verified_user_rounded
+                      : Icons.battery_alert_rounded,
+                  size: 18,
+                  color: batteryOk
+                      ? const Color(0xFF047857)
+                      : const Color(0xFFC2410C),
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    batteryOk
+                        ? 'ทำงานเบื้องหลังตลอดเวลา · เตือนแม้ปิดแอปและปิดหน้าจอ'
+                        : 'ระบบประหยัดแบตอาจปิดเสียงเตือนตอนปิดจอ แนะนำให้อนุญาตทำงานเบื้องหลัง',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: batteryOk
+                          ? const Color(0xFF065F46)
+                          : const Color(0xFF9A3412),
+                    ),
+                  ),
+                ),
+                if (!batteryOk) ...[
+                  const SizedBox(width: 8),
+                  FilledButton(
+                    onPressed: () async {
+                      await PushService.instance
+                          .requestIgnoreBatteryOptimizations();
+                      await _refreshBatteryStatus();
+                    },
+                    style: FilledButton.styleFrom(
+                      backgroundColor: AppTheme.brandPrimary,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      minimumSize: Size.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: const Text(
+                      'อนุญาตทำงานเบื้องหลัง',
+                      style: TextStyle(fontSize: 11.5),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ],
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
           dense: true,

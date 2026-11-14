@@ -280,14 +280,14 @@ export function RoomSideModal({
       className="flex min-h-0 flex-1 flex-col bg-[var(--bc-surface)]"
     >
       {/* Inline Workspace Header */}
-      <div className="flex shrink-0 items-center justify-between gap-2 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2.5 sm:px-4">
+      <div className="flex shrink-0 items-center justify-between gap-1.5 border-b border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 sm:px-3">
         <div className="flex min-w-0 items-center gap-2.5">
           <button
             type="button"
             onClick={onClose}
             aria-label="ปิดหน้าต่างเครื่องมือ"
             data-testid="close-room-side-panel"
-            className="inline-flex h-8 shrink-0 items-center gap-1 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2.5 text-xs font-bold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
+            className="inline-flex h-7 shrink-0 items-center gap-1 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 text-xs font-bold text-[var(--bc-primary)] hover:bg-[var(--bc-soft)]"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>กลับไปแชท</span>
@@ -304,7 +304,7 @@ export function RoomSideModal({
       </div>
 
       {/* Horizontally Scrollable Sub Tabs */}
-      <div className="flex shrink-0 items-center gap-1.5 overflow-x-auto whitespace-nowrap border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-3 py-2">
+      <div className="flex shrink-0 items-center gap-1 overflow-x-auto whitespace-nowrap border-b border-[var(--bc-border)] bg-[var(--bc-panel)] px-2 py-1">
         {tabs.map((t) => {
           const active = t.id === openTab;
           return (
@@ -313,7 +313,7 @@ export function RoomSideModal({
               type="button"
               data-testid={`side-tab-${t.id}`}
               onClick={() => onSwitchTab(t.id)}
-              className={`inline-flex shrink-0 items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-semibold transition ${
+              className={`inline-flex shrink-0 items-center gap-1 rounded-lg px-2 py-1 text-[11px] font-semibold transition ${
                 active
                   ? "bg-[var(--bc-primary)] text-white shadow-xs"
                   : "border border-[var(--bc-border)] bg-[var(--bc-card)] text-[var(--bc-text)] hover:bg-[var(--bc-soft)]"
@@ -327,7 +327,7 @@ export function RoomSideModal({
       </div>
 
       {/* Inline Content Area */}
-      <div className="flex-1 space-y-4 overflow-y-auto p-3 sm:p-4">
+      <div className="flex-1 space-y-2.5 overflow-y-auto p-2 sm:p-2.5">
         {loading && (
           <div className="rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-4 text-center text-xs text-[var(--bc-muted)]">
             กำลังโหลดข้อมูล...
@@ -336,10 +336,10 @@ export function RoomSideModal({
 
         {/* ALBUMS */}
         {openTab === "albums" && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             <form
               onSubmit={handleCreateAlbum}
-              className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+              className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                 <Plus className="h-4 w-4" />
@@ -351,14 +351,14 @@ export function RoomSideModal({
                 value={albumTitle}
                 onChange={(e) => setAlbumTitle(e.target.value)}
                 placeholder="ชื่ออัลบั้ม เช่น ทริปทะเล / มื้ออร่อย"
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-sm outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <input
                 type="text"
                 value={albumDesc}
                 onChange={(e) => setAlbumDesc(e.target.value)}
                 placeholder="คำอธิบายอัลบั้ม (ไม่บังคับ)"
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <input
@@ -370,7 +370,7 @@ export function RoomSideModal({
                 <button
                   type="submit"
                   data-testid="create-album-submit"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3.5 py-2 text-xs font-bold text-white hover:brightness-95"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white hover:brightness-95"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>สร้างอัลบั้ม</span>
@@ -386,7 +386,7 @@ export function RoomSideModal({
               albums.map((alb) => (
                 <div
                   key={alb.id}
-                  className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5 shadow-2xs"
+                  className="rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5 shadow-2xs"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
@@ -452,10 +452,10 @@ export function RoomSideModal({
 
         {/* GROUP NOTES */}
         {openTab === "notes" && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             <form
               onSubmit={handleCreateNote}
-              className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+              className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                 <StickyNote className="h-4 w-4" />
@@ -466,14 +466,14 @@ export function RoomSideModal({
                 value={noteTitle}
                 onChange={(e) => setNoteTitle(e.target.value)}
                 placeholder="หัวข้อโน้ตกลุ่ม..."
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-sm outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <textarea
                 rows={3}
                 value={noteContent}
                 onChange={(e) => setNoteContent(e.target.value)}
                 placeholder="รายละเอียดบันทึกประจำกลุ่ม..."
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-xs outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <div className="flex justify-end">
                 <button
@@ -492,7 +492,7 @@ export function RoomSideModal({
               return (
                 <div
                   key={n.id}
-                  className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+                  className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0">
@@ -588,10 +588,10 @@ export function RoomSideModal({
 
         {/* POLLS */}
         {openTab === "polls" && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             <form
               onSubmit={handleCreatePoll}
-              className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+              className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                 <BarChart3 className="h-4 w-4" />
@@ -603,7 +603,7 @@ export function RoomSideModal({
                 value={pollQuestion}
                 onChange={(e) => setPollQuestion(e.target.value)}
                 placeholder="คำถามโพล เช่น เสาร์นี้ไปกินร้านไหนดี?"
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-sm outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <div className="space-y-1.5">
                 {pollOptions.map((opt, idx) => (
@@ -654,7 +654,7 @@ export function RoomSideModal({
                 <button
                   type="submit"
                   data-testid="create-poll-submit"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3.5 py-2 text-xs font-bold text-white"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>ส่งโพลเข้าห้องแชท</span>
@@ -668,7 +668,7 @@ export function RoomSideModal({
               return (
                 <div
                   key={pm.id}
-                  className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+                  className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <h4 className="text-sm font-bold text-[var(--bc-text)]">{poll.question}</h4>
@@ -723,10 +723,10 @@ export function RoomSideModal({
 
         {/* EVENTS */}
         {openTab === "events" && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             <form
               onSubmit={handleCreateEvent}
-              className="space-y-2.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+              className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
             >
               <div className="flex items-center gap-2 text-xs font-bold text-[var(--bc-primary)]">
                 <Calendar className="h-4 w-4" />
@@ -738,21 +738,21 @@ export function RoomSideModal({
                 value={eventTitle}
                 onChange={(e) => setEventTitle(e.target.value)}
                 placeholder="ชื่อนัดหมาย เช่น นัดกินหมูกระทะเสาร์นี้"
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-2 text-sm outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <input
                   type="datetime-local"
                   value={eventStartsAt}
                   onChange={(e) => setEventStartsAt(e.target.value)}
-                  className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
+                  className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
                 />
                 <input
                   type="text"
                   value={eventLocation}
                   onChange={(e) => setEventLocation(e.target.value)}
                   placeholder="สถานที่นัดเจอ / ลิงก์วิดีโอคอล"
-                  className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
+                  className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
                 />
               </div>
               <input
@@ -760,13 +760,13 @@ export function RoomSideModal({
                 value={eventDesc}
                 onChange={(e) => setEventDesc(e.target.value)}
                 placeholder="รายละเอียดนัดหมาย..."
-                className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
+                className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
               />
               <div className="flex justify-end">
                 <button
                   type="submit"
                   data-testid="create-event-submit"
-                  className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--bc-primary)] px-3.5 py-2 text-xs font-bold text-white"
+                  className="inline-flex items-center gap-1 rounded-lg bg-[var(--bc-primary)] px-3 py-1.5 text-xs font-bold text-white"
                 >
                   <Plus className="h-3.5 w-3.5" />
                   <span>ส่งนัดหมายเข้าห้องแชท</span>
@@ -779,7 +779,7 @@ export function RoomSideModal({
               return (
                 <div
                   key={em.id}
-                  className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5"
+                  className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5"
                 >
                   <h4 className="text-sm font-bold text-[var(--bc-text)]">{ev.title}</h4>
                   {ev.description && (
@@ -817,7 +817,7 @@ export function RoomSideModal({
 
         {/* VAULT */}
         {openTab === "vault" && vault && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             <div>
               <h4 className="mb-2 text-xs font-bold text-[var(--bc-primary)]">
                 รูปภาพถาวร ({vault.images.length})
@@ -852,7 +852,7 @@ export function RoomSideModal({
                     href={resolveMediaUrl(f.url)}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center justify-between gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs hover:bg-[var(--bc-soft)]/50"
+                    className="flex items-center justify-between gap-2 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 text-xs hover:bg-[var(--bc-soft)]/50"
                   >
                     <div className="flex min-w-0 items-center gap-2">
                       <FileText className="h-4 w-4 shrink-0 text-[var(--bc-primary)]" />
@@ -878,7 +878,7 @@ export function RoomSideModal({
                     href={lk.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 rounded-xl border border-[var(--bc-border)] bg-[var(--bc-card)] px-3 py-2 text-xs text-[var(--bc-primary)] underline"
+                    className="flex items-center gap-2 rounded-lg border border-[var(--bc-border)] bg-[var(--bc-card)] px-2.5 py-1.5 text-xs text-[var(--bc-primary)] underline"
                   >
                     <Link2 className="h-3.5 w-3.5 shrink-0" />
                     <span className="truncate">{lk.url}</span>
@@ -891,10 +891,10 @@ export function RoomSideModal({
 
         {/* MEMBERS & ROOM SETTINGS */}
         {openTab === "members" && (
-          <div className="mx-auto max-w-2xl space-y-4">
+          <div className="mx-auto max-w-2xl space-y-2.5">
             {/* Invite Token & Quick AI Invite */}
             {conversation.type === "group" && (
-              <div className="space-y-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5">
+              <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs font-bold text-[var(--bc-primary)]">
                     รหัสเชิญเข้ากลุ่ม (Invite Token)
@@ -958,7 +958,7 @@ export function RoomSideModal({
             )}
 
             {/* Room Meta Controls */}
-            <div className="space-y-3 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5">
+            <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
               <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--bc-primary)]">
                 <Settings className="h-4 w-4" />
                 <span>ตั้งค่าห้องแชท</span>
@@ -995,7 +995,7 @@ export function RoomSideModal({
                     value={editRoomAvatar}
                     onChange={(e) => setEditRoomAvatar(e.target.value)}
                     placeholder="URL รูปกลุ่ม (ไม่บังคับ)"
-                    className="w-full rounded-xl border border-[var(--bc-border)] bg-[var(--bc-surface)] px-3 py-1.5 text-xs outline-none focus:border-[var(--bc-primary)]"
+                    className="w-full rounded-lg border border-[var(--bc-border)] bg-[var(--bc-surface)] px-2.5 py-1 text-xs outline-none focus:border-[var(--bc-primary)]"
                   />
                 </div>
               )}
@@ -1009,7 +1009,7 @@ export function RoomSideModal({
                     });
                     await onConversationUpdated();
                   }}
-                  className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold ${
+                  className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-xs font-semibold ${
                     conversation.is_pinned
                       ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                       : "border-[var(--bc-border)] bg-[var(--bc-panel)]"
@@ -1027,7 +1027,7 @@ export function RoomSideModal({
                     });
                     await onConversationUpdated();
                   }}
-                  className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold ${
+                  className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-xs font-semibold ${
                     conversation.is_muted
                       ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                       : "border-[var(--bc-border)] bg-[var(--bc-panel)]"
@@ -1045,7 +1045,7 @@ export function RoomSideModal({
                     });
                     await onConversationUpdated();
                   }}
-                  className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold ${
+                  className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-xs font-semibold ${
                     conversation.is_archived
                       ? "border-[var(--bc-primary)] bg-[var(--bc-soft)] text-[var(--bc-primary)]"
                       : "border-[var(--bc-border)] bg-[var(--bc-panel)]"
@@ -1058,14 +1058,14 @@ export function RoomSideModal({
             </div>
 
             {/* Member List */}
-            <div className="space-y-2 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-3.5">
+            <div className="space-y-1.5 rounded-2xl border border-[var(--bc-border)] bg-[var(--bc-card)] p-2.5">
               <h4 className="text-xs font-bold text-[var(--bc-primary)]">
                 รายชื่อสมาชิก ({conversation.members.length})
               </h4>
               {conversation.members.map((m) => (
                 <div
                   key={m.id}
-                  className="flex items-center justify-between gap-2 rounded-xl bg-[var(--bc-panel)] px-3 py-2"
+                  className="flex items-center justify-between gap-2 rounded-lg bg-[var(--bc-panel)] px-2.5 py-1.5"
                 >
                   <div className="flex min-w-0 items-center gap-2.5">
                     <UserAvatar

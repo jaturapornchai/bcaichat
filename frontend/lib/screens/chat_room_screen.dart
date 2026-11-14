@@ -911,8 +911,8 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                         : ListView.builder(
                             controller: _scrollCtrl,
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 14,
-                              vertical: 16,
+                              horizontal: 8,
+                              vertical: 8,
                             ),
                             itemCount: visibleMessages.length,
                             itemBuilder: (ctx, index) {
@@ -1265,8 +1265,8 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
         );
 
         return Container(
-          height: 64,
-          padding: EdgeInsets.symmetric(horizontal: isCompact ? 6 : 14),
+          height: 48,
+          padding: EdgeInsets.symmetric(horizontal: isCompact ? 4 : 10),
           decoration: const BoxDecoration(
             gradient: AppTheme.navyGradient,
             border: Border(
@@ -1292,12 +1292,12 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
               UserAvatar(
                 name: _conversation.name,
                 avatarUrl: _conversation.avatarUrl,
-                radius: isCompact ? 17 : 19,
+                radius: isCompact ? 15 : 16,
                 showOnline: !_conversation.isGroup,
                 isOfficial: _conversation.isOfficial,
                 isGroup: _conversation.isGroup,
               ),
-              const SizedBox(width: 10),
+              const SizedBox(width: 8),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -1531,7 +1531,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
 
   Widget _buildInRoomSearchBar() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       color: AppTheme.slateNavy,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -1572,7 +1572,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
           width: 0.8,
         ),
       ),
-      padding: const EdgeInsets.fromLTRB(14, 8, 6, 8),
+      padding: const EdgeInsets.fromLTRB(10, 5, 4, 5),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -1662,7 +1662,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
   ) {
     if (msg.isUnsent) {
       return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(vertical: 3),
         child: Center(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
@@ -1814,11 +1814,11 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
     );
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 14),
+      padding: const EdgeInsets.only(bottom: 6),
       child: LayoutBuilder(
         builder: (context, constraints) {
           // Reserve room for avatar + meta column + menu so the row never overflows.
-          final reserved = (isMe ? 0 : 42) + 28 + 6 + 92;
+          final reserved = (isMe ? 0 : 34) + 24 + 4 + 84;
           final bubbleMax = math.max(
             140.0,
             math.min(430.0, constraints.maxWidth - reserved),
@@ -1826,7 +1826,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
           final isNew = _animatedMessageIds.add(msg.id);
 
           final nameHeader = Padding(
-            padding: const EdgeInsets.only(left: 4, right: 4, bottom: 4),
+            padding: const EdgeInsets.only(left: 2, right: 2, bottom: 2),
             child: Wrap(
               spacing: 6,
               runSpacing: 4,
@@ -1926,9 +1926,9 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                 UserAvatar(
                   name: msg.senderName,
                   avatarUrl: msg.senderAvatar,
-                  radius: 17,
+                  radius: 14,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 6),
               ],
               Flexible(
                 child: Column(
@@ -1940,7 +1940,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                     bubbleRow,
                     if (msg.reactions.isNotEmpty)
                       Padding(
-                        padding: const EdgeInsets.only(top: 6),
+                        padding: const EdgeInsets.only(top: 3),
                         child: _buildReactionsRow(
                           msg,
                           ApiService.instance.currentUser?.id ?? '',
@@ -2438,7 +2438,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
         return _buildEventBubble(msg);
       default:
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
             color: isMe ? null : AppTheme.receivedBubble,
             gradient: isMe
@@ -2449,10 +2449,10 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                   )
                 : null,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(isMe ? 18 : 5),
-              topRight: Radius.circular(isMe ? 5 : 18),
-              bottomLeft: const Radius.circular(18),
-              bottomRight: const Radius.circular(18),
+              topLeft: Radius.circular(isMe ? 14 : 5),
+              topRight: Radius.circular(isMe ? 5 : 14),
+              bottomLeft: const Radius.circular(14),
+              bottomRight: const Radius.circular(14),
             ),
             boxShadow: AppTheme.shadowSm,
           ),
@@ -2512,7 +2512,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
       orElse: () => {'emoji': '🧡✨', 'label': msg.cleanContent},
     );
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.94),
         borderRadius: BorderRadius.circular(AppTheme.radiusLg),
@@ -2869,7 +2869,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
     final fileName = msg.attachment?.fileName ?? msg.cleanContent;
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: isMe ? AppTheme.sentBubble : Colors.white,
         borderRadius: BorderRadius.circular(16),
@@ -3268,7 +3268,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 11),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [accent, Color.lerp(accent, Colors.black, 0.2)!],
@@ -3593,7 +3593,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
 
   Widget _buildStickerPickerPanel() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: const BoxDecoration(
         color: Color(0xF5FFFFFF),
         border: Border(top: BorderSide(color: AppTheme.borderSubtle)),
@@ -3664,7 +3664,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
 
   Widget _buildInlineAttachmentTray() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
+      padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
       decoration: const BoxDecoration(
         color: Color(0xF5FFFFFF),
         border: Border(top: BorderSide(color: AppTheme.borderSubtle)),
@@ -3784,7 +3784,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
 
   Widget _buildInlineMiniAppTray() {
     return Container(
-      padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
+      padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
       decoration: const BoxDecoration(
         color: Color(0xF5FFFFFF),
         border: Border(top: BorderSide(color: AppTheme.borderSubtle)),
@@ -4159,14 +4159,14 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
           width: _isConfidentialMode ? 1.5 : 0.8,
         ),
       ),
-      padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+      padding: const EdgeInsets.fromLTRB(8, 5, 8, 6),
       child: SafeArea(
         top: false,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Padding(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 4),
               child: _buildComposerModeRow(),
             ),
             if (_showMentionSuggestions) _buildMentionSuggestionStrip(),
@@ -4261,7 +4261,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                     controller: _msgCtrl,
                     onSubmitted: (_) => _sendTextMessage(),
                     textInputAction: TextInputAction.send,
-                    style: const TextStyle(fontSize: 14.5, height: 1.4),
+                    style: const TextStyle(fontSize: 13.5, height: 1.35),
                     decoration: InputDecoration(
                       hintText: _isConfidentialMode
                           ? 'พิมพ์ข้อความลับส่วนตัว...'
@@ -4275,19 +4275,19 @@ class _ChatRoomScreenState extends State<ChatRoomScreen> {
                           ? Colors.white
                           : AppTheme.surfaceBg,
                       contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 11,
+                        horizontal: 12,
+                        vertical: 7,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(18),
                         borderSide: BorderSide.none,
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(18),
                         borderSide: BorderSide.none,
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(24),
+                        borderRadius: BorderRadius.circular(18),
                         borderSide: BorderSide(
                           color: accent.withValues(alpha: 0.5),
                         ),
@@ -5392,7 +5392,7 @@ class _AiWritingAssistPanelState extends State<_AiWritingAssistPanel> {
         border: Border(top: BorderSide(color: AppTheme.borderSubtle)),
       ),
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
+        padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
